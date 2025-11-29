@@ -1,0 +1,21 @@
+.counter {
+  button {
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  span {
+    color: cadetblue;
+  }
+}
+
+.counter:global(.dark) {
+  button {
+    background-color: slategray;
+    color: rgb(179, 219, 221);
+  }
+
+  span {
+    color: rgb(215, 221, 179);
+  }
+}
