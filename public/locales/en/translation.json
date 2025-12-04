@@ -2,5 +2,9 @@
   "navbar": {
     "main": "Main",
     "about": "About"
+  },
+  "error": {
+    "title": "Error",
+    "message": "An unknown error occured on the page. Try to reload it later."
   }
 }

@@ -1,13 +1,11 @@
 import React, { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 import { Route, Routes, useLocation } from "react-router-dom";
 import routeConfig from 'shared/config/routeCounfig/routeConfig';
 import { Loader } from 'shared/ui';
+import PageError from 'widgets/PageError';
 
-interface Props {
-  
-}
-
-const AppRouter: React.FC<Props> = ({  }) => {
+const AppRouter: React.FC = () => {
   const location = useLocation();
 
   return (
@@ -19,7 +17,13 @@ const AppRouter: React.FC<Props> = ({  }) => {
                 ({ path, element }) => <Route 
                   key={path} 
                   path={path} 
-                  element={<div className="page-wrapper">{element}</div>} 
+                  element={
+                    <div className="page-wrapper">
+                      <ErrorBoundary fallback={<PageError />}>
+                        {element}
+                      </ErrorBoundary>
+                    </div>
+                  } 
                 />,
               )
           }
