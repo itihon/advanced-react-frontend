@@ -10,8 +10,6 @@ const Navbar: React.FC = () => {
   const { t } = useTranslation();
   const location = useLocation();
 
-  console.log(location.pathname)
-
   return (
     <div className={classes.Navbar}>
       <div className={classes.switchers}>
