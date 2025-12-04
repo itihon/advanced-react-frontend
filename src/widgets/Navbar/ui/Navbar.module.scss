@@ -1,0 +1,27 @@
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  width: 100%;
+  padding-inline: 16px;
+  height: var(--navbar-height);
+  background-color: var(--inverted-bg-color);
+}
+
+.switchers {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 4px;
+  outline: .5px solid slategray;
+}
+
+.switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 2px;
+}

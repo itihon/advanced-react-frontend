@@ -24,7 +24,8 @@ export default function buildLoaders(options: BuildOptions): RuleSetRule[] {
         options: {
           esModule: false,
           modules: {
-            auto: true,
+            exportLocalsConvention: 'asIs',
+            auto: (resourcePath: string) => resourcePath.endsWith('.module.scss'),
             localIdentName: options.isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:5]', // Generates unique class names
           },
         },
@@ -34,8 +35,14 @@ export default function buildLoaders(options: BuildOptions): RuleSetRule[] {
     ],
   };
 
+  const svgLoader: RuleSetRule = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  };
+
   return [
     tsLoader,
     sassLoader,
+    svgLoader,
   ];
 }

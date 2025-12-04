@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-    "baseUrl": ".",
     "module": "ESNext",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -18,16 +17,16 @@
         "name": "typescript-plugin-css-modules",
       },
     ],
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"],
+    },
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
-  "include": ["src"],
-  "files": [
-    "src/index.tsx",
-    "src/globals.d.ts",
-  ],
+  "include": ["src", "app/types/globals.d.ts"],
 }
 

@@ -1,0 +1,11 @@
+.AppLink {
+  text-decoration: none;
+}
+
+.inverted {
+  color: var(--inverted-primary-color);
+}
+
+.isActive {
+  border-bottom: .5px solid var(--inverted-primary-color);
+}

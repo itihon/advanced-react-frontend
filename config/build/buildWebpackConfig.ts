@@ -18,15 +18,9 @@ export default function buildWebpackConfig(options: BuildOptions): WebpackConfig
       clean: true,
     },
     plugins: buildPlugins(options),
-    resolve: buildResolvers(),
+    resolve: buildResolvers(options),
     module: {
       rules: buildLoaders(options), 
     },
-/*     optimization: {
-      runtimeChunk: false,
-      splitChunks: {
-        chunks: 'all',
-      },
-    }, */
   };
 }
