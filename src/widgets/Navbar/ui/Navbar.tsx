@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Navbar.module.scss';
-import routeConfig from 'shared/config/routeCounfig/routeConfig';
+import routeConfig, { AppRoutes } from 'shared/config/routeCounfig/routeConfig';
 import { AppLink, AppLinkTheme, ThemeSwitcher } from 'shared/ui';
 import LangSwitcher from 'shared/ui/LangSwitcher/LangSwitcher';
 import { useTranslation } from 'react-i18next';
@@ -21,14 +21,15 @@ const Navbar: React.FC = () => {
       {
         Object.entries(routeConfig)
           .map(
-            ([name, props], idx) => 
-              <AppLink 
-                isActive={location.pathname === props.path}
-                theme={AppLinkTheme.INVERTED}
-                key={idx} 
-                to={props.path}>
-                  {t(`navbar.${name}`)}
-              </AppLink>
+            ([name, props], idx) => name !== AppRoutes.NOT_FOUND  
+              ? <AppLink 
+                  isActive={location.pathname === props.path}
+                  theme={AppLinkTheme.INVERTED}
+                  key={idx} 
+                  to={props.path}>
+                    {t(`navbar.${name}`)}
+                </AppLink>
+              : ''
           )
       }
     </div>
