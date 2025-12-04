@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { Route, Routes, useLocation } from "react-router-dom";
 import routeConfig from 'shared/config/routeCounfig/routeConfig';
+import { Loader } from 'shared/ui';
 
 interface Props {
   
@@ -10,7 +11,7 @@ const AppRouter: React.FC<Props> = ({  }) => {
   const location = useLocation();
 
   return (
-      <Suspense fallback={<div>Loading...</div>} key={location.key}>
+      <Suspense fallback={<Loader />} key={location.key}>
         <Routes>
           {
             Object.values(routeConfig)
