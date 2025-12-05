@@ -2,7 +2,7 @@ import "./styles/index.scss";
 import { useTheme } from "app/providers/ThemeProvider";
 import AppRouter from "./providers/router";
 import Navbar from "widgets/Navbar";
-import { Sidebar } from "widgets/Sidebar";
+import Sidebar from "widgets/Sidebar";
 import SuspenseOverlay from "suspense-overlay";
 import { Loader } from "shared/ui";
 
