@@ -1,5 +1,6 @@
 import { ResolveOptions } from "webpack";
 import { BuildOptions } from "./types";
+import path from "path";
 
 export default function buildResolvers(options: BuildOptions): ResolveOptions {
   return {
@@ -16,6 +17,16 @@ export default function buildResolvers(options: BuildOptions): ResolveOptions {
 
     mainFiles: ['index'],
 
-    modules: [options.paths.src, 'node_modules'],
+    modules: ['node_modules'],
+    
+    alias: {
+      "@": options.paths.src, 
+        'app': path.resolve(options.paths.src, 'app'),
+        'entities': path.resolve(options.paths.src, 'entities'),
+        'features': path.resolve(options.paths.src, 'features'),
+        'shared': path.resolve(options.paths.src, 'shared'),
+        'widgets': path.resolve(options.paths.src, 'widgets'),
+        'pages': path.resolve(options.paths.src, 'pages'),
+    },
   };
 }
