@@ -10,13 +10,21 @@ export enum AppLinkTheme {
 interface AppLinkProps extends LinkProps {
   to: string; 
   theme: AppLinkTheme;
-  isActive: boolean;
+  rounded?: boolean;
+  isActive?: boolean;
+  isActiveIndicator?: 'border-bottom' | 'box-shadow';
 }
 
-const AppLink: React.FC<AppLinkProps> = ({ to, children, className, theme, isActive }) => {
+const AppLink: React.FC<AppLinkProps> = ({ to, children, className, theme, isActive, isActiveIndicator='border-bottom', rounded }) => {
   return (
     <Link 
-      className={classNames(classes.AppLink, className, classes[theme], { [classes.isActive]: isActive })} 
+      className={classNames(
+        classes.AppLink, 
+        className, 
+        classes[theme], 
+        classes[isActiveIndicator],
+        { [classes.isActive]: isActive, [classes.rounded]: rounded }
+      )} 
       to={to}>
         {children}
     </Link>

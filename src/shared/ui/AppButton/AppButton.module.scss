@@ -8,3 +8,12 @@
   filter: brightness(1.3);
 }
 
+.square.size-m {
+  width: var(--button-size-m);
+  height: var(--button-size-m);
+}
+
+.square.size-l {
+  width: var(--button-size-l);
+  height: var(--button-size-l);
+}

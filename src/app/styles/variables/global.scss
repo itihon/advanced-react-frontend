@@ -9,8 +9,11 @@
 
   --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+  
+  --button-size-m: 24px;
+  --button-size-l: 32px;
 
   --navbar-height: 48px;
   --sidebar-width: 300px;
-  --sidebar-width-collapsed: 80px;
+  --sidebar-width-collapsed: 32px;
 }

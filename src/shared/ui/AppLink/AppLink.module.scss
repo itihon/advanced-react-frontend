@@ -1,11 +1,29 @@
 .AppLink {
+  padding: 4px;
+  position: relative;
+  display: flex;
+  align-items: center;
   text-decoration: none;
+  text-wrap-mode: nowrap;
+  overflow-x: hidden;
+}
+
+.AppLink:hover {
+  filter:brightness(1.2);
+}
+
+.rounded {
+  border-radius: 4px;
 }
 
 .inverted {
   color: var(--inverted-primary-color);
 }
 
-.isActive {
+.isActive.border-bottom {
   border-bottom: .5px solid var(--inverted-primary-color);
+}
+
+.isActive.box-shadow {
+  box-shadow: 0px 0px 4px var(--bg-color);
 }

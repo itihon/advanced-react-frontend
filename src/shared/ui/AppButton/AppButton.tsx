@@ -1,13 +1,23 @@
 import React from 'react';
-import styles from './AppButton.module.scss';
+import classes from './AppButton.module.scss';
 import classNames from 'classnames';
 
-type AppButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+interface AppButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  square?: boolean;
+  size?: 'size-m' | 'size-l';
+}
 
-const AppButton: React.FC<AppButtonProps> = ({ onClick, children, className }) => {
+const AppButton: React.FC<AppButtonProps> = ({ onClick, children, className, square, size }) => {
   return (
     <button 
-      className={classNames(styles.AppButton, className)} 
+      className={
+        classNames(
+          classes.AppButton, 
+          className, 
+          classes[size], 
+          { [classes.square]: square },
+        )
+      } 
       onClick={onClick}>
         {children}
     </button>

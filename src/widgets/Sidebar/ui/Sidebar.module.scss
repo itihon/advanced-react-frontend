@@ -9,4 +9,27 @@
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
+
+  .link {
+    justify-content: center;
+    width: var(--sidebar-width-collapsed);
+    transform: translateX(-100%);
+    transition: transform .2s ease-out, width .5s ease-out;
+  }
+}
+
+.toggle-button {
+  position: absolute;
+  right: 0;
+  border-radius: 0;
+  background-color: var(--inverted-bg-color);
+  color: var(--inverted-primary-color);
+}
+
+.sidebar-items {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: var(--sidebar-width-collapsed);
 }
