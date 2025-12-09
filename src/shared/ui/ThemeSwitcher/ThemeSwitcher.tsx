@@ -17,8 +17,8 @@ const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({className}) => {
       onClick={switchTheme}>
         {
           theme === Themes.LIGHT 
-            ? <DarkModeIcon className={styles.ThemeSwitcherIcon} /> 
-            : <LightModeIcon className={styles.ThemeSwitcherIcon} />
+            ? <DarkModeIcon stroke='#fff' fill='#fff' className={styles.ThemeSwitcherIcon} /> 
+            : <LightModeIcon stroke='#000' fill='#000' className={styles.ThemeSwitcherIcon} />
         }
     </AppButton>
   );
