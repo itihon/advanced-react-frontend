@@ -5,16 +5,19 @@ import { ThemeProvider } from 'app/providers/ThemeProvider';
 import 'shared/config/i18n/i18n';
 import { ErrorBoundary } from 'react-error-boundary';
 import PageError from 'widgets/PageError';
+import StoreProvider from 'app/providers/StoreProvider/ui/StoreProvider';
 
 const appContainer = document.getElementById('root');
 const root = createRoot(appContainer);
 
 root.render(
   <BrowserRouter>
-    <ThemeProvider>
-      <ErrorBoundary fallback={<PageError />}>
-        <App />
-      </ErrorBoundary>
-    </ThemeProvider>
+    <StoreProvider>
+      <ThemeProvider>
+        <ErrorBoundary fallback={<PageError />}>
+          <App />
+        </ErrorBoundary>
+      </ThemeProvider>
+    </StoreProvider>
   </BrowserRouter>
 );
