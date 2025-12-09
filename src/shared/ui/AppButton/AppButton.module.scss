@@ -2,6 +2,8 @@
   border-radius: 8px;
   border: none;
   outline: none;
+  background-color: var(--inverted-bg-color);
+  color: var(--inverted-primary-color);
 }
 
 .AppButton:hover {

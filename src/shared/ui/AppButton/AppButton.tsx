@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './AppButton.module.scss';
 import classNames from 'classnames';
 
-interface AppButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface AppButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean;
   size?: 'size-m' | 'size-l';
 }
