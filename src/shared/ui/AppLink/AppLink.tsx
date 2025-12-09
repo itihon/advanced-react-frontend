@@ -15,7 +15,16 @@ interface AppLinkProps extends LinkProps {
   isActiveIndicator?: 'border-bottom' | 'box-shadow';
 }
 
-const AppLink: React.FC<AppLinkProps> = ({ to, children, className, theme, isActive, isActiveIndicator='border-bottom', rounded }) => {
+const AppLink: React.FC<AppLinkProps> = ({ 
+  to, 
+  children, 
+  className, 
+  theme, 
+  isActive, 
+  isActiveIndicator='border-bottom', 
+  rounded,
+  onClick
+}) => {
   return (
     <Link 
       className={classNames(
@@ -25,7 +34,8 @@ const AppLink: React.FC<AppLinkProps> = ({ to, children, className, theme, isAct
         classes[isActiveIndicator],
         { [classes.isActive]: isActive, [classes.rounded]: rounded }
       )} 
-      to={to}>
+      to={to}
+      onClick={onClick}>
         {children}
     </Link>
   );
