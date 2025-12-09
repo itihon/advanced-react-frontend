@@ -4,4 +4,5 @@ export { default as ThemeSwitcher } from './ThemeSwitcher/ThemeSwitcher';
 export { default as AppButton } from './AppButton/AppButton';
 export { default as LangSwithcer } from './LangSwitcher/LangSwitcher';
 export { default as Loader } from './Loader/Loader';
+export { default as Modal } from './Modal/Modal';
 export { default as MessageBox } from './MessageBox/MessabeBox';
