@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classes from './Sidebar.module.scss';
 import classNames from 'classnames';
-import { AppButton } from 'shared/ui';
+import { AppButton, CloseButton } from 'shared/ui';
 import { AppLink, AppLinkTheme } from 'shared/ui';
 import routeConfig, { AppRoutes } from 'shared/config/routeCounfig/routeConfig';
 import { useTranslation } from 'react-i18next';
@@ -18,13 +18,18 @@ const Sidebar: React.FC = () => {
 
   return (
     <div className={classNames(classes.Sidebar, { [classes.collapsed]: collapsed})}>
-      <AppButton 
-        className={classes['toggle-button']} 
-        onClick={toggleCollapse} 
-        square 
-        size='size-l'>
-          {collapsed ? '☰' : '🗙'}
-      </AppButton>
+
+      {
+        collapsed
+        ?  <AppButton 
+            className={classes['toggle-button']}
+            onClick={toggleCollapse} 
+            square 
+            size='size-l'>
+              {'☰'}
+          </AppButton>
+        : <CloseButton className={classes['toggle-button']} onClick={toggleCollapse} square size='size-l' />
+      }
 
       <div className={classes['sidebar-items']}>
         {
