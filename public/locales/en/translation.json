@@ -1,7 +1,8 @@
 {
   "navbar": {
     "main": "Main",
-    "about": "About"
+    "about": "About",
+    "enter": "Sign in"
   },
   "error": {
     "title": "Error",
