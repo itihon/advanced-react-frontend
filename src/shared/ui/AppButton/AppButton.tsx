@@ -7,7 +7,7 @@ export interface AppButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEle
   size?: 'size-m' | 'size-l';
 }
 
-const AppButton: React.FC<AppButtonProps> = ({ onClick, children, className, square, size }) => {
+const AppButton: React.FC<AppButtonProps> = ({ onClick, children, className, square, size, disabled }) => {
   return (
     <button 
       className={
@@ -18,7 +18,8 @@ const AppButton: React.FC<AppButtonProps> = ({ onClick, children, className, squ
           { [classes.square]: square },
         )
       } 
-      onClick={onClick}>
+      onClick={onClick}
+      disabled={disabled}>
         {children}
     </button>
   );

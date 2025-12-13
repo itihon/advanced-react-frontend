@@ -25,6 +25,12 @@
   color: var(--inverted-primary-color);
 }
 
+.error {
+  color: var(--error-color);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
 .input {
   padding: 4px;
   margin-bottom: 12px;

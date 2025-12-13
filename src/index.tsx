@@ -5,7 +5,7 @@ import { ThemeProvider } from 'app/providers/ThemeProvider';
 import 'shared/config/i18n/i18n';
 import { ErrorBoundary } from 'react-error-boundary';
 import PageError from 'widgets/PageError';
-import StoreProvider from 'app/providers/StoreProvider/ui/StoreProvider';
+import { StoreProvider } from 'app/providers/StoreProvider';
 
 const appContainer = document.getElementById('root');
 const root = createRoot(appContainer);

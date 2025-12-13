@@ -10,6 +10,11 @@
   filter: brightness(1.3);
 }
 
+.AppButton:disabled {
+  cursor: not-allowed;
+  filter: none;
+}
+
 .square.size-m {
   width: var(--button-size-m);
   height: var(--button-size-m);
