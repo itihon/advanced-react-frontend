@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme, Themes } from "app/providers/ThemeProvider";
-import LightModeIcon from 'shared/assets/light-mode.svg';
-import DarkModeIcon from 'shared/assets/dark-mode.svg';
+import LightModeIcon from 'shared/assets/light-mode.module.svg';
+import DarkModeIcon from 'shared/assets/dark-mode.module.svg';
 import AppButton from 'shared/ui/AppButton/AppButton';
 import styles from './ThemeSwitcher.module.scss';
 import classNames from 'classnames';
