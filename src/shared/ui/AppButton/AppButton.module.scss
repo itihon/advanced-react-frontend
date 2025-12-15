@@ -6,6 +6,14 @@
   color: var(--inverted-primary-color);
 }
 
+.AppButton:not(.square).size-l {
+  padding: 0 16px;
+}
+
+.AppButton:not(.square).size-m {
+  padding: 0 8px;
+}
+
 .AppButton:hover {
   filter: brightness(1.3);
 }
@@ -22,5 +30,13 @@
 
 .square.size-l {
   width: var(--button-size-l);
+  height: var(--button-size-l);
+}
+
+.size-m {
+  height: var(--button-size-m);
+}
+
+.size-l {
   height: var(--button-size-l);
 }
