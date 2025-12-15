@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
+import buildLoaders from '../build/buildLoaders';
 import path from 'path';
 
 const config: StorybookConfig = {
@@ -26,37 +27,12 @@ const config: StorybookConfig = {
   ],
   "addons": [
     "@storybook/addon-webpack5-compiler-swc",
-    // "@storybook/addon-styling-webpack",
     {
       name: '@storybook/addon-styling-webpack',
       options: {
-        rules: [
-          // Replaces existing SCSS rules with given rule
-          {
-            test: /\.s[ac]ss$/i,
-            use: [
-              // "style-loader" creates `style` nodes from JS strings
-              "style-loader",
-              // Translates CSS into CommonJS
-              // "css-loader",
-              {
-                loader: 'css-loader',
-                options: {
-                  esModule: false,
-                  modules: {
-                    exportLocalsConvention: 'asIs',
-                    auto: (resourcePath: string) => resourcePath.endsWith('.module.scss'),
-                    localIdentName: process.env.NODE_ENV === 'development' ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:5]', // Generates unique class names
-                  },
-                },
-              },
-              // Compiles Sass to CSS
-              "sass-loader",
-            ],
-          }
-        ]
-      }
-    }
+        rules: [buildLoaders({ isDev: true })[1]/* sassLoader */],
+      },
+    },
   ],
   "framework": "@storybook/react-webpack5"
 };

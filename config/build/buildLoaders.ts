@@ -2,7 +2,7 @@ import { RuleSetRule } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types';
 
-export default function buildLoaders(options: BuildOptions): RuleSetRule[] {
+export default function buildLoaders(options: Partial<BuildOptions>): RuleSetRule[] {
   
   // all files with a `.ts`, `.cts`, `.mts` or `.tsx` extension will be handled by `ts-loader`
   const tsLoader: RuleSetRule = { 
