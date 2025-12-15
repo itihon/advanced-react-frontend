@@ -1,9 +1,33 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
 import buildLoaders from '../build/buildLoaders';
 import path from 'path';
+import webpack, { RuleSetRule } from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+
+const isDev = process.env.NODE_ENV === 'development';
 
 const config: StorybookConfig = {
   webpackFinal: async (config) => {
+
+    config.plugins = [
+      ...(config.plugins || []),
+      new MiniCssExtractPlugin({
+        filename: 'css/[name].[contenthash:8].css',
+        chunkFilename: 'css/[name].[contenthash:8].css',
+      }),
+      new webpack.DefinePlugin({
+        __IS_DEV__: JSON.stringify(isDev),
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: 'public/locales',
+            to: 'locales',
+          },
+        ],
+      }),
+    ];
 
     config.entry = [
       ...(Array.isArray(config.entry) ? config.entry : []),
@@ -38,7 +62,7 @@ const config: StorybookConfig = {
     {
       name: '@storybook/addon-styling-webpack',
       options: {
-        rules: [buildLoaders({ isDev: true })[1]/* sassLoader */],
+        rules: [buildLoaders({ isDev })[1]/* sassLoader */],
       },
     },
   ],

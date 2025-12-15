@@ -4,13 +4,15 @@ import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
+const isDev = typeof __IS_DEV__ !== 'undefined' ? __IS_DEV__ : process.env.NODE_ENV === 'development';
+
 i18n
   .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     fallbackLng: false,
-    debug: __IS_DEV__,
+    debug: isDev,
     load: 'languageOnly',
 
     interpolation: {
