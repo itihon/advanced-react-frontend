@@ -1,11 +1,11 @@
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { DecoratorFunction } from "storybook/internal/csf";
 
 const RouterDecorator: DecoratorFunction = (Story) => {
   return (
-    <BrowserRouter>
+    <MemoryRouter>
       <Story />
-    </BrowserRouter>
+    </MemoryRouter>
   );
 };
 

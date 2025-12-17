@@ -7,8 +7,12 @@ import routeConfig, { AppRoutes } from 'shared/config/routeCounfig/routeConfig';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
-const Sidebar: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
+export interface SidebarProps {
+  isCollapsed?: boolean;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ isCollapsed = false }) => {
+  const [collapsed, setCollapsed] = useState(isCollapsed);
   const { t } = useTranslation();
   const location = useLocation();
 

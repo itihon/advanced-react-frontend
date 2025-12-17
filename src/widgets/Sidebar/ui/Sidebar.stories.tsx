@@ -31,3 +31,14 @@ export const Dark: Story = {
   decorators: [ThemeDecorator],
   parameters: { theme: Themes.DARK },
 };
+
+export const CollapsedLight: Story = {
+  args: { isCollapsed: true },
+  decorators: [ThemeDecorator],
+};
+
+export const CollapsedDark: Story = {
+  args: { isCollapsed: true },
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
