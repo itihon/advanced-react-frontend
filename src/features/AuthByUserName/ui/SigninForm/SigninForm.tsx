@@ -1,4 +1,4 @@
-import React, { use, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import classes from './SigninForm.module.scss';
 import { AppButton, CloseButton, Modal } from 'shared/ui';
 import classNames from 'classnames';
@@ -9,14 +9,18 @@ import getLoginState from 'features/AuthByUserName/model/selectors/getLoginState
 import loginByUserName from 'features/AuthByUserName/model/services/loginByUserName/loginByUserName';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
 import { getAuthenticatedUser } from 'entities/User';
+import { loginReducer } from 'features/AuthByUserName';
+import DynamiModuleLoader, { ReducerList } from 'shared/lib/components/DynamicModuleLoader';
 
 interface SigninFormProps {
   close?: () => void; 
 }
 
+const reducers: ReducerList = { 'loginForm': loginReducer };
+
 const SigninForm: React.FC<SigninFormProps> = ({ close = () => {} }) => {
   const { t } = useTranslation();
-  const [closing, setClosing] = React.useState(false);
+  const [closing, setClosing] = useState(false);
 
   const dispatch = useDispatch<AppDispatch>();
   const { username, password, isLoading, error } = useSelector(getLoginState);
@@ -54,19 +58,21 @@ const SigninForm: React.FC<SigninFormProps> = ({ close = () => {} }) => {
 
   return (
     <Modal>
-      <form
-        autoComplete='off'
-        className={classNames(classes.SigninForm, { [classes['closing']]: isClosing }) }
-        onAnimationEnd={formClosed}
-      >
-        {error && <div className={classes.error}>{t(`auth.error`)}</div>}
-        <CloseButton onClick={closeForm} className={classes['close-button']} square size='size-l' />
-        <label className={classes.label} htmlFor='login'>{t('auth.username')}</label>
-        <input className={classes.input} onChange={onLoginChange} type="text" id='login' name='login' value={username} />
-        <label className={classes.label} htmlFor='password'>{t('auth.password')}</label>
-        <input className={classes.input} onChange={onPasswordChange} type="password" id='password' name='password' value={password} />
-        <AppButton className={classes.submit} onClick={onLoginClick} disabled={isLoading}>{t('auth.submit')}</AppButton>
-      </form>
+      <DynamiModuleLoader reducers={reducers}>
+        <form
+          autoComplete='off'
+          className={classNames(classes.SigninForm, { [classes['closing']]: isClosing }) }
+          onAnimationEnd={formClosed}
+        >
+          {error && <div className={classes.error}>{t(`auth.error`)}</div>}
+          <CloseButton onClick={closeForm} className={classes['close-button']} square size='size-l' />
+          <label className={classes.label} htmlFor='login'>{t('auth.username')}</label>
+          <input className={classes.input} onChange={onLoginChange} type="text" id='login' name='login' value={username} />
+          <label className={classes.label} htmlFor='password'>{t('auth.password')}</label>
+          <input className={classes.input} onChange={onPasswordChange} type="password" id='password' name='password' value={password} />
+          <AppButton className={classes.submit} onClick={onLoginClick} disabled={isLoading}>{t('auth.submit')}</AppButton>
+        </form>
+      </DynamiModuleLoader>
     </Modal>
   );
 };
