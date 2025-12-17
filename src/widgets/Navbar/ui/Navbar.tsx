@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import classes from './Navbar.module.scss';
-import { AppLink, AppLinkTheme, ThemeSwitcher } from 'shared/ui';
+import { AppLink, AppLinkTheme, Loader, ThemeSwitcher } from 'shared/ui';
 import LangSwitcher from 'shared/ui/LangSwitcher/LangSwitcher';
 import { useTranslation } from 'react-i18next';
 import { SigninForm } from 'features/AuthByUserName';
@@ -41,11 +41,13 @@ const Navbar: React.FC = () => {
           {authData.id ? t('navbar.logout') : t('navbar.enter')}
       </AppLink>
 
-      {
-        signinFormVisible 
-          ? <SigninForm close={closeSigninForm}/>
-          : ''
-      }
+      <Suspense fallback={<Loader />}>
+        {
+          signinFormVisible 
+            ? <SigninForm close={closeSigninForm}/>
+            : ''
+        }
+      </Suspense>
     </div>
   );
 };
