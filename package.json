@@ -8,9 +8,11 @@
     "json-server": "node --watch json-server/index.mjs",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
-    "test:unit": "jest --config ./config/jest/jest.config.ts",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "build:storybook": "storybook build -c ./config/storybook -o dist/storybook"
+    "build:storybook": "storybook build -c ./config/storybook -o dist/storybook",
+    "test:unit": "jest --config ./config/jest/jest.config.ts",
+    "test:snapshots": "docker run --rm --ipc=host --network=host -v \"$(pwd):/work\" -w /work mcr.microsoft.com/playwright:v1.57.0-noble npx playwright test",
+    "test:snapshots:update": "docker run --rm --ipc=host --network=host -v \"$(pwd):/work\" -w /work mcr.microsoft.com/playwright:v1.57.0-noble npx playwright test --update-snapshots"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +22,7 @@
   "devDependencies": {
     "@eslint/css": "^0.14.1",
     "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.57.0",
     "@storybook/addon-a11y": "^10.1.7",
     "@storybook/addon-docs": "^10.1.7",
     "@storybook/addon-onboarding": "^10.1.7",
