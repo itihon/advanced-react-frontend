@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import classes from './AppLink.module.scss';
 import classNames from 'classnames';
@@ -41,4 +41,7 @@ const AppLink: React.FC<AppLinkProps> = ({
   );
 };
 
-export default AppLink;
+// Memoized because `AppLink` is a small, pure presentational component
+// that receives props and can be re-used many times in lists (e.g. Sidebar).
+// Memo avoids unnecessary re-renders when props are shallowly equal.
+export default memo(AppLink);

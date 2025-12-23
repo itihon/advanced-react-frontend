@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import classes from './AppButton.module.scss';
 import classNames from 'classnames';
 
@@ -25,4 +25,7 @@ const AppButton: React.FC<AppButtonProps> = ({ onClick, children, className, squ
   );
 };
 
-export default AppButton;
+// Memoize the button since it's a presentational element that often receives
+// stable props; memo helps avoid re-renders when parent updates don't change
+// button props or children.
+export default memo(AppButton);

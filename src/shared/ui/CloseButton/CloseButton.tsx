@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import AppButton, { AppButtonProps } from '../AppButton/AppButton';
 import classes from './CloseButton.module.scss';
 import classNames from 'classnames';
@@ -17,4 +17,6 @@ const CloseButton: React.FC<CloseButtonProps> = (props) => {
   );
 };
 
-export default CloseButton;
+// Memoized wrapper around `AppButton` — purely presentational and passes
+// props through. Memo prevents re-renders when props are unchanged.
+export default memo(CloseButton);
