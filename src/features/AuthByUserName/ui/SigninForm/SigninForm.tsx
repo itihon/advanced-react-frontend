@@ -4,12 +4,11 @@ import { AppButton, CloseButton, Modal } from 'shared/ui';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPassword, setUserName, clearError } from 'features/AuthByUserName/model/slice/loginSlice';
+import { setPassword, setUserName, clearError, loginReducer } from 'features/AuthByUserName';
 import getLoginState from 'features/AuthByUserName/model/selectors/getLoginState/getLoginState';
 import loginByUserName from 'features/AuthByUserName/model/services/loginByUserName/loginByUserName';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
 import { getAuthenticatedUser } from 'entities/User';
-import { loginReducer } from 'features/AuthByUserName';
 import DynamiModuleLoader, { ReducerList } from 'shared/lib/components/DynamicModuleLoader';
 
 interface SigninFormProps {
