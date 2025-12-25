@@ -7,12 +7,15 @@ import SuspenseOverlay from "suspense-overlay";
 import { Loader } from "shared/ui";
 import { initUser } from "entities/User";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 export default function App() {
   const {theme} = useTheme();
   const dispatch = useDispatch();
 
-  dispatch(initUser());
+  useEffect(() => {
+    dispatch(initUser());
+  });
 
   return (
     <div className={`app ${theme}`}>
