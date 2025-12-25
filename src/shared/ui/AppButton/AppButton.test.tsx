@@ -8,7 +8,7 @@ describe('AppButton', () => {
     render(<AppButton>TEST</AppButton>);
     const button = screen.getByText('TEST');
 
-    expect(button).toHaveClass(AppButton.name);
+    expect(button).toHaveClass('AppButton');
   });
 
   test('with additional class name', () => {
