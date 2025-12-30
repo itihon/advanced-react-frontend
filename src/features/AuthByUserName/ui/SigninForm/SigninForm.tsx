@@ -25,7 +25,7 @@ const SigninForm: React.FC<SigninFormProps> = ({ close = () => {} }) => {
   const { username, password, isLoading, error } = useSelector(getLoginState);
   const authData = useSelector(getAuthenticatedUser);
 
-  const isClosing = closing || Boolean(authData.id);
+  const isClosing = closing || Boolean(authData?.id);
 
   const onLoginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setUserName(e.target.value));
@@ -39,6 +39,7 @@ const SigninForm: React.FC<SigninFormProps> = ({ close = () => {} }) => {
 
   const onLoginClick = (e: React.FormEvent) => {
     e.preventDefault();
+    // @ts-expect-error damn redux
     dispatch(loginByUserName({ username, password }));
   };
 

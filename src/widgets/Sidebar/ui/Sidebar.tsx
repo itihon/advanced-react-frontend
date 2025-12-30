@@ -47,7 +47,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed = false }) => {
                     isActive={location.pathname === props.path}
                     theme={AppLinkTheme.INVERTED}
                     key={idx} 
-                    to={props.path}>
+                    to={props.path || ''}>
                       {
                         collapsed 
                         ? props.icon

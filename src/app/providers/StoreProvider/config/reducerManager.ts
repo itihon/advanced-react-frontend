@@ -3,7 +3,7 @@ import { ReducerManager, StateSchema, StateSchemaKey } from "./StateSchema";
 
 export default function createReducerManager(initialReducers: ReducersMapObject<StateSchema>): ReducerManager {
   // Create an object which maps keys to reducers
-  const reducers: ReducersMapObject<StateSchema> = { ...initialReducers };
+  const reducers = { ...initialReducers };
 
   // Create the initial combinedReducer
   let combinedReducer = combineReducers(reducers);
@@ -28,6 +28,7 @@ export default function createReducerManager(initialReducers: ReducersMapObject<
       }
 
       // Delegate to the combined reducer
+      // @ts-expect-error damn redux
       return combinedReducer(state, action);
     },
 

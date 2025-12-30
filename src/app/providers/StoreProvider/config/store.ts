@@ -1,7 +1,6 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit'
+import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
 import { StateSchema, StoreWithManager } from './StateSchema';
 import { userReducer } from 'entities/User';
-import { loginReducer } from 'features/AuthByUserName';
 import createReducerManager from './reducerManager';
 
 export default function createReduxStore(initialState?: StateSchema) {
@@ -12,7 +11,7 @@ export default function createReduxStore(initialState?: StateSchema) {
   const manager = createReducerManager(rootReducers);
 
   const store: StoreWithManager = configureStore<StateSchema>({
-    reducer: manager.reduce,
+    reducer: manager.reduce as Reducer,
     devTools: __IS_DEV__,
     preloadedState: initialState,
   });

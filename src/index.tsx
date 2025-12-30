@@ -7,7 +7,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import PageError from 'widgets/PageError';
 import { StoreProvider } from 'app/providers/StoreProvider';
 
-const appContainer = document.getElementById('root');
+const appContainer = document.getElementById('root') as HTMLElement;
 const root = createRoot(appContainer);
 
 root.render(

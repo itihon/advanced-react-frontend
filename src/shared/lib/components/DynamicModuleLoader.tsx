@@ -7,8 +7,6 @@ export type ReducerList = {
   [name in StateSchemaKey]?: Reducer;
 }
 
-type ReducerListEntry = [StateSchemaKey, Reducer];
-
 interface DynamiModuleLoaderProps {
   children: ReactNode;
   reducers: ReducerList;
@@ -18,13 +16,13 @@ const DynamiModuleLoader: React.FC<DynamiModuleLoaderProps> = ({ children, reduc
   const store: StoreWithManager = useStore<StateSchema>();
 
   useEffect(() => {
-    Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
-      store.manager.add(name, reducer);
+    Object.entries(reducers).forEach(([name, reducer]) => {
+      store.manager?.add(name as keyof StateSchema, reducer);
     });
 
     return () => {
-      Object.entries(reducers).forEach(([name]: ReducerListEntry) => {
-        store.manager.remove(name);
+      Object.entries(reducers).forEach(([name]) => {
+        store.manager?.remove(name as keyof StateSchema);
       });
     };
     // eslint-disable-next-line

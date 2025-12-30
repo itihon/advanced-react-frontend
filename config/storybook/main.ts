@@ -44,13 +44,13 @@ const config: StorybookConfig = {
       ...(config.resolve.modules || []),
     ];
 
-    const fileLoaderRule = config.module.rules.find(
+    const fileLoaderRule = config?.module?.rules?.find(
       r => ((r as RuleSetRule).test as RegExp).test('.svg')
     ) as RuleSetRule;
 
     fileLoaderRule.exclude = /\.module\.svg$/;
 
-    config.module.rules.splice(0, 0, buildLoaders({ isDev })[2]);
+    config?.module?.rules?.splice(0, 0, buildLoaders({ isDev })[2]);
 
     return config;
   },

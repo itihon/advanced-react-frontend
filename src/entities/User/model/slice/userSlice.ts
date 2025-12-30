@@ -17,8 +17,10 @@ const userSlice = createSlice({
       state.authData = action.payload;
     },
     clearUser: (state) => {
-      state.authData.id = "";
-      state.authData.username = "";
+      if (state.authData) {
+        state.authData.id = "";
+        state.authData.username = "";
+      }
       localStorage.removeItem(USER_LOCAL_STORAGE_KEY);
     },
     initUser: (state) => {

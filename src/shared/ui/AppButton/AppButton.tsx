@@ -14,7 +14,7 @@ const AppButton: React.FC<AppButtonProps> = ({ onClick, children, className, squ
         classNames(
           classes.AppButton, 
           className, 
-          classes[size], 
+          classes[size || 'size-m'], 
           { [classes.square]: square },
         )
       } 

@@ -8,7 +8,6 @@ export enum AppLinkTheme {
 };
 
 interface AppLinkProps extends LinkProps {
-  to: string; 
   theme: AppLinkTheme;
   rounded?: boolean;
   isActive?: boolean;

@@ -37,8 +37,8 @@ const Navbar: React.FC = () => {
         isActive={false}
         theme={AppLinkTheme.INVERTED}
         to={'#'}
-        onClick={authData.id ? logOut : openSigninForm}>
-          {authData.id ? t('navbar.logout') : t('navbar.enter')}
+        onClick={authData?.id ? logOut : openSigninForm}>
+          {authData?.id ? t('navbar.logout') : t('navbar.enter')}
       </AppLink>
 
       <Suspense fallback={<Loader />}>
