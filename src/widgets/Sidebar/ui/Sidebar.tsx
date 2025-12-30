@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import classes from './Sidebar.module.scss';
 import classNames from 'classnames';
 import { AppButton, CloseButton } from 'shared/ui';
@@ -62,4 +62,4 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed = false }) => {
   );
 };
 
-export default Sidebar;
+export default memo(Sidebar);

@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react';
+import React, { Suspense, useState, memo } from 'react';
 import classes from './Navbar.module.scss';
 import { AppLink, AppLinkTheme, Loader, ThemeSwitcher } from 'shared/ui';
 import LangSwitcher from 'shared/ui/LangSwitcher/LangSwitcher';
@@ -52,4 +52,4 @@ const Navbar: React.FC = () => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

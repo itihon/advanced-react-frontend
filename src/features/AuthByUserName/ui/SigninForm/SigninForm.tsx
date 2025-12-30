@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import classes from './SigninForm.module.scss';
 import { AppButton, CloseButton, Modal } from 'shared/ui';
 import classNames from 'classnames';
@@ -77,4 +77,4 @@ const SigninForm: React.FC<SigninFormProps> = ({ close = () => {} }) => {
   );
 };
 
-export default SigninForm;
+export default memo(SigninForm);

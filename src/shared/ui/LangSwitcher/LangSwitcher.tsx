@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import AppButton from '../AppButton/AppButton';
 import styles from './LangSwitcher.module.scss';
 import { useTranslation } from 'react-i18next';
@@ -28,4 +28,4 @@ const LangSwitcher: React.FC<LangSwitcherProps> = ({className}) => {
   );
 };
 
-export default LangSwitcher;
+export default memo(LangSwitcher);
