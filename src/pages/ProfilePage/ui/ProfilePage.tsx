@@ -1,4 +1,4 @@
-import { fetchProfileData, getProfileData, ProfileCard, profileReducer } from 'entities/Profile';
+import { fetchProfileData, getProfileData, getProfileIsLoading, getProfileError, ProfileCard, profileReducer } from 'entities/Profile';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -16,6 +16,7 @@ const ProfilePage: React.FC = () => {
   const { t } = useTranslation('profile-page');
   const authData = useSelector(getAuthenticatedUser);
   const profileData = useSelector(getProfileData);
+  const isLoading = useSelector(getProfileIsLoading);
   const [authCancelled, setAuthCancelled] = useState(false);
 
   const dispatch = useDispatch<AppDispatch>();
@@ -35,7 +36,11 @@ const ProfilePage: React.FC = () => {
     authData?.id && !authCancelled
     ?  <DynamicModuleLoader reducers={reducers}>
         <h2>{t('header')}</h2>
-        <ProfileCard />
+        {
+          isLoading
+            ? <Loader />
+            : <ProfileCard data={profileData} />
+        }
       </DynamicModuleLoader>
     : <Suspense fallback={<Loader />}>
         {

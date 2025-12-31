@@ -1,57 +1,49 @@
 import React from 'react';
 import classes from './ProfileCard.module.scss';
-import { useSelector } from 'react-redux';
-import getProfileData from '../../model/selectors/getProfileData';
-import getProfileIsLoading from '../../model/selectors/getProfileIsLoading';
-import getProfileError from '../../model/selectors/getProfileError';
 import { useTranslation } from 'react-i18next';
 import { AppButton, AppInput } from 'shared/ui';
+import { Profile } from 'entities/Profile/model/types/profile';
 
-const ProfileCard: React.FC = () => {
+export interface ProfileCardProps {
+  data?: Profile | undefined;
+}
+
+const ProfileCard: React.FC<ProfileCardProps> = ({ data }) => {
   const { t } = useTranslation('profile-page');
-  const profileData = useSelector(getProfileData);
-  const isLoading = useSelector(getProfileIsLoading);
-  const error = useSelector(getProfileError);
 
   return (
     <section className={classes.ProfileCard}>
       <AppButton>{t('edit')}</AppButton>
-      <img className={classes.avatar} src={profileData?.avatar} />
+      <img className={classes.avatar} src={data?.avatar} />
 
       <AppInput 
         type='text' 
         label={t('firstname')} 
-        value={profileData?.firstname || ''} 
+        value={data?.firstname || ''} 
         onChange={() => {}}/>
 
       <AppInput 
         type='text' 
         label={t('lastname')} 
-        value={profileData?.lastname || ''} 
+        value={data?.lastname || ''} 
         onChange={() => {}}/>
 
       <AppInput 
         type='text' 
         label={t('age')} 
-        value={String(profileData?.age) || ''} 
-        onChange={() => {}}/>
-
-      <AppInput 
-        type='text' 
-        label={t('age')} 
-        value={String(profileData?.age) || ''} 
+        value={String(data?.age) || ''} 
         onChange={() => {}}/>
 
       <AppInput 
         type='text' 
         label={t('country')} 
-        value={String(profileData?.country) || ''} 
+        value={String(data?.country) || ''} 
         onChange={() => {}}/>
 
       <AppInput 
         type='text' 
         label={t('city')} 
-        value={String(profileData?.city) || ''} 
+        value={String(data?.city) || ''} 
         onChange={() => {}}/>
     </section>
   );
