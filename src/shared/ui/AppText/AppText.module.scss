@@ -1,0 +1,24 @@
+.AppText {
+  position: relative;
+  display: flex;
+}
+
+.normal {
+  color: inherit;
+}
+
+.error {
+  color: orangered;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}

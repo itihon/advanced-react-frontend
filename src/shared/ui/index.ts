@@ -8,3 +8,4 @@ export { default as Loader } from './Loader/Loader';
 export { default as Modal } from './Modal/Modal';
 export { default as MessageBox } from './MessageBox/MessabeBox';
 export { default as AppInput } from './AppInput/AppInput';
+export { default as AppText } from './AppText/AppText';
