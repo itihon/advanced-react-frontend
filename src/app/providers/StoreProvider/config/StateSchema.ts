@@ -2,6 +2,7 @@ import LoginSchema from "features/AuthByUserName/model/types/LoginSchema";
 import { UserSchema } from "entities/User";
 import { Action, Reducer, ReducersMapObject } from "redux";
 import type { EnhancedStore, UnknownAction, Tuple, StoreEnhancer, ThunkDispatch } from "@reduxjs/toolkit";
+import { AxiosInstance } from "node_modules/axios";
 
 export interface StateSchema {
   user: UserSchema;
@@ -21,4 +22,8 @@ export interface ReducerManager {
 
 export interface StoreWithManager extends EnhancedStore<StateSchema, UnknownAction, Tuple<[StoreEnhancer<{ dispatch: ThunkDispatch<StateSchema, undefined, UnknownAction>; }>, StoreEnhancer]>> {
   manager?: ReducerManager;
+}
+
+export interface ThunkExtraArg {
+  api: AxiosInstance,
 }
