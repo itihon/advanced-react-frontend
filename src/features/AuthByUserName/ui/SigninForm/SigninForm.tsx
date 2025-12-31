@@ -1,11 +1,10 @@
 import React, { useState, memo } from 'react';
 import classes from './SigninForm.module.scss';
-import { AppButton, CloseButton, Modal } from 'shared/ui';
+import { AppButton, AppInput, CloseButton, Modal } from 'shared/ui';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPassword, setUserName, clearError, loginReducer } from 'features/AuthByUserName';
-import getLoginState from 'features/AuthByUserName/model/selectors/getLoginState/getLoginState';
+import { setPassword, setUserName, clearError, loginReducer, getPassword, getUsername, getIsLoading, getError } from 'features/AuthByUserName';
 import loginByUserName from 'features/AuthByUserName/model/services/loginByUserName/loginByUserName';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
 import { getAuthenticatedUser } from 'entities/User';
@@ -22,7 +21,10 @@ const SigninForm: React.FC<SigninFormProps> = ({ close = () => {} }) => {
   const [closing, setClosing] = useState(false);
 
   const dispatch = useDispatch<AppDispatch>();
-  const { username, password, isLoading, error } = useSelector(getLoginState);
+  const username = useSelector(getUsername);
+  const password = useSelector(getPassword);
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
   const authData = useSelector(getAuthenticatedUser);
 
   const isClosing = closing || Boolean(authData?.id);
@@ -66,10 +68,8 @@ const SigninForm: React.FC<SigninFormProps> = ({ close = () => {} }) => {
         >
           {error && <div className={classes.error}>{t(`auth.error`)}</div>}
           <CloseButton onClick={closeForm} className={classes['close-button']} square size='size-l' />
-          <label className={classes.label} htmlFor='login'>{t('auth.username')}</label>
-          <input className={classes.input} onChange={onLoginChange} type="text" id='login' name='login' value={username} />
-          <label className={classes.label} htmlFor='password'>{t('auth.password')}</label>
-          <input className={classes.input} onChange={onPasswordChange} type="password" id='password' name='password' value={password} />
+          <AppInput type='text' name='login' value={username} onChange={onLoginChange} label={t('auth.username')} />
+          <AppInput type='password' name='password' value={password} onChange={onPasswordChange} label={t('auth.password')} />
           <AppButton className={classes.submit} onClick={onLoginClick} disabled={isLoading}>{t('auth.submit')}</AppButton>
         </form>
       </DynamicModuleLoader>
