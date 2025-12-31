@@ -9,7 +9,7 @@ import getLoginState from 'features/AuthByUserName/model/selectors/getLoginState
 import loginByUserName from 'features/AuthByUserName/model/services/loginByUserName/loginByUserName';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
 import { getAuthenticatedUser } from 'entities/User';
-import DynamiModuleLoader, { ReducerList } from 'shared/lib/components/DynamicModuleLoader';
+import DynamicModuleLoader, { ReducerList } from 'shared/lib/components/DynamicModuleLoader';
 
 interface SigninFormProps {
   close?: () => void; 
@@ -58,7 +58,7 @@ const SigninForm: React.FC<SigninFormProps> = ({ close = () => {} }) => {
 
   return (
     <Modal>
-      <DynamiModuleLoader reducers={reducers}>
+      <DynamicModuleLoader reducers={reducers}>
         <form
           autoComplete='off'
           className={classNames(classes.SigninForm, { [classes['closing']]: isClosing }) }
@@ -72,7 +72,7 @@ const SigninForm: React.FC<SigninFormProps> = ({ close = () => {} }) => {
           <input className={classes.input} onChange={onPasswordChange} type="password" id='password' name='password' value={password} />
           <AppButton className={classes.submit} onClick={onLoginClick} disabled={isLoading}>{t('auth.submit')}</AppButton>
         </form>
-      </DynamiModuleLoader>
+      </DynamicModuleLoader>
     </Modal>
   );
 };

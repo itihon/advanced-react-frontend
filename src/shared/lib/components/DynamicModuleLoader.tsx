@@ -12,7 +12,7 @@ interface DynamiModuleLoaderProps {
   reducers: ReducerList;
 }
 
-const DynamiModuleLoader: React.FC<DynamiModuleLoaderProps> = ({ children, reducers }) => {
+const DynamicModuleLoader: React.FC<DynamiModuleLoaderProps> = ({ children, reducers }) => {
   const store: StoreWithManager = useStore<StateSchema>();
 
   useEffect(() => {
@@ -35,4 +35,4 @@ const DynamiModuleLoader: React.FC<DynamiModuleLoaderProps> = ({ children, reduc
   );
 };
 
-export default DynamiModuleLoader;
+export default DynamicModuleLoader;
