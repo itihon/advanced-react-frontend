@@ -7,6 +7,6 @@ describe('ThemeSwitcher', () => {
   test('render', () => {
     const themeSwitcher = render(<ThemeSwitcher />).asFragment().firstChild as HTMLElement;
 
-    expect(themeSwitcher).toHaveClass(ThemeSwitcher.name);
+    expect(themeSwitcher).toHaveClass('ThemeSwitcher');
   });
 });

@@ -7,6 +7,6 @@ describe('Sidebar', () => {
   test('render', () => {
     const sidebar = renderWithRouter(<Sidebar />).asFragment().firstChild as HTMLElement;
 
-    expect(sidebar).toHaveClass(Sidebar.name);
+    expect(sidebar).toHaveClass('Sidebar');
   });
 });
