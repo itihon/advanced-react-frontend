@@ -6,17 +6,19 @@ import DynamicModuleLoader, { ReducerList } from 'shared/lib/components/DynamicM
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
 import { getAuthenticatedUser } from 'entities/User';
 import { SigninForm } from 'features/AuthByUserName';
-import { Loader } from 'shared/ui';
+import { AppText, Loader } from 'shared/ui';
+import { TextTheme } from 'shared/ui/AppText/AppText';
 
 const reducers: ReducerList = {
   profile: profileReducer,
 };
 
 const ProfilePage: React.FC = () => {
-  const { t } = useTranslation('profile-page');
+  const { t } = useTranslation(['translation', 'profile-page']);
   const authData = useSelector(getAuthenticatedUser);
   const profileData = useSelector(getProfileData);
   const isLoading = useSelector(getProfileIsLoading);
+  const error = useSelector(getProfileError);
   const [authCancelled, setAuthCancelled] = useState(false);
 
   const dispatch = useDispatch<AppDispatch>();
@@ -35,11 +37,13 @@ const ProfilePage: React.FC = () => {
   return (
     authData?.id && !authCancelled
     ?  <DynamicModuleLoader reducers={reducers}>
-        <h2>{t('header')}</h2>
+        <h2>{t('profile-page:header')}</h2>
         {
           isLoading
             ? <Loader />
-            : <ProfileCard data={profileData} />
+            : error 
+              ? <AppText theme={TextTheme.ERROR}>{t('translation:error.message')}</AppText>
+              : <ProfileCard data={profileData} />
         }
       </DynamicModuleLoader>
     : <Suspense fallback={<Loader />}>
