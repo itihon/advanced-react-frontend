@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './ProfileCard.module.scss';
 import { useTranslation } from 'react-i18next';
-import { AppButton, AppInput } from 'shared/ui';
+import { AppInput } from 'shared/ui';
 import { Profile } from 'entities/Profile/model/types/profile';
 
 export interface ProfileCardProps {
@@ -13,7 +13,6 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ data }) => {
 
   return (
     <section className={classes.ProfileCard}>
-      <AppButton>{t('edit')}</AppButton>
       <img className={classes.avatar} src={data?.avatar} />
 
       <AppInput 

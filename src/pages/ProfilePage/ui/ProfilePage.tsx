@@ -8,6 +8,7 @@ import { getAuthenticatedUser } from 'entities/User';
 import { SigninForm } from 'features/AuthByUserName';
 import { AppText, Loader } from 'shared/ui';
 import { TextTheme } from 'shared/ui/AppText/AppText';
+import ProfileHeader from './ProfileHeader';
 
 const reducers: ReducerList = {
   profile: profileReducer,
@@ -37,7 +38,7 @@ const ProfilePage: React.FC = () => {
   return (
     authData?.id && !authCancelled
     ?  <DynamicModuleLoader reducers={reducers}>
-        <h2>{t('profile-page:header')}</h2>
+        <ProfileHeader />
         {
           isLoading
             ? <Loader />
