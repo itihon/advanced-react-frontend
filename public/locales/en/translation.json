@@ -3,6 +3,7 @@
     "main": "Main",
     "about": "About",
     "enter": "Sign in",
+    "profile": "Profile",
     "logout": "Log out"
   },
   "error": {

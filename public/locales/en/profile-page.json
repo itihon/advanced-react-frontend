@@ -1,0 +1,12 @@
+{
+  "header": "User profile",
+  "firstname": "Firstname",
+  "lastname": "Lastname",
+  "age": "Age",
+  "currency": "Currency",
+  "country": "Country",
+  "city": "City",
+  "username": "Username",
+  "avatar": "Avatar",
+  "edit": "Edit"
+}

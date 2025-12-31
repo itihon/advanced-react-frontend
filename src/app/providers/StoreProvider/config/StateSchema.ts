@@ -1,5 +1,6 @@
 import LoginSchema from "features/AuthByUserName/model/types/LoginSchema";
 import { UserSchema } from "entities/User";
+import { ProfileSchema } from "entities/Profile";
 import { Action, Reducer, ReducersMapObject } from "redux";
 import type { EnhancedStore, UnknownAction, Tuple, StoreEnhancer, ThunkDispatch } from "@reduxjs/toolkit";
 import { AxiosInstance } from "node_modules/axios";
@@ -9,6 +10,7 @@ export interface StateSchema {
 
   // async reducers
   loginForm?: LoginSchema;
+  profile?: ProfileSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

@@ -1,18 +1,21 @@
 import AboutPageAsync from "pages/AboutPage"
 import MainPageAsync from "pages/MainPage";
 import NotFoundPage from "pages/NotFoundPage";
+import ProfilePageAsync from "pages/ProfilePage";
 import { ReactNode } from "react";
 import { RouteProps } from "react-router-dom"
 
 export enum AppRoutes {
   MAIN = 'main',
   ABOUT = 'about',
+  PROFILE = 'profile',
   NOT_FOUND = 'not_found',
 }
 
 export const routePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '/',
   [AppRoutes.ABOUT]: '/about',
+  [AppRoutes.PROFILE]: '/profile',
   [AppRoutes.NOT_FOUND]: '*',
 }
 
@@ -29,6 +32,11 @@ const routeConfig: Record<AppRoutes, RouteCongigItem> = {
   [AppRoutes.ABOUT]: {
     path: routePath.about,
     element: <AboutPageAsync />,
+    icon: '🧾',
+  },
+  [AppRoutes.PROFILE]: {
+    path: routePath.profile,
+    element: <ProfilePageAsync />,
     icon: '📋',
   },
   [AppRoutes.NOT_FOUND]: {

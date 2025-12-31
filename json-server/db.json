@@ -34,5 +34,15 @@
       "username": "user2",
       "password": "pass2"
     }
-  ]
+  ],
+  "profile": {
+    "firstname": "John",
+    "lastname": "Doe",
+    "age": 22,
+    "currency": "usd",
+    "country": "Canada",
+    "city": "Vancouver",
+    "username": "admin",
+    "avatar": "/assets/avatars/1-avatar.jpg"
+  }
 }
