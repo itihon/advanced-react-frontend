@@ -14,6 +14,7 @@ const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({className}) => {
   return (
     <AppButton 
       className={classNames(styles.ThemeSwitcher, className)}
+      square={true}
       onClick={switchTheme}>
         {
           theme === Themes.LIGHT 
