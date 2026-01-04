@@ -6,3 +6,4 @@ export { default as getProfileIsLoading } from './model/selectors/getProfileIsLo
 export { default as getProfileError } from './model/selectors/getProfileError';
 export { default as getProfileReadOnly } from './model/selectors/getProfileReadOnly';
 export { default as ProfileCard } from './ui/ProfileCard/ProfileCard';
+export { setProfileReadOnly } from './model/slice/profileSlice';

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProfileSchema } from "../types/profile";
 import fetchProfileData from "../services/fetchProfileData/fetchProfileData";
 
@@ -10,7 +10,11 @@ const initialState: ProfileSchema = {
 const profileSlice = createSlice({
   name: "profile",
   initialState,
-  reducers: { },
+  reducers: {
+    setProfileReadOnly: (state, action: PayloadAction<boolean>) => {
+      state.readonly = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchProfileData.pending, (state) => {
       state.error = undefined;
@@ -28,6 +32,6 @@ const profileSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-// export const { setUser, clearUser, initUser } = profileSlice.actions;
+export const { setProfileReadOnly } = profileSlice.actions;
 
 export default profileSlice.reducer;
