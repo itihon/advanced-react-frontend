@@ -4,6 +4,7 @@
   outline: none;
   background-color: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
+  min-width: fit-content;
 }
 
 .AppButton:not(.square).size-l {
