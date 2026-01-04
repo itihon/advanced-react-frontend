@@ -14,6 +14,7 @@ export { default as getProfileCity } from './model/selectors/getProfileCity';
 export { default as getProfileCurrency } from './model/selectors/getProfileCurrency';
 export { default as ProfileCard } from './ui/ProfileCard/ProfileCard';
 export { 
+  setProfileData,
   setProfileReadOnly, 
   setProfileAvatar, 
   setProfileFirstname,

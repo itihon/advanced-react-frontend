@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ProfileSchema } from "../types/profile";
+import { Profile, ProfileSchema } from "../types/profile";
 import fetchProfileData from "../services/fetchProfileData/fetchProfileData";
 import { Country, Currency } from "shared/const/common";
 
@@ -12,6 +12,10 @@ const profileSlice = createSlice({
   name: "profile",
   initialState,
   reducers: {
+    setProfileData: (state, action: PayloadAction<Profile>) => {
+      state.data = action.payload;
+    },
+
     setProfileReadOnly: (state, action: PayloadAction<boolean>) => {
       state.readonly = action.payload;
     },
@@ -76,6 +80,7 @@ const profileSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const { 
+  setProfileData,
   setProfileReadOnly, 
   setProfileAvatar, 
   setProfileFirstname,

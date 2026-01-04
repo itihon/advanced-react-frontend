@@ -1,22 +1,30 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppButton } from 'shared/ui';
 import classes from './ProfileHeader.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
-import { getProfileReadOnly, setProfileReadOnly } from 'entities/Profile';
+import { getProfileData, getProfileReadOnly, setProfileData, setProfileReadOnly } from 'entities/Profile';
 
 const ProfileHeader: React.FC = () => {
   const { t } = useTranslation('profile-page');
   const dispatch = useDispatch<AppDispatch>();
   const readOnly = useSelector(getProfileReadOnly);
+  const profileData = useSelector(getProfileData);
+  const originalProfileDataRef = useRef(profileData);
 
   const onEditClick = () => {
+    originalProfileDataRef.current = profileData;
     dispatch(setProfileReadOnly(false));
   };
 
   const onCancelClick = () => {
+    const data = originalProfileDataRef.current
 
+    if (data) {
+      dispatch(setProfileData(data));
+    }
+    dispatch(setProfileReadOnly(true));
   };
 
   const onSaveClick = () => {
