@@ -6,14 +6,15 @@ interface AppInputProps {
   label?: string;
   value?: string;
   name?: string;
+  readOnly?: boolean;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-const AppInput: React.FC<AppInputProps> = ({ type, label, value, name, onChange }) => {
+const AppInput: React.FC<AppInputProps> = ({ type, label, value, name, onChange, readOnly }) => {
   return (
     <div className={classes.AppInput}>
       <label className={classes.label} htmlFor={name}>{label}</label>
-      <input type={type} className={classes.input} onChange={onChange} name={name} id={name} value={value} />
+      <input readOnly={readOnly} type={type} className={classes.input} onChange={onChange} name={name} id={name} value={value} />
     </div>
   );
 };
