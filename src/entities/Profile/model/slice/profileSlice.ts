@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProfileSchema } from "../types/profile";
 import fetchProfileData from "../services/fetchProfileData/fetchProfileData";
+import { Country, Currency } from "shared/const/common";
 
 const initialState: ProfileSchema = {
   isLoading: false,
@@ -13,6 +14,48 @@ const profileSlice = createSlice({
   reducers: {
     setProfileReadOnly: (state, action: PayloadAction<boolean>) => {
       state.readonly = action.payload;
+    },
+
+    setProfileAvatar: (state, action: PayloadAction<string>) => {
+      if (state.data) {
+        state.data.avatar = action.payload;
+      }
+    },
+
+    setProfileFirstname: (state, action: PayloadAction<string>) => {
+      if (state.data) {
+        state.data.firstname = action.payload;
+      }
+    },
+
+    setProfileLastname: (state, action: PayloadAction<string>) => {
+      if (state.data) {
+        state.data.lastname = action.payload;
+      }
+    },
+
+    setProfileAge: (state, action: PayloadAction<number>) => {
+      if (state.data) {
+        state.data.age = action.payload;
+      }
+    },
+
+    setProfileCountry: (state, action: PayloadAction<Country>) => {
+      if (state.data) {
+        state.data.country = action.payload;
+      }
+    },
+
+    setProfileCity: (state, action: PayloadAction<string>) => {
+      if (state.data) {
+        state.data.city = action.payload;
+      }
+    },
+
+    setProfileCurrency: (state, action: PayloadAction<Currency>) => {
+      if (state.data) {
+        state.data.currency = action.payload;
+      }
     },
   },
   extraReducers: (builder) => {
@@ -32,6 +75,15 @@ const profileSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setProfileReadOnly } = profileSlice.actions;
+export const { 
+  setProfileReadOnly, 
+  setProfileAvatar, 
+  setProfileFirstname,
+  setProfileLastname,
+  setProfileAge,
+  setProfileCountry,
+  setProfileCity,
+  setProfileCurrency,
+} = profileSlice.actions;
 
 export default profileSlice.reducer;
