@@ -8,5 +8,7 @@
   "city": "City",
   "username": "Username",
   "avatar": "Avatar",
-  "edit": "Edit"
+  "edit": "Edit",
+  "cancel": "Cancel",
+  "save": "Save"
 }
