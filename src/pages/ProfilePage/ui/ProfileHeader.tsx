@@ -4,7 +4,7 @@ import { AppButton } from 'shared/ui';
 import classes from './ProfileHeader.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
-import { getProfileData, getProfileReadOnly, setProfileData, setProfileReadOnly } from 'entities/Profile';
+import { getProfileData, getProfileReadOnly, setProfileData, setProfileReadOnly, uploadProfileData } from 'entities/Profile';
 
 const ProfileHeader: React.FC = () => {
   const { t } = useTranslation('profile-page');
@@ -28,7 +28,13 @@ const ProfileHeader: React.FC = () => {
   };
 
   const onSaveClick = () => {
+    const hasChanged = JSON.stringify(profileData) !== JSON.stringify(originalProfileDataRef.current);
 
+    if (hasChanged) {
+      // @ts-expect-error damn redux
+      dispatch(uploadProfileData(profileData))
+    }
+    dispatch(setProfileReadOnly(true));
   };
 
   return (
