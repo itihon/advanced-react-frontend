@@ -39,9 +39,9 @@
     "firstname": "John",
     "lastname": "Doe",
     "age": 22,
-    "currency": "usd",
-    "country": "Canada",
-    "city": "Vancouver",
+    "currency": "KZT",
+    "country": "Kazakhstan",
+    "city": "Almaty",
     "username": "admin",
     "avatar": "/assets/avatars/1-avatar.jpg"
   }

@@ -1,8 +1,9 @@
 import React from 'react';
 import classes from './ProfileCard.module.scss';
 import { useTranslation } from 'react-i18next';
-import { AppInput } from 'shared/ui';
+import { AppInput, AppSelect } from 'shared/ui';
 import { Profile } from 'entities/Profile/model/types/profile';
+import { Country, Currency } from 'shared/const/common';
 
 export interface ProfileCardProps extends Partial<Profile> {
   readOnly?: boolean;
@@ -65,11 +66,11 @@ const ProfileCard: React.FC<ProfileCardProps> = (props) => {
         readOnly={readOnly}
         onChange={onAgeChange}/>
 
-      <AppInput 
-        type='text' 
+      <AppSelect 
         label={t('country')} 
         name='country'
-        value={country || ''} 
+        options={Country}
+        selectedOption={country}
         readOnly={readOnly}
         onChange={onCountryChange}/>
 
@@ -80,6 +81,15 @@ const ProfileCard: React.FC<ProfileCardProps> = (props) => {
         value={city || ''} 
         readOnly={readOnly}
         onChange={onCityChange}/>
+
+      <AppSelect 
+        label={t('currency')} 
+        name='currency'
+        options={Currency}
+        selectedOption={currency}
+        readOnly={readOnly}
+        onChange={onCurrencyChange}/>
+
     </section>
   );
 };
