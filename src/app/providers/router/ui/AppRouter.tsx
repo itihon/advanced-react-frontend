@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, memo } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Route, Routes, useLocation } from "react-router-dom";
 import routeConfig from 'shared/config/routeCounfig/routeConfig';
@@ -32,4 +32,4 @@ const AppRouter: React.FC = () => {
   );
 };
 
-export default AppRouter;
+export default memo(AppRouter);
