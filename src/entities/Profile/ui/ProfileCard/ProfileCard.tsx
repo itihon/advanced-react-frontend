@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './ProfileCard.module.scss';
 import { useTranslation } from 'react-i18next';
-import { AppInput, AppSelect } from 'shared/ui';
+import { AppInput, AppSelect, Avatar } from 'shared/ui';
 import { Profile } from 'entities/Profile/model/types/profile';
 import { Country, Currency } from 'shared/const/common';
 
@@ -40,7 +40,7 @@ const ProfileCard: React.FC<ProfileCardProps> = (props) => {
 
   return (
     <section className={classes.ProfileCard}>
-      <img className={classes.avatar} src={avatar} />
+      <Avatar src={avatar} onChange={onAvatarChange} />
 
       <AppInput 
         type='text' 

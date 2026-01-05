@@ -25,6 +25,10 @@ const config: StorybookConfig = {
             from: 'public/locales',
             to: 'locales',
           },
+          {
+            from: 'public/assets/avatars',
+            to: 'assets/avatars',
+          },
         ],
       }),
     ];

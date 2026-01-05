@@ -24,6 +24,10 @@ export default function buildPlugins({ paths, isDev }: BuildOptions): WebpackPlu
           from: 'public/locales',
           to: 'locales',
         },
+        {
+          from: 'public/assets/avatars',
+          to: 'assets/avatars',
+        },
       ],
     }),
   ];
