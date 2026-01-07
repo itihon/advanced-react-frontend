@@ -10,5 +10,10 @@
   "avatar": "Avatar",
   "edit": "Edit",
   "cancel": "Cancel",
-  "save": "Save"
+  "save": "Save",
+  "incorrect-data": "Incorrect data",
+  "firstname-validation-error": "Incorrect first name",
+  "lastname-validation-error": "Incorrect last name",
+  "age-validation-error": "Incorrect age",
+  "city-validation-error": "Incorrect city"
 }

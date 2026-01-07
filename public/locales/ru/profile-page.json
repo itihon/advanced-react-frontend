@@ -10,5 +10,10 @@
   "avatar": "Аватар",
   "edit": "Редактировать",
   "cancel": "Отмена",
-  "save": "Сохранить"
+  "save": "Сохранить",
+  "incorrect-data": "Некорректные данные",
+  "firstname-validation-error": "Некорректное имя",
+  "lastname-validation-error": "Некорректная Фамилия",
+  "age-validation-error": "Некорректный возраст",
+  "city-validation-error": "Некорректный город"
 }

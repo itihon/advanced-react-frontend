@@ -74,7 +74,7 @@ const profileSlice = createSlice({
     });
     builder.addCase(fetchProfileData.rejected, (state, action) => {
       state.isLoading = false;
-      state.error = action.payload as string;
+      state.error = action.payload?.generalError;
     });
 
     builder.addCase(uploadProfileData.pending, (state) => {
@@ -87,7 +87,8 @@ const profileSlice = createSlice({
     });
     builder.addCase(uploadProfileData.rejected, (state, action) => {
       state.isLoading = false;
-      state.error = action.payload as string;
+      state.error = action.payload?.generalError;
+      state.validationError = action.payload?.validationError;
     });
   },
 });

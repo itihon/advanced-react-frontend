@@ -20,6 +20,7 @@ import {
   setProfileCity, 
   setProfileCurrency, 
   setProfileAvatar, 
+  getProfileValidationError, 
 } from 'entities/Profile';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState, Suspense, memo } from 'react';
@@ -28,7 +29,7 @@ import DynamicModuleLoader, { ReducerList } from 'shared/lib/components/DynamicM
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
 import { getAuthenticatedUser } from 'entities/User';
 import { SigninForm } from 'features/AuthByUserName';
-import { AppText, Loader } from 'shared/ui';
+import { AppText, Loader, MessageBox } from 'shared/ui';
 import { TextTheme } from 'shared/ui/AppText/AppText';
 import ProfileHeader from './ProfileHeader';
 import { Country, Currency } from 'shared/const/common';
@@ -38,7 +39,7 @@ const reducers: ReducerList = {
 };
 
 const ProfilePage: React.FC = () => {
-  const { t } = useTranslation(['translation', 'profile-page']);
+  const { t } = useTranslation(['profile-page']);
   const authData = useSelector(getAuthenticatedUser);
   const profileData = useSelector(getProfileData);
   const avatar = useSelector(getProfileAvatar);
@@ -49,7 +50,8 @@ const ProfilePage: React.FC = () => {
   const city = useSelector(getProfileCity);
   const currency = useSelector(getProfileCurrency);
   const isLoading = useSelector(getProfileIsLoading);
-  const error = useSelector(getProfileError);
+  const generalError = useSelector(getProfileError);
+  const validationError = useSelector(getProfileValidationError);
   const readOnly = useSelector(getProfileReadOnly);
   const [authCancelled, setAuthCancelled] = useState(false);
 
@@ -111,9 +113,15 @@ const ProfilePage: React.FC = () => {
         {
           isLoading
             ? <Loader />
-            : error 
-              ? <AppText theme={TextTheme.ERROR}>{t('translation:error.message')}</AppText>
-              : <ProfileCard 
+            : generalError 
+              ? <AppText theme={TextTheme.ERROR}>{generalError.join('\n')}</AppText>
+              : <>
+                {
+                  validationError && <MessageBox icon='⛔' title={t('incorrect-data')}>
+                    {validationError.map((err, idx) => <AppText key={idx}>{err}</AppText>)}
+                  </MessageBox>
+                }
+                <ProfileCard 
                   avatar={avatar} 
                   firstname={firstname} 
                   lastname={lastname} 
@@ -123,6 +131,7 @@ const ProfilePage: React.FC = () => {
                   currency={currency} 
                   {...handlers} 
                   readOnly={readOnly} />
+              </> 
         }
       </DynamicModuleLoader>
     : <Suspense fallback={<Loader />}>
