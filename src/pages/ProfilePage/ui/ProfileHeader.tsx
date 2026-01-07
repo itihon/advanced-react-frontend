@@ -24,7 +24,6 @@ const ProfileHeader: React.FC = () => {
     if (data) {
       dispatch(setProfileData(data));
     }
-    dispatch(setProfileReadOnly(true));
   };
 
   const onSaveClick = () => {
@@ -34,7 +33,6 @@ const ProfileHeader: React.FC = () => {
       // @ts-expect-error damn redux
       dispatch(uploadProfileData(profileData))
     }
-    dispatch(setProfileReadOnly(true));
   };
 
   return (

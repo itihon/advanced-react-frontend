@@ -14,7 +14,10 @@ const profileSlice = createSlice({
   initialState,
   reducers: {
     setProfileData: (state, action: PayloadAction<Profile>) => {
+      state.error = undefined;
+      state.validationError = undefined;
       state.data = action.payload;
+      state.readonly = true;
     },
 
     setProfileReadOnly: (state, action: PayloadAction<boolean>) => {
@@ -66,9 +69,12 @@ const profileSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchProfileData.pending, (state) => {
       state.error = undefined;
+      state.validationError = undefined;
       state.isLoading = true;
     });
     builder.addCase(fetchProfileData.fulfilled, (state, action) => {
+      state.error = undefined;
+      state.validationError = undefined;
       state.isLoading = false;
       state.data = action.payload;
     });
@@ -79,16 +85,21 @@ const profileSlice = createSlice({
 
     builder.addCase(uploadProfileData.pending, (state) => {
       state.error = undefined;
+      state.validationError = undefined;
       state.isLoading = true;
     });
     builder.addCase(uploadProfileData.fulfilled, (state, action) => {
       state.isLoading = false;
       state.data = action.payload;
+      state.readonly = true;
+      state.error = undefined;
+      state.validationError = undefined;
     });
     builder.addCase(uploadProfileData.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload?.generalError;
       state.validationError = action.payload?.validationError;
+      state.readonly = false;
     });
   },
 });
