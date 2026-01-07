@@ -8,9 +8,10 @@ const PageError: React.FC = () => {
   return (
     <MessageBox 
       title={t('error.title')} 
-      message={t('error.message')} 
       icon='⛔' 
-      onClose={() => location.reload()}/>
+      onClose={() => location.reload()}>
+      {t('error.message')} 
+    </MessageBox>
   );
 };
 
