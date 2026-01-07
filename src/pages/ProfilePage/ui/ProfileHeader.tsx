@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppButton } from 'shared/ui';
 import classes from './ProfileHeader.module.scss';
@@ -11,28 +11,23 @@ const ProfileHeader: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const readOnly = useSelector(getProfileReadOnly);
   const profileData = useSelector(getProfileData);
-  const originalProfileDataRef = useRef(profileData);
+  const [originalProfileData, setOriginalProfileData] = useState(profileData);
+  const hasChanged = JSON.stringify(profileData) !== JSON.stringify(originalProfileData);
 
   const onEditClick = () => {
-    originalProfileDataRef.current = profileData;
+    setOriginalProfileData(profileData);
     dispatch(setProfileReadOnly(false));
   };
 
   const onCancelClick = () => {
-    const data = originalProfileDataRef.current
-
-    if (data) {
-      dispatch(setProfileData(data));
+    if (originalProfileData) {
+      dispatch(setProfileData(originalProfileData));
     }
   };
 
   const onSaveClick = () => {
-    const hasChanged = JSON.stringify(profileData) !== JSON.stringify(originalProfileDataRef.current);
-
-    if (hasChanged) {
-      // @ts-expect-error damn redux
-      dispatch(uploadProfileData(profileData))
-    }
+    // @ts-expect-error damn redux
+    dispatch(uploadProfileData(profileData))
   };
 
   return (
@@ -44,7 +39,7 @@ const ProfileHeader: React.FC = () => {
             ? <AppButton size='size-l' onClick={onEditClick}>{'🖊  ' + t('edit')}</AppButton>
             : <div className={classes['button-row']}>
               <AppButton size='size-l' onClick={onCancelClick}>{'❌  ' + t('cancel')}</AppButton>
-              <AppButton size='size-l' onClick={onSaveClick}>{'💾  ' + t('save')}</AppButton>
+              <AppButton size='size-l' onClick={onSaveClick} disabled={!hasChanged}>{'💾  ' + t('save')}</AppButton>
             </div>
         }
       </div>

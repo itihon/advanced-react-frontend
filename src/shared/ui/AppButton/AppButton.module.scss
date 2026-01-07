@@ -21,7 +21,7 @@
 
 .AppButton:disabled {
   cursor: not-allowed;
-  filter: none;
+  filter: opacity(.6);
 }
 
 .square.size-m {
