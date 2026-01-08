@@ -15,5 +15,6 @@
   "firstname-validation-error": "Incorrect first name",
   "lastname-validation-error": "Incorrect last name",
   "age-validation-error": "Incorrect age",
-  "city-validation-error": "Incorrect city"
+  "city-validation-error": "Incorrect city",
+  "not-authorized": "You have to be authorized in order access profile."
 }

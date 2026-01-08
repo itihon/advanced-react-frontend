@@ -23,12 +23,11 @@ import {
   getProfileValidationError, 
 } from 'entities/Profile';
 import { useDispatch, useSelector } from 'react-redux';
-import React, { useEffect, useState, Suspense, memo } from 'react';
+import React, { useEffect, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import DynamicModuleLoader, { ReducerList } from 'shared/lib/components/DynamicModuleLoader';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
 import { getAuthenticatedUser } from 'entities/User';
-import { SigninForm } from 'features/AuthByUserName';
 import { AppText, Loader, MessageBox } from 'shared/ui';
 import { TextTheme } from 'shared/ui/AppText/AppText';
 import ProfileHeader from './ProfileHeader';
@@ -53,13 +52,8 @@ const ProfilePage: React.FC = () => {
   const generalError = useSelector(getProfileError);
   const validationError = useSelector(getProfileValidationError);
   const readOnly = useSelector(getProfileReadOnly);
-  const [authCancelled, setAuthCancelled] = useState(false);
 
   const dispatch = useDispatch<AppDispatch>();
-
-  const onAuthCancelled = () => {
-    setAuthCancelled(true);
-  };
 
   const onAvatarChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     dispatch(setProfileAvatar(event.target.value));
@@ -107,7 +101,7 @@ const ProfilePage: React.FC = () => {
   }, [authData, dispatch, profileData]);
 
   return (
-    authData?.id && !authCancelled
+    authData?.id
     ?  <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
         <ProfileHeader />
         {
@@ -134,13 +128,7 @@ const ProfilePage: React.FC = () => {
               </> 
         }
       </DynamicModuleLoader>
-    : <Suspense fallback={<Loader />}>
-        {
-          !authCancelled 
-            ? <SigninForm close={onAuthCancelled} />
-            : ''
-        }
-      </Suspense>
+    : <AppText>{t('not-authorized')}</AppText>
   );
 };
 

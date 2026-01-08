@@ -15,5 +15,6 @@
   "firstname-validation-error": "Некорректное имя",
   "lastname-validation-error": "Некорректная Фамилия",
   "age-validation-error": "Некорректный возраст",
-  "city-validation-error": "Некорректный город"
+  "city-validation-error": "Некорректный город",
+  "not-authorized": "Для доступа к профилю вы должы быть авторизованы."
 }
