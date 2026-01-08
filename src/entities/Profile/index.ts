@@ -4,6 +4,7 @@ export { default as fetchProfileData } from './model/services/fetchProfileData/f
 export { default as uploadProfileData } from './model/services/uploadProfileData/uploadProfileData';
 export { default as validateProfileData } from './model/services/validateProfileData/validateProfileData';
 export { default as getProfileData } from './model/selectors/getProfileData';
+export { default as getProfileOriginalData } from './model/selectors/getProfileOriginalData';
 export { default as getProfileIsLoading } from './model/selectors/getProfileIsLoading';
 export { default as getProfileError } from './model/selectors/getProfileError';
 export { default as getProfileValidationError } from './model/selectors/getProfileValidationError';
@@ -18,6 +19,7 @@ export { default as getProfileCurrency } from './model/selectors/getProfileCurre
 export { default as ProfileCard } from './ui/ProfileCard/ProfileCard';
 export { 
   setProfileData,
+  setProfileOriginalData,
   setProfileReadOnly, 
   setProfileAvatar, 
   setProfileFirstname,

@@ -108,7 +108,7 @@ const ProfilePage: React.FC = () => {
 
   return (
     authData?.id && !authCancelled
-    ?  <DynamicModuleLoader reducers={reducers}>
+    ?  <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
         <ProfileHeader />
         {
           isLoading

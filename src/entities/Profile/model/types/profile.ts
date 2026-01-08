@@ -20,6 +20,7 @@ export interface Profile {
 
 export interface ProfileSchema {
   data?: Profile;
+  originalData?: Profile;
   isLoading: boolean;
   error?: string[];
   validationError?: string[];

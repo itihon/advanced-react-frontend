@@ -10,9 +10,10 @@ export type ReducerList = {
 interface DynamiModuleLoaderProps {
   children: ReactNode;
   reducers: ReducerList;
+  removeAfterUnmount?: boolean;
 }
 
-const DynamicModuleLoader: React.FC<DynamiModuleLoaderProps> = ({ children, reducers }) => {
+const DynamicModuleLoader: React.FC<DynamiModuleLoaderProps> = ({ children, reducers, removeAfterUnmount = true }) => {
   const store: StoreWithManager = useStore<StateSchema>();
 
   useEffect(() => {
@@ -21,6 +22,10 @@ const DynamicModuleLoader: React.FC<DynamiModuleLoaderProps> = ({ children, redu
     });
 
     return () => {
+      if (!removeAfterUnmount) {
+        return;
+      }
+
       Object.entries(reducers).forEach(([name]) => {
         store.manager?.remove(name as keyof StateSchema);
       });

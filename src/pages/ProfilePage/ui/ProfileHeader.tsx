@@ -1,27 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppButton } from 'shared/ui';
 import classes from './ProfileHeader.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
-import { getProfileData, getProfileReadOnly, setProfileData, setProfileReadOnly, uploadProfileData } from 'entities/Profile';
+import { getProfileData, getProfileOriginalData, getProfileReadOnly, setProfileData, setProfileOriginalData, setProfileReadOnly, uploadProfileData } from 'entities/Profile';
 
 const ProfileHeader: React.FC = () => {
   const { t } = useTranslation('profile-page');
   const dispatch = useDispatch<AppDispatch>();
   const readOnly = useSelector(getProfileReadOnly);
   const profileData = useSelector(getProfileData);
-  const [originalProfileData, setOriginalProfileData] = useState(profileData);
-  const hasChanged = JSON.stringify(profileData) !== JSON.stringify(originalProfileData);
+  const profileOriginalData = useSelector(getProfileOriginalData);
+  const hasChanged = JSON.stringify(profileData) !== JSON.stringify(profileOriginalData);
 
   const onEditClick = () => {
-    setOriginalProfileData(profileData);
+    if (profileData) {
+      dispatch(setProfileOriginalData(profileData));
+    }
     dispatch(setProfileReadOnly(false));
   };
 
   const onCancelClick = () => {
-    if (originalProfileData) {
-      dispatch(setProfileData(originalProfileData));
+    if (profileOriginalData) {
+      dispatch(setProfileData(profileOriginalData));
     }
   };
 

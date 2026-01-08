@@ -20,6 +20,10 @@ const profileSlice = createSlice({
       state.readonly = true;
     },
 
+    setProfileOriginalData: (state, action: PayloadAction<Profile>) => {
+      state.originalData = action.payload;
+    },
+
     setProfileReadOnly: (state, action: PayloadAction<boolean>) => {
       state.readonly = action.payload;
     },
@@ -107,6 +111,7 @@ const profileSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { 
   setProfileData,
+  setProfileOriginalData,
   setProfileReadOnly, 
   setProfileAvatar, 
   setProfileFirstname,
