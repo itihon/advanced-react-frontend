@@ -103,7 +103,6 @@ const ProfilePage: React.FC = () => {
   return (
     authData?.id
     ?  <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-        <ProfileHeader />
         {
           isLoading
             ? <Loader />
@@ -115,6 +114,7 @@ const ProfilePage: React.FC = () => {
                     {validationError.map((err, idx) => <AppText key={idx}>{err}</AppText>)}
                   </MessageBox>
                 }
+                <ProfileHeader />
                 <ProfileCard 
                   avatar={avatar} 
                   firstname={firstname} 
