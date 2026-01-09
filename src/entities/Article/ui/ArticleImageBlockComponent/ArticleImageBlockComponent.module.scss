@@ -1,0 +1,15 @@
+.ArticleImageBlockComponent {
+  width: 100%;
+
+  .img {
+    display: block;
+    margin: 8px auto;
+    width: max(50vw, 250px);
+  }
+
+  h4 {
+    margin: 0 auto;
+    width: max(50vw, 250px);
+    padding-bottom: 8px;
+  }
+}

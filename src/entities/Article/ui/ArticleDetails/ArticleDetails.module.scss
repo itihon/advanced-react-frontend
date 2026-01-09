@@ -1,0 +1,32 @@
+.ArticleDetails {
+  padding-inline: 4vw;
+  height: 100%;
+}
+
+.img {
+  display: block;
+  width: max(30vw, 250px);
+  margin: 8px auto;
+}
+
+.skeleton-title {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.skeleton-image {
+  margin: 16px auto;
+}
+
+.skeleton-row {
+  margin: 16px auto;
+}
+
+.date {
+  margin-top: 16px;
+  float: right;
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 16px;
+  color: var(--secondary-color);
+}

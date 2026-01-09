@@ -1,0 +1,14 @@
+.Skeleton {
+  background: linear-gradient(-55deg, var(--inverted-bg-color), var(--bg-color), var(--inverted-bg-color));
+	background-size: 500% 500%;
+	animation: wave-gradient 2s ease infinite;
+}
+
+@keyframes wave-gradient {
+  0% {
+		background-position: 100% 0%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

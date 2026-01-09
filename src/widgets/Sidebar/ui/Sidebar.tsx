@@ -39,7 +39,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed = false }) => {
         {
           Object.entries(routeConfig)
             .map(
-              ([name, props], idx) => name !== AppRoutes.NOT_FOUND  
+              ([name, props], idx) => props.displayOnSidebar  
                 ? <AppLink 
                     className={classes.link}
                     rounded

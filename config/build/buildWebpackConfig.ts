@@ -13,6 +13,7 @@ export default function buildWebpackConfig(options: BuildOptions): WebpackConfig
     devtool: isDev ? 'inline-source-map' : undefined,
     devServer: isDev ? buildDevServer(options) : undefined,
     output: {
+      publicPath: '/',
       filename: '[name].[contenthash].js',
       path: paths.build,
       clean: true,

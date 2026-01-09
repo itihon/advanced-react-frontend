@@ -14,9 +14,19 @@
 
 .content-page {
   display: flex;
+  height: calc(100vh - var(--navbar-height));
+  overflow: hidden;
 }
 
 .page-wrapper {
   flex-grow: 1;
   padding: 16px;
+  height: 100%;
+  width: 200px;
+  overflow-y: scroll;
+}
+
+h1, h2, h3 {
+  padding-top: 16px;
+  padding-bottom: 8px;
 }

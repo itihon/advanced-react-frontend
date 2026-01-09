@@ -1,0 +1,40 @@
+.ArticleCodeBlockComponent {
+  --padding: 8px;
+  --btn-padding: 5px;
+
+  display: block;
+  position: relative;
+  width: max(50vw, 250px);
+  min-width: fit-content;
+  margin: 8px auto;
+  padding: var(--padding);
+  background-color: rgba(0, 0, 0, .1);
+
+  .copy-btn {
+    position: absolute;
+    right: var(--padding);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+    }
+
+    &::before {
+      left: var(--btn-padding);
+      top: var(--btn-padding);
+      background-color: var(--inverted-primary-color);
+      opacity: .5;
+    }
+
+    &::after {
+      right: var(--btn-padding);
+      bottom: var(--btn-padding);
+      background-color: var(--inverted-primary-color);
+      opacity: .7;
+    }
+  }
+}

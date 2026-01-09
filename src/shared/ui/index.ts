@@ -11,3 +11,4 @@ export { default as AppInput } from './AppInput/AppInput';
 export { default as AppText } from './AppText/AppText';
 export { default as AppSelect } from './AppSelect/AppSelect';
 export { default as Avatar } from './Avatar/Avatar';
+export { default as Skeleton } from './Skeleton/Skeleton';

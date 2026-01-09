@@ -14,7 +14,7 @@ export enum TextAlign {
 }
 
 interface AppTextProps {
-  children?: string;
+  children?: string | number;
   theme?: TextTheme;
   align?: TextAlign;
 }

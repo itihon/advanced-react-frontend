@@ -1,0 +1,9 @@
+.ArticleTextBlockComponent {
+  .paragraph {
+    padding-block: 8px;
+    text-indent: 24px;
+    text-wrap-style: stable;
+    overflow-wrap: break-word;
+    text-wrap-mode: wrap;
+  }
+}
