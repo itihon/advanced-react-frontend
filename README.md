@@ -1,0 +1,12 @@
+# This project demonstrates usage of the following front end tech stack:
+ - ## [<img src='repo-assets/react-logo.svg' height="32px" /> React](https://react.dev/)
+ - ## [<img src='repo-assets/redux-logo.svg' height="32px" /> Redux Toolkit](https://redux-toolkit.js.org/)
+ - ## [<img src='repo-assets/react-router-logo.svg' height="32px" /> React Router](https://reactrouter.com/)
+ - ## [<img src='repo-assets/webpack-logo.svg' height="32px" /> Webpack](https://webpack.js.org/)
+ - ## [<img src='repo-assets/fsd-logo.png' height="32px" /> Feature-Sliced Design](https://feature-sliced.design/)
+ - ## [<img src='repo-assets/css-modules-logo.png' height="32px" /> CSS Modules](https://github.com/css-modules/css-modules)
+ - ## [<img src='repo-assets/sass-logo.png' height="32px" /> Sass](https://sass-lang.com/)
+ - ## [<img src='repo-assets/storybook-logo.svg' height="32px" /> Storybook](https://storybook.js.org/)
+ - ## [<img src='repo-assets/jest-logo.ico' height="32px" /> Jest](https://jestjs.io/)
+ - ## [<img src='repo-assets/testing-library-logo.png' height="32px" /> Testing Library](https://testing-library.com/)
+ - ## [<img src='repo-assets/playwright-logo.svg' height="32px" /> Playwright](https://playwright.dev/)
