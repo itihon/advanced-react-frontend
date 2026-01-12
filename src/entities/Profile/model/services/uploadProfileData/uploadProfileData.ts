@@ -3,6 +3,7 @@ import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
 import i18n from 'i18next';
 import { Profile, ProfileUploadError } from '../../types/profile';
 import validateProfileData from '../validateProfileData/validateProfileData';
+import { routePath } from 'shared/config/routeCounfig/routeConfig';
 
 const lowdashRegEx = /_/g;
 
@@ -20,7 +21,7 @@ const uploadProfileData = createAsyncThunk<Profile, Profile, { extra: ThunkExtra
     }
 
     try {
-      const response = await thunkAPI.extra.api.put<Profile>('/profile', profileData);
+      const response = await thunkAPI.extra.api.put<Profile>(`${routePath.profile}${profileData.id}`, profileData);
 
       return response.data;
     }

@@ -19,7 +19,7 @@ export enum AppRoutes {
 export const routePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '/',
   [AppRoutes.ABOUT]: '/about',
-  [AppRoutes.PROFILE]: '/profile',
+  [AppRoutes.PROFILE]: '/profile/', // /profile/id
   [AppRoutes.ARTICLES]: '/articles',
   [AppRoutes.ARTICLE_DETAILS]: '/articles/', // /articles/id
   [AppRoutes.NOT_FOUND]: '*',
@@ -28,6 +28,7 @@ export const routePath: Record<AppRoutes, string> = {
 export type RouteCongigItem = RouteProps & {
   icon?: string | ReactNode;
   displayOnSidebar?: boolean;
+  useParam?: boolean;
 }
 
 const routeConfig: Record<AppRoutes, RouteCongigItem> = {
@@ -44,10 +45,11 @@ const routeConfig: Record<AppRoutes, RouteCongigItem> = {
     displayOnSidebar: true,
   },
   [AppRoutes.PROFILE]: {
-    path: routePath.profile,
+    path: `${routePath.profile}:id`,
     element: <ProfilePageAsync />,
     icon: '🪪',
     displayOnSidebar: true,
+    useParam: true,
   },
   [AppRoutes.ARTICLES]: {
     path: routePath.articles,

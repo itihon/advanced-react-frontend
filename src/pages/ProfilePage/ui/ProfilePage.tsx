@@ -2,7 +2,6 @@ import {
   ProfileCard, 
   profileReducer, 
   fetchProfileData, 
-  getProfileData, 
   getProfileIsLoading, 
   getProfileError, 
   getProfileReadOnly, 
@@ -32,6 +31,8 @@ import { AppText, Loader, MessageBox } from 'shared/ui';
 import { TextTheme } from 'shared/ui/AppText/AppText';
 import ProfileHeader from './ProfileHeader';
 import { Country, Currency } from 'shared/const/common';
+import { useNavigate, useParams } from 'react-router-dom';
+import { routePath } from 'shared/config/routeCounfig/routeConfig';
 
 const reducers: ReducerList = {
   profile: profileReducer,
@@ -40,7 +41,6 @@ const reducers: ReducerList = {
 const ProfilePage: React.FC = () => {
   const { t } = useTranslation(['profile-page']);
   const authData = useSelector(getAuthenticatedUser);
-  const profileData = useSelector(getProfileData);
   const avatar = useSelector(getProfileAvatar);
   const firstname = useSelector(getProfileFirstname);
   const lastname = useSelector(getProfileLastname);
@@ -52,6 +52,10 @@ const ProfilePage: React.FC = () => {
   const generalError = useSelector(getProfileError);
   const validationError = useSelector(getProfileValidationError);
   const readOnly = useSelector(getProfileReadOnly);
+
+  const { id } = useParams<{ id: string}>();
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -94,11 +98,16 @@ const ProfilePage: React.FC = () => {
   };
 
   useEffect(() => {
-    if (authData?.id && !profileData) {
-      // @ts-expect-error damn redux
-      dispatch(fetchProfileData());
+    if (authData?.id) {
+      if (id === '-1') {
+        navigate(`${routePath.profile}${authData.id}`);
+      }
+      else {
+        // @ts-expect-error damn redux
+        dispatch(fetchProfileData(id));
+      }
     }
-  }, [authData, dispatch, profileData]);
+  }, [authData, dispatch, navigate, id]);
 
   return (
     authData?.id

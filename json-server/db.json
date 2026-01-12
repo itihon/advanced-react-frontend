@@ -21,7 +21,7 @@
     {
       "id": "2",
       "articleId": "1",
-      "userId": "1",
+      "userId": "2",
       "text": "another comment about post 1"
     }
   ],
@@ -33,7 +33,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -109,17 +111,31 @@
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "/assets/avatars/1-avatar.jpg"
+      "avatar": "/assets/avatars/2-avatar.jpg"
     }
   ],
-  "profile": {
-    "firstname": "John",
-    "lastname": "Doe",
-    "age": 22,
-    "currency": "KZT",
-    "country": "Kazakhstan",
-    "city": "Almaty",
-    "username": "admin",
-    "avatar": "/assets/avatars/1-avatar.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "John",
+      "lastname": "Doe",
+      "age": 22,
+      "currency": "KZT",
+      "country": "Kazakhstan",
+      "city": "Almaty",
+      "username": "admin",
+      "avatar": "/assets/avatars/1-avatar.jpg"
+    },
+    {
+      "id": "2",
+      "firstname": "Jane",
+      "lastname": "Doe",
+      "age": 23,
+      "currency": "KZT",
+      "country": "Kazakhstan",
+      "city": "Almaty",
+      "username": "user",
+      "avatar": "/assets/avatars/2-avatar.jpg"
+    }
+  ]
 }

@@ -3,9 +3,11 @@ import classes from './Sidebar.module.scss';
 import classNames from 'classnames';
 import { AppButton, CloseButton } from 'shared/ui';
 import { AppLink, AppLinkTheme } from 'shared/ui';
-import routeConfig, { AppRoutes } from 'shared/config/routeCounfig/routeConfig';
+import routeConfig from 'shared/config/routeCounfig/routeConfig';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getAuthenticatedUser } from 'entities/User';
 
 export interface SidebarProps {
   isCollapsed?: boolean;
@@ -15,6 +17,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed = false }) => {
   const [collapsed, setCollapsed] = useState(isCollapsed);
   const { t } = useTranslation();
   const location = useLocation();
+  const authData = useSelector(getAuthenticatedUser)
 
   const toggleCollapse = () => {
     setCollapsed(prev => !prev);
@@ -47,7 +50,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed = false }) => {
                     isActive={location.pathname === props.path}
                     theme={AppLinkTheme.INVERTED}
                     key={idx} 
-                    to={props.path || ''}>
+                    to={`${props.path?.replace(':id', authData?.id || '-1')}`}>
                       {
                         collapsed 
                         ? props.icon
