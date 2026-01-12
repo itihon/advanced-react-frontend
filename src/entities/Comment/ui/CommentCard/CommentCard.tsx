@@ -1,7 +1,8 @@
 import React, { memo } from 'react';
 import Comment from '../../model/types/comment';
-import { AppText, Avatar, Skeleton } from 'shared/ui';
+import { AppLink, AppText, Avatar, Skeleton } from 'shared/ui';
 import classes from './CommentCard.module.scss';
+import { routePath } from 'shared/config/routeCounfig/routeConfig';
 
 interface CommentProps {
   comment?: Comment; 
@@ -9,6 +10,7 @@ interface CommentProps {
 }
 
 const CommentCard: React.FC<CommentProps> = ({ comment, isLoading }) => {
+  console.log('-->',routePath.profile)
   return (
     <div className={classes.CommentCard}>
       {
@@ -20,7 +22,7 @@ const CommentCard: React.FC<CommentProps> = ({ comment, isLoading }) => {
             </>
           : <>
               <Avatar src={comment?.user.avatar} className={classes.avatar} size={32} />
-              <AppText className={classes.user}>{comment?.user.username}</AppText>
+              <AppLink to={`${routePath.profile}${comment?.user.id}`} className={classes.user} underlineOnHover>{comment?.user.username}</AppLink>
               <AppText className={classes.comment}>{comment?.text}</AppText>
             </>
       }

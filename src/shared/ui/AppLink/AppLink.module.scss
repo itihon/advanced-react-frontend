@@ -12,6 +12,10 @@
   filter:brightness(1.2);
 }
 
+.underlineOnHover:hover {
+  text-decoration: underline;
+}
+
 .rounded {
   border-radius: 4px;
 }

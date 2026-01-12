@@ -8,10 +8,11 @@ export enum AppLinkTheme {
 };
 
 interface AppLinkProps extends LinkProps {
-  theme: AppLinkTheme;
+  theme?: AppLinkTheme;
   rounded?: boolean;
   isActive?: boolean;
   isActiveIndicator?: 'border-bottom' | 'box-shadow';
+  underlineOnHover?: boolean; 
 }
 
 const AppLink: React.FC<AppLinkProps> = ({ 
@@ -22,6 +23,7 @@ const AppLink: React.FC<AppLinkProps> = ({
   isActive, 
   isActiveIndicator='border-bottom', 
   rounded,
+  underlineOnHover,
   onClick
 }) => {
   return (
@@ -29,9 +31,13 @@ const AppLink: React.FC<AppLinkProps> = ({
       className={classNames(
         classes.AppLink, 
         className, 
-        classes[theme], 
+        classes[theme || AppLinkTheme.INVERTED], 
         classes[isActiveIndicator],
-        { [classes.isActive]: isActive, [classes.rounded]: rounded }
+        { 
+          [classes.isActive]: isActive, 
+          [classes.rounded]: rounded,
+          [classes.underlineOnHover]: underlineOnHover,
+        }
       )} 
       to={to}
       onClick={onClick}>
