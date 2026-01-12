@@ -62,16 +62,22 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = ({ id }) => {
             <img className={classes.img} src={articleDetails?.data?.img} />
             <h2>{articleDetails?.data?.subtitle}</h2>
             {
-              articleDetails?.data?.blocks?.map(block => {
+              articleDetails?.data?.blocks?.map((block, idx) => {
                 switch (block.type) {
                   case ArticleBlockType.CODE:
-                    return <ArticleCodeBlockComponent code={block.code} /> 
+                    return <ArticleCodeBlockComponent 
+                      key={idx} 
+                      code={block.code} /> 
                 
                   case ArticleBlockType.IMAGE:
-                    return <ArticleImageBlockComponent src={block.src} title={block.title} /> 
+                    return <ArticleImageBlockComponent 
+                      key={idx} 
+                      src={block.src} 
+                      title={block.title} /> 
 
                   case ArticleBlockType.TEXT:
                     return <ArticleTextBlockComponent 
+                      key={idx} 
                       title={block.title}
                       paragraphs={block.paragraphs} /> 
                 }

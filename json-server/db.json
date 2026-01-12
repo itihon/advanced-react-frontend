@@ -14,13 +14,15 @@
   "comments": [
     {
       "id": "1",
-      "text": "a comment about post 1",
-      "postId": "1"
+      "articleId": "1",
+      "userId": "1",
+      "text": "a comment about post 1"
     },
     {
       "id": "2",
-      "text": "another comment about post 1",
-      "postId": "1"
+      "articleId": "1",
+      "userId": "1",
+      "text": "another comment about post 1"
     }
   ],
   "articles": [
@@ -99,13 +101,15 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "/assets/avatars/1-avatar.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "/assets/avatars/1-avatar.jpg"
     }
   ],
   "profile": {

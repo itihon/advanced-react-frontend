@@ -1,4 +1,5 @@
 {
   "article-not-found": "Article not found.",
-  "error-fetching-article": "Error while fetching the article. Try again later."
+  "error-fetching-article": "Error while fetching the article. Try again later.",
+  "comments": "Comments"
 }

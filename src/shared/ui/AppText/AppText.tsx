@@ -17,11 +17,12 @@ interface AppTextProps {
   children?: string | number;
   theme?: TextTheme;
   align?: TextAlign;
+  className?: string;
 }
 
-const AppText: React.FC<AppTextProps> = ({ children, theme = TextTheme.NORMAL, align = TextAlign.LEFT }) => {
+const AppText: React.FC<AppTextProps> = ({ children, theme = TextTheme.NORMAL, align = TextAlign.LEFT, className }) => {
   return (
-    <div className={classNames(classes.AppText, classes[theme], classes[align])}>
+    <div className={classNames(classes.AppText, classes[theme], classes[align], className)}>
       { children }
     </div>
   );

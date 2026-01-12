@@ -1,0 +1,25 @@
+.CommentCard {
+  background-color: rgba(70, 131, 180, .2);
+  border-radius: 4px;
+  padding: 8px;
+  margin: 8px;
+  border: .5px solid steelblue;
+
+  .user {
+    font-weight: 550;
+    font-size: 14px;
+    color: var(--secondary-color);
+    margin: 4px;
+  }
+
+  .comment {
+    font-size: 18px;
+    color: var(--primary-color);
+    margin: 4px;
+  }
+
+  .avatar {
+    float: left;
+    margin: 4px;
+  }
+}

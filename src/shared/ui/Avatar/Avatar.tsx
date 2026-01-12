@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import classNames from 'classnames';
 import classes from './Avatar.module.scss';
 
 interface AvatarProps {
@@ -6,19 +7,38 @@ interface AvatarProps {
   alt?: string;
   readOnly?: boolean;
   size?: number;
-  onChange: React.ChangeEventHandler<HTMLImageElement>;
+  onChange?: React.ChangeEventHandler<HTMLImageElement>;
+  className?: string;
 }
 
-const DEFAULT_SIZE = '200px';
+const DEFAULT_SIZE = 200;
 
-const Avatar: React.FC<AvatarProps> = ({ src, alt, onChange, readOnly, size }) => {
+const Avatar: React.FC<AvatarProps> = ({ src, alt, onChange, readOnly, size, className }) => {
+  const pxSize = `${size || DEFAULT_SIZE}px`;
+
+  if (!src) {
+    return (
+      <div
+        style={{
+          width: pxSize,
+          height: pxSize,
+          lineHeight: pxSize,
+          fontSize: '100%',
+          textAlign: 'center',
+        }}
+        className={classNames(classes.Avatar, className)}>
+        {'👽'}
+      </div>
+    );
+  }
+
   return (
-    <img 
-      width={size || DEFAULT_SIZE} 
-      height={size || DEFAULT_SIZE} 
-      className={classes.Avatar} 
-      src={src} 
-      alt={alt} />
+      <img 
+        width={pxSize} 
+        height={pxSize} 
+        className={classNames(classes.Avatar, className)} 
+        src={src} 
+        alt={alt} />
   );
 };
 
