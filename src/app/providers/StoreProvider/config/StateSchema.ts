@@ -6,6 +6,7 @@ import { Action, Reducer, ReducersMapObject } from "redux";
 import type { EnhancedStore, UnknownAction, Tuple, StoreEnhancer, ThunkDispatch } from "@reduxjs/toolkit";
 import { AxiosInstance } from "node_modules/axios";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
+import { AddCommentSchema } from "features/AddComment";
 
 export interface StateSchema {
   user: UserSchema;
@@ -15,6 +16,7 @@ export interface StateSchema {
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleComments?: ArticleDetailsCommentsSchema;
+  addComment?: AddCommentSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

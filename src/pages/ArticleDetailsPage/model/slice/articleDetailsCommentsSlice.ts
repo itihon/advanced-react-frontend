@@ -29,6 +29,9 @@ const articleDetailsCommentsSlice = createSlice({
       // Or, call them as "mutating" helpers in a case reducer
       commentsAdapter.setAll(state, action.payload);
     },
+    setIsLoading: (state, action) => {
+      state.isLoading = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCommentsByArticleId.pending, (state) => {
@@ -52,6 +55,6 @@ export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
   (state: StateSchema) => state.articleComments || commentsAdapter.getInitialState(),
 );
 
-export const { commentAdded, commentsReceived } = articleDetailsCommentsSlice.actions;
+export const { commentAdded, commentsReceived, setIsLoading } = articleDetailsCommentsSlice.actions;
 
 export default articleDetailsCommentsSlice.reducer;
