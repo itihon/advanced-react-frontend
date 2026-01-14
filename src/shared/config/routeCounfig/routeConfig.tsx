@@ -16,13 +16,22 @@ export enum AppRoutes {
   NOT_FOUND = 'not_found',
 }
 
-export const routePath: Record<AppRoutes, string> = {
+export enum APIRoutes {
+  LOGIN = 'login',
+  COMMENTS = 'comments',
+}
+
+export const routePath: Record<AppRoutes | APIRoutes, string> = {
   [AppRoutes.MAIN]: '/',
   [AppRoutes.ABOUT]: '/about',
   [AppRoutes.PROFILE]: '/profile/', // /profile/id
   [AppRoutes.ARTICLES]: '/articles',
   [AppRoutes.ARTICLE_DETAILS]: '/articles/', // /articles/id
   [AppRoutes.NOT_FOUND]: '*',
+
+  // api routes
+  [APIRoutes.LOGIN]: '/login',
+  [APIRoutes.COMMENTS]: '/comments/',
 }
 
 export type RouteCongigItem = RouteProps & {

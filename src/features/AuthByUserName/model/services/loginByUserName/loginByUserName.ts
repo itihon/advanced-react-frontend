@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
 import { setUser, User } from 'entities/User';
 import i18n from 'i18next';
+import { routePath } from 'shared/config/routeCounfig/routeConfig';
 import { USER_LOCAL_STORAGE_KEY } from 'shared/const/localstorate';
 
 interface LoginByUserNameProps {
@@ -14,7 +15,7 @@ const fetchUserById = createAsyncThunk<User, LoginByUserNameProps, { extra: Thun
   'login/loginByUserName',
   async ({ username, password }, thunkAPI) => {
     try {
-      const response = await thunkAPI.extra.api.post('/login', { username, password });
+      const response = await thunkAPI.extra.api.post(routePath.login, { username, password });
 
       thunkAPI.dispatch(setUser(response.data));
       localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
