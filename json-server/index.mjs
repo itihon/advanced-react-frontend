@@ -15,7 +15,7 @@ server.post('/login', (req, res) => {
   const user = db.get('users').find({ username, password }).value();
 
   if (user) {
-    res.status(200).json({ id: user.id, username: user.username });
+    res.status(200).json({ id: user.id, username: user.username, avatar: user.avatar });
   } else {
     res.sendStatus(401);
   }
