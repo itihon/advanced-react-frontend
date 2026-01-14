@@ -10,6 +10,7 @@ import DynamicModuleLoader, { ReducerList } from 'shared/lib/components/DynamicM
 import commentsReducer, { getArticleComments } from '../model/slice/articleDetailsCommentsSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import getArticleCommentsIsLoading from '../model/selectors/getArticleCommentsIsLoading';
+import getArticleCommentsError from '../model/selectors/getArticleCommentsError';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
 import fetchCommentsByArticleId from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
@@ -22,6 +23,7 @@ const ArticleDetailsPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const comments = useSelector(getArticleComments.selectAll);
   const isLoading = useSelector(getArticleCommentsIsLoading);
+  const error = useSelector(getArticleCommentsError);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
@@ -40,8 +42,14 @@ const ArticleDetailsPage: React.FC = () => {
       <div className={classes.ArticleDetailsPage}>
         <ArticleDetails id={id} />
 
-        <h2>{t('comments')}</h2>
-        <CommentList isLoading={isLoading} comments={comments} />
+        {
+          error
+            ? <AppText theme={TextTheme.ERROR} >{error}</AppText>
+            : <>
+                <h2>{t('comments')}</h2>
+                <CommentList isLoading={isLoading} comments={comments} />
+              </>
+        }
       </div>
     </DynamicModuleLoader>
   );
