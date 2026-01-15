@@ -28,7 +28,7 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = ({ id }) => {
   const articleDetails = useSelector(getArticleDetails);
 
   useEffect(() => {
-    if (!articleDetails) {
+    if (!articleDetails?.data) {
       // @ts-expect-error damn redux
       dispatch(fetchArticleById(id));
     }

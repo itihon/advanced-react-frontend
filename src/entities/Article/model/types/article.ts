@@ -28,7 +28,7 @@ export interface ArticleTextBlock extends ArticleBlockBase {
 
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
 
-enum ArticleType {
+export enum ArticleType {
   IT = 'IT',
   SCIENCE = 'SCIENCE',
   ECONOMICS = 'ECONOMICS',
@@ -44,3 +44,5 @@ export default interface Article {
   type: ArticleType[];
   blocks: ArticleBlock[];
 }
+
+export type ArticlePreview = Omit<Article, 'blocks' | 'subtitle'>;

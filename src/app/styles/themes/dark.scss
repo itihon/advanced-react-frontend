@@ -1,6 +1,9 @@
 .app.dark {
-  --bg-color: rgb(29, 53, 72);
-  --inverted-bg-color: rgb(194, 228, 255);
+  --bg-color-values: 29, 53, 72;
+  --inverted-bg-color-values: 194, 228, 255;
+
+  --bg-color: rgb(var(--bg-color-values));
+  --inverted-bg-color: rgb(var(--inverted-bg-color-values));
 
   --primary-color: goldenrod;
   --inverted-primary-color: rgb(46, 35, 6);
