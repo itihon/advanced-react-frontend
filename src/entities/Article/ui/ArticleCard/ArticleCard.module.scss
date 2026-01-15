@@ -5,7 +5,7 @@
 
   display: block;
   position: relative;
-  width: 250px;
+  width: var(--item-width);
   min-height: 300px;
   height: fit-content;
   background-color: var(--bg-color);
