@@ -19,8 +19,10 @@
 }
 
 .page-wrapper {
+  --page-wrapper-padding: 16px;
+
   flex-grow: 1;
-  padding: 16px;
+  padding: var(--page-wrapper-padding);
   height: 100%;
   width: 200px;
   overflow-y: scroll;

@@ -1,3 +1,15 @@
 .ArticleDetailsPage {
-  padding-inline: 4vw;
+  --page-padding-inline: 4vw;
+
+  padding-inline: var(--page-padding-inline);
+
+  .back {
+    position: sticky;
+    top: 0px;
+    width: fit-content;
+    background-color: var(--inverted-bg-color);
+    padding-inline: 8px;
+    z-index: 1;
+    transform: translate(calc(var(--page-padding-inline) * -1 - var(--page-wrapper-padding)), -17px);
+  }
 }

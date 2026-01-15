@@ -2,7 +2,7 @@ import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import React, { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppText } from 'shared/ui';
+import { AppLink, AppText } from 'shared/ui';
 import { TextTheme } from 'shared/ui/AppText/AppText';
 import { Comment, CommentList } from 'entities/Comment';
 import classes from './ArticleDetailsPage.module.scss';
@@ -79,6 +79,7 @@ const ArticleDetailsPage: React.FC = () => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div className={classes.ArticleDetailsPage}>
+        <AppLink className={classes.back} to={routePath.articles}>{`⬅ ${t('back-to-articles')}`}</AppLink>
         <ArticleDetails id={id} />
 
         {
