@@ -70,3 +70,37 @@ export const DarkArticleListListItems = {
   decorators: [ThemeDecorator],
   parameters: { theme: Themes.DARK },
 };
+
+export const LightLoadingArticleListTiles: Story = {
+  args: {
+    previewStyle: ArticlePreviewStyle.TILES,
+    isLoading: true,
+  },
+  decorators: [ThemeDecorator],
+};
+
+export const DarkLoadingArticleListTiles = {
+  args: {
+    previewStyle: ArticlePreviewStyle.TILES,
+    isLoading: true,
+  },
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
+
+export const LightLoadingArticleListListItems: Story = {
+  args: {
+    previewStyle: ArticlePreviewStyle.LIST_ITEMS,
+    isLoading: true,
+  },
+  decorators: [ThemeDecorator],
+};
+
+export const DarkLoadingArticleListListItems = {
+  args: {
+    previewStyle: ArticlePreviewStyle.LIST_ITEMS,
+    isLoading: true,
+  },
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
