@@ -78,8 +78,8 @@ const ArticleDetailsPage: React.FC = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
+      <AppLink className={classes.back} to={routePath.articles}>{`⬅ ${t('back-to-articles')}`}</AppLink>
       <div className={classes.ArticleDetailsPage}>
-        <AppLink className={classes.back} to={routePath.articles}>{`⬅ ${t('back-to-articles')}`}</AppLink>
         <ArticleDetails id={id} />
 
         {

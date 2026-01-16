@@ -1,15 +1,20 @@
 .ArticleDetailsPage {
   --page-padding-inline: 4vw;
 
+  max-width: var(--page-content-max-width);
+  margin: 0 auto;
   padding-inline: var(--page-padding-inline);
+}
 
-  .back {
-    position: sticky;
-    top: 0px;
-    width: fit-content;
-    background-color: var(--inverted-bg-color);
-    padding-inline: 8px;
-    z-index: 1;
-    transform: translate(calc(var(--page-padding-inline) * -1 - var(--page-wrapper-padding)), -17px);
-  }
+.back {
+  --shift: calc(var(--page-wrapper-padding) * -1);
+
+  position: sticky;
+  top: var(--shift);
+  margin-left: var(--shift);
+  margin-top: var(--shift);
+  width: fit-content;
+  background-color: var(--inverted-bg-color);
+  padding-inline: 8px;
+  z-index: 1;
 }
