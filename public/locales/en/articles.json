@@ -2,5 +2,6 @@
   "article-not-found": "Article not found.",
   "error-fetching-article": "Error while fetching the article. Try again later.",
   "comments": "Comments",
-  "back-to-articles": "Back to articles"
+  "back-to-articles": "Back to articles",
+  "read-more": "Read more"
 }

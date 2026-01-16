@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import ArticleCard from './ArticleCard';
-import { ArticleType } from '../../model/types/article';
+import { ArticleType, ArticlePreviewStyle } from '../../model/types/article';
 import ThemeDecorator from 'config/storybook/decorators/ThemeDecorator';
 import { Themes } from 'app/providers/ThemeProvider';
 
@@ -24,27 +24,40 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const args = {
+  id: '1',
+  createdAt: `01.05.2022`,
+  img: '/assets/avatars/2-avatar.jpg',
+  title: `Title of article #1. Read the whole article. Et perferendis nulla debitis tempora.`,
+  excerpt: 'Quos iure dolor. Non corporis qui beatae ipsam. Nulla labore cumque sequi eos voluptatem. Sint est dolorem nihil veritatis. Ipsum consequatur saepe dolor dolores et beatae alias unde iure. Hic necessitatibus porro eius et assumenda alias. Facilis est culpa. Quo inventore eos repellat ea. Ut magni ut ex. Fugiat est placeat quas repudiandae minus sit pariatur. Sequi porro facere. Maxime tempore libero fugit ad. Et accusantium maxime deleniti vitae voluptas non aut vero rerum. Iusto culpa sint. Ut corporis est incidunt quas optio animi autem praesentium alias. Voluptatem error libero saepe id repudiandae iure et dolorem autem. Voluptatem facilis labore.',
+  type: [ArticleType.ECONOMICS, ArticleType.IT, ArticleType.SCIENCE],
+  views: 12812,
+};
+
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const LightArticleCard: Story = {
+export const LightArticleCardTile: Story = {
+  args,
+  decorators: [ThemeDecorator],
+};
+
+export const DarkArticleCardTile = {
+  args,
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
+
+export const LightArticleCardListItem: Story = {
   args: {
-    id: '1',
-    createdAt: `01.05.2022`,
-    img: '/assets/avatars/2-avatar.jpg',
-    title: `Title of article #1. Read the whole article. Et perferendis nulla debitis tempora.`,
-    type: [ArticleType.ECONOMICS, ArticleType.IT, ArticleType.SCIENCE],
-    views: 12812,
+    ...args,
+    previewStyle: ArticlePreviewStyle.LIST_ITEMS,
   },
   decorators: [ThemeDecorator],
 };
 
-export const DarkArticleCard = {
+export const DarkArticleCardListItem = {
   args: {
-    id: '1',
-    createdAt: `01.05.2022`,
-    img: '/assets/avatars/2-avatar.jpg',
-    title: `Title of article #1. Read the whole article. Et perferendis nulla debitis tempora.`,
-    type: [ArticleType.ECONOMICS, ArticleType.IT, ArticleType.SCIENCE],
-    views: 12812,
+    ...args,
+    previewStyle: ArticlePreviewStyle.LIST_ITEMS,
   },
   decorators: [ThemeDecorator],
   parameters: { theme: Themes.DARK },

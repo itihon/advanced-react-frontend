@@ -45,4 +45,11 @@ export default interface Article {
   blocks: ArticleBlock[];
 }
 
-export type ArticlePreview = Omit<Article, 'blocks' | 'subtitle'>;
+export interface ArticlePreview extends Omit<Article, 'blocks' | 'subtitle'> {
+  excerpt?: string;
+}
+
+export enum ArticlePreviewStyle {
+  TILES = 'tiles',
+  LIST_ITEMS = 'list-items',
+}

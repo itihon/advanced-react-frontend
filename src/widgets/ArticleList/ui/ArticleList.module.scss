@@ -1,0 +1,17 @@
+.ArticleList {
+  --item-width: 250px;
+
+  display: grid;
+  justify-content: space-evenly;
+  gap: 32px 0;
+  width: 100%;
+}
+
+.ArticleList.tiles {
+  grid-template-columns: repeat(auto-fill, var(--item-width));
+}
+
+.ArticleList.list-items {
+  justify-items: center;
+  grid-template-columns: 100%;
+}
