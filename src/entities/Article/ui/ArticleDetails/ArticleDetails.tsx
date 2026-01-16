@@ -32,7 +32,7 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = ({ id }) => {
       // @ts-expect-error damn redux
       dispatch(fetchArticleById(id));
     }
-  }, [dispatch, id, articleDetails]);
+  }, [dispatch, id, articleDetails?.data]);
 
   return (
     <DynamicModuleLoader reducers={reducers}>
