@@ -2,7 +2,7 @@ import React, { CSSProperties } from 'react';
 import classes from './Skeleton.module.scss';
 import classNames from 'classnames';
 
-interface SkeletonProps extends Pick<CSSProperties, 'width' | 'height' | 'borderRadius'> {
+interface SkeletonProps extends Pick<CSSProperties, 'width' | 'height' | 'borderRadius' | 'display' | 'zIndex' | 'position'> {
   className?: string;
 }
 
