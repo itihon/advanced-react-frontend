@@ -1,7 +1,7 @@
 import { ArticlePreviewStyle } from 'entities/Article';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppButton, AppText } from 'shared/ui';
+import { AppButton, AppText, Page } from 'shared/ui';
 import ArticleList from 'widgets/ArticleList';
 import classes from './ArticlesPage.module.scss';
 import DynamicModuleLoader, { ReducerList } from 'shared/lib/components/DynamicModuleLoader';
@@ -45,15 +45,17 @@ const ArticlesPage: React.FC = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      {
-        error
-          ? <AppText theme={TextTheme.ERROR}>{error}</AppText>
-          : <div className={classes.ArticlesPage}>
-              {t('content')}
-              <AppButton size='size-m' onClick={onPreviewStyleClick}>{ previewStyle === ArticlePreviewStyle.LIST_ITEMS ? '🪟' : '≡' }</AppButton>
-              <ArticleList isLoading={isLoading} previewStyle={previewStyle} items={articles}/>
-            </div>
-      }
+      <Page>
+        {
+          error
+            ? <AppText theme={TextTheme.ERROR}>{error}</AppText>
+            : <div className={classes.ArticlesPage}>
+                {t('content')}
+                <AppButton size='size-m' onClick={onPreviewStyleClick}>{ previewStyle === ArticlePreviewStyle.LIST_ITEMS ? '🪟' : '≡' }</AppButton>
+                <ArticleList isLoading={isLoading} previewStyle={previewStyle} items={articles}/>
+              </div>
+        }
+      </Page>
     </DynamicModuleLoader>
   );
 };

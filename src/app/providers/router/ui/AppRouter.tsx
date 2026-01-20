@@ -18,11 +18,9 @@ const AppRouter: React.FC = () => {
                   key={path} 
                   path={path} 
                   element={
-                    <div className="page-wrapper">
-                      <ErrorBoundary fallback={<PageError />}>
-                        {element}
-                      </ErrorBoundary>
-                    </div>
+                    <ErrorBoundary fallback={<PageError />}>
+                      {element}
+                    </ErrorBoundary>
                   } 
                 />,
               )

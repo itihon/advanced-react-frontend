@@ -2,7 +2,7 @@ import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import React, { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppLink, AppText } from 'shared/ui';
+import { AppLink, AppText, Page } from 'shared/ui';
 import { TextTheme } from 'shared/ui/AppText/AppText';
 import { Comment, CommentList } from 'entities/Comment';
 import classes from './ArticleDetailsPage.module.scss';
@@ -78,20 +78,21 @@ const ArticleDetailsPage: React.FC = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <AppLink className={classes.back} to={routePath.articles}>{`⬅ ${t('back-to-articles')}`}</AppLink>
-      <div className={classes.ArticleDetailsPage}>
-        <ArticleDetails id={id} />
-
-        {
-          error
-            ? <AppText theme={TextTheme.ERROR} >{error}</AppText>
-            : <>
-                <h2>{t('comments')}</h2>
-                <CommentList isLoading={isLoading} comments={comments} />
-                <AddCommentForm onSubmit={onAddComment} userName={authData?.username} userAvatar={authData?.avatar} userId={authData?.id} />
-              </>
-        }
-      </div>
+      <Page>
+        <AppLink className={classes.back} to={routePath.articles}>{`⬅ ${t('back-to-articles')}`}</AppLink>
+        <div className={classes.ArticleDetailsPage}>
+          <ArticleDetails id={id} />
+          {
+            error
+              ? <AppText theme={TextTheme.ERROR} >{error}</AppText>
+              : <>
+                  <h2>{t('comments')}</h2>
+                  <CommentList isLoading={isLoading} comments={comments} />
+                  <AddCommentForm onSubmit={onAddComment} userName={authData?.username} userAvatar={authData?.avatar} userId={authData?.id} />
+                </>
+          }
+        </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

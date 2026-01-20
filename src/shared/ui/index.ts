@@ -14,3 +14,4 @@ export { default as AppImg } from './AppImg/AppImg';
 export { default as Avatar } from './Avatar/Avatar';
 export { default as Skeleton } from './Skeleton/Skeleton';
 export { default as Badge } from './Badge/Badge';
+export { default as Page } from './Page/Page';

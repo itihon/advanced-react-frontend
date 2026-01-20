@@ -27,7 +27,7 @@ import { useTranslation } from 'react-i18next';
 import DynamicModuleLoader, { ReducerList } from 'shared/lib/components/DynamicModuleLoader';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
 import { getAuthenticatedUser } from 'entities/User';
-import { AppText, Loader, MessageBox } from 'shared/ui';
+import { AppText, Loader, MessageBox, Page } from 'shared/ui';
 import { TextTheme } from 'shared/ui/AppText/AppText';
 import ProfileHeader from './ProfileHeader';
 import { Country, Currency } from 'shared/const/common';
@@ -117,7 +117,7 @@ const ProfilePage: React.FC = () => {
             ? <Loader />
             : generalError 
               ? <AppText theme={TextTheme.ERROR}>{generalError.join('\n')}</AppText>
-              : <>
+              : <Page>
                 {
                   validationError && <MessageBox icon='⛔' title={t('incorrect-data')}>
                     {validationError.map((err, idx) => <AppText key={idx}>{err}</AppText>)}
@@ -134,7 +134,7 @@ const ProfilePage: React.FC = () => {
                   currency={currency} 
                   {...handlers} 
                   readOnly={readOnly} />
-              </> 
+              </Page> 
         }
       </DynamicModuleLoader>
     : <AppText>{t('not-authorized')}</AppText>
