@@ -2,12 +2,13 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
 import i18n from 'i18next';
 import { Comment } from 'entities/Comment';
+import { routePath } from 'shared/config/routeCounfig/routeConfig';
 
 const fetchCommentsByArticleId = createAsyncThunk<Comment[], string, { extra: ThunkExtraArg, rejectValue: string}>(
   'ArticleDetailsPage/fetchCommentsByArticleId',
   async (articleId: string, thunkAPI) => {
     try {
-      const response = await thunkAPI.extra.api.get<Comment[]>(`/comments`, {
+      const response = await thunkAPI.extra.api.get<Comment[]>(routePath.comments, {
         params: {
           articleId,
           _expand: 'user',

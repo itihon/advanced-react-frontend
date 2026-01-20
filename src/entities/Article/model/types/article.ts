@@ -45,7 +45,7 @@ export default interface Article {
   blocks: ArticleBlock[];
 }
 
-export interface ArticlePreview extends Omit<Article, 'blocks' | 'subtitle'> {
+export interface ArticlePreview extends Article {
   excerpt?: string;
 }
 

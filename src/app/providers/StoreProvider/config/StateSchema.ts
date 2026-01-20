@@ -7,6 +7,7 @@ import type { EnhancedStore, UnknownAction, Tuple, StoreEnhancer, ThunkDispatch 
 import { AxiosInstance } from "node_modules/axios";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
 import { AddCommentSchema } from "features/AddComment";
+import { ArticlesPageSchema } from "pages/ArticlesPage";
 
 export interface StateSchema {
   user: UserSchema;
@@ -17,6 +18,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema;
   articleComments?: ArticleDetailsCommentsSchema;
   addComment?: AddCommentSchema;
+  articlesPage?: ArticlesPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
