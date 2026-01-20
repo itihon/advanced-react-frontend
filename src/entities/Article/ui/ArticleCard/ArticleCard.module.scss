@@ -17,7 +17,7 @@
 
   .img {
     width: calc(100% + var(--padding) * 2);
-    height: 70%;
+    min-height: 180px;
     object-fit: cover;
     margin-left: calc(var(--padding) * -1);
     margin-top: calc(var(--padding) * -1);
@@ -47,19 +47,6 @@
     border-radius: 2px;
   }
 
-  .views, .date {
-    position: absolute;
-    border-radius: 8px;
-    padding-inline: 4px;
-    font-size: 12px;
-    background-color: rgba(var(--bg-color-values), 0.8);
-    z-index: 1;
-  }
-
-  .date {
-    right: var(--padding);
-  }
-
   &:hover {
     --shadow-opacity: .4;
 
@@ -74,7 +61,7 @@
 .ArticleCard.tiles {
   width: var(--item-width);
   max-width: 300px;
-  height: fit-content;
+  height: 100%;
 }
 
 .ArticleCard.list-items {

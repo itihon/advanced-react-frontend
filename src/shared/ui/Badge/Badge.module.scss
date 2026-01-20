@@ -1,0 +1,9 @@
+.Badge {
+  width: fit-content;
+  position: absolute;
+  border-radius: 8px;
+  padding-inline: 4px;
+  font-size: 12px;
+  background-color: rgba(var(--bg-color-values), 0.8);
+  z-index: 1;
+}
