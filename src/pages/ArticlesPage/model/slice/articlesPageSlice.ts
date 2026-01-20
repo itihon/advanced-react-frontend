@@ -23,7 +23,8 @@ const initialState: ArticlesPageSchema = {
   entities: {},
   get previewStyle () {
     return localStorage.getItem(LOCAL_STORAGE_ARTICLE_PREVIEW_STYLE_KEY) as ArticlePreviewStyle || ArticlePreviewStyle.LIST_ITEMS;
-  }
+  },
+  currentPage: 1,
 };
 
 const getLimit = (previewStyle: ArticlePreviewStyle = ArticlePreviewStyle.TILES) => previewStyle === ArticlePreviewStyle.TILES ? 9 : 4;
@@ -37,7 +38,7 @@ const articlesPageSlice = createSlice({
     ArticleAdded: articlesAdapter.addOne,
     ArticlesReceived(state, action) {
       // Or, call them as "mutating" helpers in a case reducer
-      articlesAdapter.setAll(state, action.payload);
+      articlesAdapter.addMany(state, action.payload);
     },
     setIsLoading: (state, action) => {
       state.isLoading = action.payload;
@@ -46,6 +47,9 @@ const articlesPageSlice = createSlice({
       state.previewStyle = action.payload;
       localStorage.setItem(LOCAL_STORAGE_ARTICLE_PREVIEW_STYLE_KEY, action.payload);
       state.limit = getLimit(action.payload);
+    },
+    setCurrentPage: (state, action: PayloadAction<number>) => {
+      state.currentPage = action.payload;
     },
     initArticlesPage: (state) => {
       const previewStyle = initialState.previewStyle;
@@ -56,6 +60,7 @@ const articlesPageSlice = createSlice({
       state.entities = initialState.entities;
       state.previewStyle = previewStyle;
       state.limit = getLimit(previewStyle);
+      state.currentPage = 1;
     },
   },
   extraReducers: (builder) => {
@@ -66,8 +71,8 @@ const articlesPageSlice = createSlice({
     builder.addCase(fetchArticleList.fulfilled, (state, action) => {
       state.error = undefined;
       state.isLoading = false;
-
-      articlesAdapter.setAll(state, action.payload);
+      articlesAdapter.addMany(state, action.payload);
+      state.hasMore = !!action.payload.length;
     });
     builder.addCase(fetchArticleList.rejected, (state, action) => {
       state.isLoading = false;
@@ -80,6 +85,6 @@ export const getArticles = articlesAdapter.getSelectors<StateSchema>(
   (state: StateSchema) => state.articlesPage || articlesAdapter.getInitialState(),
 );
 
-export const { ArticleAdded, ArticlesReceived, setIsLoading, setPreviewStyle, initArticlesPage } = articlesPageSlice.actions;
+export const { ArticleAdded, ArticlesReceived, setIsLoading, setPreviewStyle, setCurrentPage, initArticlesPage } = articlesPageSlice.actions;
 
 export default articlesPageSlice.reducer;

@@ -6,4 +6,6 @@ export default interface ArticlesPageSchema extends EntityState<Article, EntityI
   error?: string;
   previewStyle?: ArticlePreviewStyle;
   limit?: number;
+  currentPage?: number;
+  hasMore?: boolean;
 }

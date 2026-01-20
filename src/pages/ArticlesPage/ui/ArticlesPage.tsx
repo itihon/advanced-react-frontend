@@ -5,7 +5,7 @@ import { AppButton, AppText, Page } from 'shared/ui';
 import ArticleList from 'widgets/ArticleList';
 import classes from './ArticlesPage.module.scss';
 import DynamicModuleLoader, { ReducerList } from 'shared/lib/components/DynamicModuleLoader';
-import articlesPageReducer, { getArticles, initArticlesPage, setPreviewStyle } from '../model/slice/articlesPageSlice';
+import articlesPageReducer, { getArticles, initArticlesPage, setCurrentPage, setPreviewStyle } from '../model/slice/articlesPageSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import getArticlesPageError from '../model/selectors/getArticlesPageError';
 import getArticlesPageIsLoaing from '../model/selectors/getArticlesPageIsLoading';
@@ -13,6 +13,8 @@ import getArticlesPagePreviewStyle from '../model/selectors/getArticlesPagePrevi
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
 import { TextTheme } from 'shared/ui/AppText/AppText';
 import fetchArticleList from '../model/services/fetchArticleList/fetchArticleList';
+import getArticlesPageCurrentPage from '../model/selectors/getArticlesPageCurrentPage';
+import getArticlesPageHasMore from '../model/selectors/getArticlesPageHasMore';
 
 const reducers: ReducerList = {
   articlesPage: articlesPageReducer, 
@@ -27,6 +29,8 @@ const ArticlesPage: React.FC = () => {
   const error = useSelector(getArticlesPageError);
   const isLoading = useSelector(getArticlesPageIsLoaing);
   const previewStyle = useSelector(getArticlesPagePreviewStyle);
+  const currentPage = useSelector(getArticlesPageCurrentPage) || 1;
+  const hasMore = useSelector(getArticlesPageHasMore);
 
   const onPreviewStyleClick = () => {
     dispatch(setPreviewStyle(
@@ -34,6 +38,15 @@ const ArticlesPage: React.FC = () => {
         ? ArticlePreviewStyle.TILES 
         : ArticlePreviewStyle.LIST_ITEMS
     ));
+  };
+
+  const onLoadNextPart = () => {
+    if (hasMore && !isLoading) {
+      dispatch(setCurrentPage(currentPage + 1));
+
+      // @ts-expect-error damn redux
+      dispatch(fetchArticleList());
+    }
   };
 
   useEffect(() => {
@@ -45,7 +58,7 @@ const ArticlesPage: React.FC = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <Page>
+      <Page onScrollEnd={onLoadNextPart}>
         {
           error
             ? <AppText theme={TextTheme.ERROR}>{error}</AppText>

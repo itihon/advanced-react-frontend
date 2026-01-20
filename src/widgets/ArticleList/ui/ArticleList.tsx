@@ -13,12 +13,14 @@ const ArticleList: React.FC<ArticleListProps> = ({ items = [], previewStyle = Ar
   return (
     <div className={classNames(classes.ArticleList, classes[previewStyle])}>
       {
+        items
+          .map((item, idx) => <ArticleCard {...item} previewStyle={previewStyle} key={idx} />)
+      }
+      {
         isLoading
-          ? Array
+          && Array
             .from({ length: 9 })
             .map((_, idx) => <ArticleCardSkeleton key={idx} previewStyle={previewStyle} />)
-          : items
-              .map((item, idx) => <ArticleCard {...item} previewStyle={previewStyle} key={idx} />)
       }
     </div>
   );
