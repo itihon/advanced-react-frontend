@@ -488,6 +488,237 @@
           ]
         }
       ]
+    },
+    {
+      "id": "9",
+      "title": "WebAssembly в браузере",
+      "subtitle": "Высокопроизводительный код для Web",
+      "img": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800",
+      "views": 812,
+      "createdAt": "12.01.2024",
+      "type": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Что такое WebAssembly",
+          "paragraphs": [
+            "WebAssembly (Wasm) позволяет запускать код, написанный на C, C++, Rust и других языках, прямо в браузере с почти нативной производительностью.",
+            "Это открывает возможности для тяжёлых вычислений, игр и профессиональных инструментов в Web."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Финансовые кризисы XXI века",
+      "subtitle": "Причины и последствия",
+      "img": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800",
+      "views": 1643,
+      "createdAt": "28.01.2024",
+      "type": ["ECONOMICS"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Глобальные кризисы",
+          "paragraphs": [
+            "Финансовые кризисы оказывают долгосрочное влияние на мировую экономику, меняя подходы к регулированию и инвестициям."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "TypeScript в больших проектах",
+      "subtitle": "Поддерживаемость и масштабирование",
+      "img": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800",
+      "views": 2911,
+      "createdAt": "05.02.2024",
+      "type": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "CODE",
+          "code": "type Article = {\n  id: string;\n  title: string;\n  views: number;\n};"
+        },
+        {
+          "id": "2",
+          "type": "TEXT",
+          "title": "Преимущества типизации",
+          "paragraphs": [
+            "TypeScript снижает количество runtime-ошибок и упрощает рефакторинг в крупных кодовых базах."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "title": "Космическая экономика",
+      "subtitle": "Частные компании и орбитальный бизнес",
+      "img": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=800",
+      "views": 1984,
+      "createdAt": "19.02.2024",
+      "type": ["SCIENCE", "ECONOMICS"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Новая космическая гонка",
+          "paragraphs": [
+            "SpaceX, Blue Origin и другие компании формируют новую экономику вокруг запусков, спутников и космического туризма."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "title": "Edge Computing",
+      "subtitle": "Обработка данных ближе к пользователю",
+      "img": "https://images.unsplash.com/photo-1581092334394-66c68d54f51c?w=800",
+      "views": 733,
+      "createdAt": "03.03.2024",
+      "type": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Почему Edge важен",
+          "paragraphs": [
+            "Edge Computing снижает задержки и нагрузку на центральные серверы, особенно в IoT и real-time системах."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "title": "Поведенческая экономика",
+      "subtitle": "Как люди принимают решения",
+      "img": "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800",
+      "views": 1421,
+      "createdAt": "14.03.2024",
+      "type": ["ECONOMICS", "SCIENCE"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Иррациональность",
+          "paragraphs": [
+            "Поведенческая экономика изучает, почему реальные решения людей отклоняются от рациональных моделей."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "title": "CSS Grid vs Flexbox",
+      "subtitle": "Когда и что использовать",
+      "img": "https://images.unsplash.com/photo-1505685296765-3a2736de412f?w=800",
+      "views": 3674,
+      "createdAt": "29.03.2024",
+      "type": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Сравнение",
+          "paragraphs": [
+            "Grid предназначен для двумерных макетов, Flexbox — для одномерных. Понимание этого принципиально."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "title": "Нейроинтерфейсы",
+      "subtitle": "Связь мозга и компьютера",
+      "img": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800",
+      "views": 2240,
+      "createdAt": "11.04.2024",
+      "type": ["SCIENCE", "IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "BCI технологии",
+          "paragraphs": [
+            "Интерфейсы мозг–компьютер позволяют напрямую считывать нейронную активность и управлять устройствами."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "title": "Serverless архитектуры",
+      "subtitle": "Мифы и реальность",
+      "img": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800",
+      "views": 1199,
+      "createdAt": "26.04.2024",
+      "type": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "FaaS",
+          "paragraphs": [
+            "Serverless не означает отсутствие серверов, а лишь абстрагирование управления инфраструктурой."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "title": "Экономика данных",
+      "subtitle": "Данные как новый актив",
+      "img": "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800",
+      "views": 1783,
+      "createdAt": "10.05.2024",
+      "type": ["ECONOMICS", "IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Ценность данных",
+          "paragraphs": [
+            "Компании, умеющие извлекать ценность из данных, получают стратегическое преимущество."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "title": "AR и VR",
+      "subtitle": "Будущее интерфейсов",
+      "img": "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800",
+      "views": 2604,
+      "createdAt": "22.05.2024",
+      "type": ["IT", "SCIENCE"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Иммерсивные технологии",
+          "paragraphs": [
+            "AR и VR меняют подходы к обучению, развлечениям и удалённой работе."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "title": "Алгоритмическая торговля",
+      "subtitle": "Роботы на финансовых рынках",
+      "img": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800",
+      "views": 3412,
+      "createdAt": "07.06.2024",
+      "type": ["ECONOMICS", "IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "CODE",
+          "code": "def trade(signal):\n    if signal == 'buy':\n        return 'OPEN POSITION'\n    return 'HOLD'"
+        }
+      ]
     }
   ],
   "users": [

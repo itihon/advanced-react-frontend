@@ -41,7 +41,7 @@ const ArticlesPage: React.FC = () => {
 
     // @ts-expect-error damn redux
     dispatch(fetchArticleList());
-  }, [dispatch]);
+  }, [dispatch, previewStyle]);
 
   return (
     <DynamicModuleLoader reducers={reducers}>

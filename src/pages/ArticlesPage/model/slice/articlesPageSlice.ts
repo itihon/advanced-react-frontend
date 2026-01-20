@@ -26,6 +26,8 @@ const initialState: ArticlesPageSchema = {
   }
 };
 
+const getLimit = (previewStyle: ArticlePreviewStyle = ArticlePreviewStyle.TILES) => previewStyle === ArticlePreviewStyle.TILES ? 9 : 4;
+
 const articlesPageSlice = createSlice({
   name: 'articlesPageSlice',
   initialState,
@@ -43,13 +45,17 @@ const articlesPageSlice = createSlice({
     setPreviewStyle: (state, action: PayloadAction<ArticlePreviewStyle>) => {
       state.previewStyle = action.payload;
       localStorage.setItem(LOCAL_STORAGE_ARTICLE_PREVIEW_STYLE_KEY, action.payload);
+      state.limit = getLimit(action.payload);
     },
     initArticlesPage: (state) => {
+      const previewStyle = initialState.previewStyle;
+
       state.ids = initialState.ids;
       state.isLoading = initialState.isLoading;
       state.error = initialState.error;
       state.entities = initialState.entities;
-      state.previewStyle = initialState.previewStyle;
+      state.previewStyle = previewStyle;
+      state.limit = getLimit(previewStyle);
     },
   },
   extraReducers: (builder) => {

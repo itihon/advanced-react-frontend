@@ -1,14 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
+import { StateSchema, ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
 import i18n from 'i18next';
 import { Article } from 'entities/Article';
 import { routePath } from 'shared/config/routeCounfig/routeConfig';
+import getArticlesPageLimit from '../../selectors/getArticlesPageLimit';
 
-const fetchArticleList = createAsyncThunk<Article[], void, { extra: ThunkExtraArg, rejectValue: string}>(
+const fetchArticleList = createAsyncThunk<Article[], void, { extra: ThunkExtraArg, rejectValue: string, state: StateSchema}>(
   'ArticlesPage/fetchArticleList',
   async (_: void, thunkAPI) => {
+    const limit = getArticlesPageLimit(thunkAPI.getState());
+
     try {
-      const response = await thunkAPI.extra.api.get<Article[]>(routePath.articles);
+      const response = await thunkAPI.extra.api.get<Article[]>(`${routePath.articles}?_limit=${limit}`);
 
       return response.data;
     }
