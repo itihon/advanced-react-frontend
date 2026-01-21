@@ -1,12 +1,14 @@
 import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
 import { StateSchema, StoreWithManager } from './StateSchema';
 import { userReducer } from 'entities/User';
+import pageReducer from 'shared/ui/Page/model/slice/pageSlice';
 import createReducerManager from './reducerManager';
 import api from 'shared/api/api';
 
 export default function createReduxStore(initialState?: StateSchema) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     user: userReducer,
+    page: pageReducer,
   };
 
   const manager = createReducerManager(rootReducers);
@@ -18,6 +20,9 @@ export default function createReduxStore(initialState?: StateSchema) {
     // @ts-expect-error damn redux
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
       thunk: { extraArgument: { api } },
+      serializableCheck: {
+        ignoredActions: ['Page/restoreScrollPosition'],
+      },
     }),
   });
 

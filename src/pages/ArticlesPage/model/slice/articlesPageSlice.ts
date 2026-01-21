@@ -54,13 +54,10 @@ const articlesPageSlice = createSlice({
     initArticlesPage: (state) => {
       const previewStyle = initialState.previewStyle;
 
-      state.ids = initialState.ids;
       state.isLoading = initialState.isLoading;
       state.error = initialState.error;
-      state.entities = initialState.entities;
       state.previewStyle = previewStyle;
       state.limit = getLimit(previewStyle);
-      state.currentPage = 1;
     },
   },
   extraReducers: (builder) => {

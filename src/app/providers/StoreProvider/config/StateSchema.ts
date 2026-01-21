@@ -8,9 +8,11 @@ import { AxiosInstance } from "node_modules/axios";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
 import { AddCommentSchema } from "features/AddComment";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
+import PageSchema from "shared/ui/Page/model/types/PageSchema";
 
 export interface StateSchema {
   user: UserSchema;
+  page: PageSchema;
 
   // async reducers
   loginForm?: LoginSchema;

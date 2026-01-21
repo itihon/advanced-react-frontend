@@ -1,5 +1,5 @@
 import { ArticlePreviewStyle } from 'entities/Article';
-import React, { useEffect } from 'react';
+import React, { useEffect, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppButton, AppText, Page } from 'shared/ui';
 import ArticleList from 'widgets/ArticleList';
@@ -22,9 +22,7 @@ const reducers: ReducerList = {
 
 const ArticlesPage: React.FC = () => {
   const { t } = useTranslation('articles-page');
-
   const dispatch = useDispatch<AppDispatch>();
-
   const articles = useSelector(getArticles.selectAll);
   const error = useSelector(getArticlesPageError);
   const isLoading = useSelector(getArticlesPageIsLoaing);
@@ -32,22 +30,22 @@ const ArticlesPage: React.FC = () => {
   const currentPage = useSelector(getArticlesPageCurrentPage) || 1;
   const hasMore = useSelector(getArticlesPageHasMore);
 
-  const onPreviewStyleClick = () => {
+  const onPreviewStyleClick = useCallback(() => {
     dispatch(setPreviewStyle(
       previewStyle === ArticlePreviewStyle.LIST_ITEMS 
         ? ArticlePreviewStyle.TILES 
         : ArticlePreviewStyle.LIST_ITEMS
     ));
-  };
+  }, [dispatch, previewStyle]);
 
-  const onLoadNextPart = () => {
+  const onLoadNextPart = useCallback(() => {
     if (hasMore && !isLoading) {
       dispatch(setCurrentPage(currentPage + 1));
 
       // @ts-expect-error damn redux
       dispatch(fetchArticleList());
     }
-  };
+  }, [currentPage, dispatch, hasMore, isLoading]);
 
   useEffect(() => {
     dispatch(initArticlesPage());
@@ -57,8 +55,8 @@ const ArticlesPage: React.FC = () => {
   }, [dispatch, previewStyle]);
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
-      <Page onScrollEnd={onLoadNextPart}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+      <Page onScrollEnd={onLoadNextPart} scrollRestore={true} scrollRestoreDelay={1000}>
         {
           error
             ? <AppText theme={TextTheme.ERROR}>{error}</AppText>
@@ -73,4 +71,4 @@ const ArticlesPage: React.FC = () => {
   );
 };
 
-export default ArticlesPage;
+export default memo(ArticlesPage);
