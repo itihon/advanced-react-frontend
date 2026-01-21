@@ -1,7 +1,8 @@
 import { ArticlePreviewStyle } from 'entities/Article';
 import React, { useEffect, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppButton, AppText, Page } from 'shared/ui';
+import { AppButton, AppText } from 'shared/ui';
+import { Page } from 'widgets/Page';
 import ArticleList from 'widgets/ArticleList';
 import classes from './ArticlesPage.module.scss';
 import DynamicModuleLoader, { ReducerList } from 'shared/lib/components/DynamicModuleLoader';

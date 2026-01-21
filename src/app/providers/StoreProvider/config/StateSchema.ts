@@ -8,7 +8,7 @@ import { AxiosInstance } from "node_modules/axios";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
 import { AddCommentSchema } from "features/AddComment";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
-import PageSchema from "shared/ui/Page/model/types/PageSchema";
+import { PageSchema } from "widgets/Page";
 
 export interface StateSchema {
   user: UserSchema;

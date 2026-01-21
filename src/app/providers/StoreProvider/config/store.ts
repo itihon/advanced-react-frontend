@@ -1,7 +1,7 @@
 import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
 import { StateSchema, StoreWithManager } from './StateSchema';
 import { userReducer } from 'entities/User';
-import pageReducer from 'shared/ui/Page/model/slice/pageSlice';
+import { pageReducer } from 'widgets/Page';
 import createReducerManager from './reducerManager';
 import api from 'shared/api/api';
 

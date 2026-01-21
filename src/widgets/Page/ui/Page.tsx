@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import classes from './Page.module.scss';
 import useInfiniteScroll from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
-import { restoreScrollPosition, saveScrollPosition } from './model/slice/pageSlice';
+import { restoreScrollPosition, saveScrollPosition } from '../model/slice/pageSlice';
 
 interface PageProps {
   children?: React.ReactNode; 
