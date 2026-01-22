@@ -1,5 +1,5 @@
 import { ArticlePreviewStyle, ArticleType } from 'entities/Article';
-import React, { useEffect, memo, useCallback, ChangeEvent } from 'react';
+import React, { useEffect, memo, useCallback, ChangeEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppButton, AppSelect, AppText } from 'shared/ui';
 import { Page } from 'widgets/Page';
@@ -21,6 +21,7 @@ import { ArticleSortType } from '../model/types/ArticlesPageSchema';
 import getArticlesPageFilter from '../model/selectors/getArticlesPageFilter';
 import getArticlesPageSort from '../model/selectors/getArticlesPageSort';
 import getArticlesPageSearch from '../model/selectors/getArticlesPageSearch';
+import useDebounce from 'shared/lib/hooks/useDebounce/useDebounce';
 
 const reducers: ReducerList = {
   articlesPage: articlesPageReducer, 
@@ -38,6 +39,7 @@ const ArticlesPage: React.FC = () => {
   const filter = useSelector(getArticlesPageFilter);
   const sort = useSelector(getArticlesPageSort);
   const search = useSelector(getArticlesPageSearch);
+  const [searchValue, setSearchValue] = useState(search);
 
   const onSortTypeSelect = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
     dispatch(setSortingType(e.target.value as ArticleSortType));
@@ -48,9 +50,15 @@ const ArticlesPage: React.FC = () => {
     dispatch(setFilteringType(value === filter ? '' : value));
   }, [dispatch, filter]);
 
-  const onSearchQueryChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setSearchQuery((e.target as HTMLInputElement).value));
-  }, [dispatch]);
+  const setSearchQueryDebounced = useDebounce((e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setSearchQuery(e.target.value));
+  }, 3000);
+
+  const onSearchInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value);
+    setSearchQueryDebounced(e);
+  }, [setSearchQueryDebounced]);
+
 
   const onPreviewStyleClick = useCallback(() => {
     dispatch(setPreviewStyle(
@@ -96,7 +104,7 @@ const ArticlesPage: React.FC = () => {
                         .map((articleType, idx) => <AppButton pushed={articleType === filter} value={articleType} size='size-l' key={idx} onClick={onFilterTypeSelect}>{articleType}</AppButton>)
                     }
                   </div>
-                  <Search placeholder={t('search')} value={search} onChange={onSearchQueryChange} />
+                  <Search placeholder={t('search')} value={searchValue} onChange={onSearchInput} />
                   <AppButton size='size-l' onClick={onPreviewStyleClick}>{ previewStyle === ArticlePreviewStyle.LIST_ITEMS ? '🪟' : '≡' }</AppButton>
                 </div>
                 <ArticleList isLoading={isLoading} previewStyle={previewStyle} items={articles}/>
