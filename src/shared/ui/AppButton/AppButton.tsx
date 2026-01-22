@@ -5,17 +5,19 @@ import classNames from 'classnames';
 export interface AppButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean;
   size?: 'size-m' | 'size-l';
+  pushed?: boolean;
 }
 
-const AppButton: React.FC<AppButtonProps> = ({ onClick, children, className, square, size, disabled }) => {
+const AppButton: React.FC<AppButtonProps> = ({ onClick, children, className, square, size, disabled, value, pushed }) => {
   return (
     <button 
+      value={value}
       className={
         classNames(
           classes.AppButton, 
           className, 
           classes[size || 'size-m'], 
-          { [classes.square]: square },
+          { [classes.square]: square, [classes.pushed]: pushed },
         )
       } 
       onClick={onClick}

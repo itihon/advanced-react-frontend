@@ -45,6 +45,26 @@ export const SquareMedium: Story = {
   decorators: [ThemeDecorator],
 };
 
+export const SquareLargePushed: Story = {
+  args: {
+    square: true,
+    size: 'size-l',
+    children: '☰',
+    pushed: true,
+  },
+  decorators: [ThemeDecorator],
+};
+
+export const SquareMediumPushed: Story = {
+  args: {
+    square: true,
+    size: 'size-m',
+    children: '☰',
+    pushed: true,
+  },
+  decorators: [ThemeDecorator],
+};
+
 export const Large: Story = {
   args: {
     size: 'size-l',
@@ -57,6 +77,24 @@ export const Medium: Story = {
   args: {
     size: 'size-m',
     children: 'Text',
+  },
+  decorators: [ThemeDecorator],
+};
+
+export const LargePushed: Story = {
+  args: {
+    size: 'size-l',
+    children: 'Text',
+    pushed: true,
+  },
+  decorators: [ThemeDecorator],
+};
+
+export const MediumPushed: Story = {
+  args: {
+    size: 'size-m',
+    children: 'Text',
+    pushed: true,
   },
   decorators: [ThemeDecorator],
 };
@@ -81,6 +119,28 @@ export const SquareMediumDark: Story = {
   parameters: { theme: Themes.DARK },
 };
 
+export const SquareLargeDarkPushed: Story = {
+  args: {
+    square: true,
+    size: 'size-l',
+    children: '☰',
+    pushed: true,
+  },
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
+
+export const SquareMediumDarkPushed: Story = {
+  args: {
+    square: true,
+    size: 'size-m',
+    children: '☰',
+    pushed: true,
+  },
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
+
 export const LargeDark: Story = {
   args: {
     size: 'size-l',
@@ -94,6 +154,26 @@ export const MediumDark: Story = {
   args: {
     size: 'size-m',
     children: 'Text',
+  },
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
+
+export const LargeDarkPushed: Story = {
+  args: {
+    size: 'size-l',
+    children: 'Text',
+    pushed: true,
+  },
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
+
+export const MediumDarkPushed: Story = {
+  args: {
+    size: 'size-m',
+    children: 'Text',
+    pushed: true,
   },
   decorators: [ThemeDecorator],
   parameters: { theme: Themes.DARK },

@@ -5,6 +5,12 @@
   background-color: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
   min-width: fit-content;
+
+  &.pushed {
+    filter: brightness(.7);
+    transform: scale(.98);
+    border: 1px solid var(--bg-color);
+  }
 }
 
 .AppButton:not(.square).size-l {
