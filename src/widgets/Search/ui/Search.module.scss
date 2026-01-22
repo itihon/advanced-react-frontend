@@ -1,0 +1,23 @@
+.Search {
+  position: relative;
+
+  &:has(input:placeholder-shown)::after {
+    content: '🔍';
+    display: flex;
+    padding-inline: 4px;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+  }
+
+  & > input {
+    border: .5px solid var(--inverted-primary-color);
+    border-radius: 8px;
+    height: 32px;
+    padding-inline: 4px;
+    background: linear-gradient(90deg, var(--bg-color) 80%, rgb(203, 240, 255));
+    color: var(--inverted-bg-color);
+  }
+}

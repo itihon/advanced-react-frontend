@@ -3,5 +3,11 @@
   "error-fetching-article": "Ошибка при загрузке статьи. Попробуйте позже.",
   "comments": "Комментарии",
   "back-to-articles": "Назад к статьям",
-  "read-more": "Читать далее"
+  "read-more": "Читать далее",
+  "search": "Поиск",
+  "sort-by": "Сортировать по:",
+  "createdAtAsc": "дате ⬆",
+  "createdAtDesc": "дате ⬇",
+  "viewsAsc": "просмотрам ⬆",
+  "viewsDesc": "просмотрам ⬇"
 }

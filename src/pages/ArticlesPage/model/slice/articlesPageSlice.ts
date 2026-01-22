@@ -5,8 +5,8 @@ import {
   PayloadAction,
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
-import { Article, ArticlePreviewStyle } from 'entities/Article';
-import ArticlesPageSchema from '../types/ArticlesPageSchema';
+import { Article, ArticlePreviewStyle, ArticleType } from 'entities/Article';
+import ArticlesPageSchema, { ArticleSortType } from '../types/ArticlesPageSchema';
 import fetchArticleList from '../services/fetchArticleList/fetchArticleList';
 
 const articlesAdapter = createEntityAdapter<Article, EntityId>({
@@ -25,6 +25,7 @@ const initialState: ArticlesPageSchema = {
     return localStorage.getItem(LOCAL_STORAGE_ARTICLE_PREVIEW_STYLE_KEY) as ArticlePreviewStyle || ArticlePreviewStyle.LIST_ITEMS;
   },
   currentPage: 1,
+  sort: ArticleSortType.CREATED_AT_ASC,
 };
 
 const getLimit = (previewStyle: ArticlePreviewStyle = ArticlePreviewStyle.TILES) => previewStyle === ArticlePreviewStyle.TILES ? 9 : 4;
@@ -42,6 +43,24 @@ const articlesPageSlice = createSlice({
     },
     setIsLoading: (state, action) => {
       state.isLoading = action.payload;
+    },
+    setSortingType: (state, action: PayloadAction<ArticleSortType>) => {
+      state.currentPage = 1;
+      state.sort = action.payload;
+      state.ids = initialState.ids;
+      state.entities = initialState.entities;
+    },
+    setFilteringType: (state, action: PayloadAction<ArticleType | ''>) => {
+      state.currentPage = 1;
+      state.filter = action.payload;
+      state.ids = initialState.ids;
+      state.entities = initialState.entities;
+    },
+    setSearchQuery: (state, action: PayloadAction<string>) => {
+      state.currentPage = 1;
+      state.search = action.payload;
+      state.ids = initialState.ids;
+      state.entities = initialState.entities;
     },
     setPreviewStyle: (state, action: PayloadAction<ArticlePreviewStyle>) => {
       state.previewStyle = action.payload;
@@ -82,6 +101,16 @@ export const getArticles = articlesAdapter.getSelectors<StateSchema>(
   (state: StateSchema) => state.articlesPage || articlesAdapter.getInitialState(),
 );
 
-export const { ArticleAdded, ArticlesReceived, setIsLoading, setPreviewStyle, setCurrentPage, initArticlesPage } = articlesPageSlice.actions;
+export const { 
+  ArticleAdded, 
+  ArticlesReceived, 
+  setIsLoading, 
+  setFilteringType,
+  setSortingType,
+  setSearchQuery,
+  setPreviewStyle, 
+  setCurrentPage, 
+  initArticlesPage,
+} = articlesPageSlice.actions;
 
 export default articlesPageSlice.reducer;

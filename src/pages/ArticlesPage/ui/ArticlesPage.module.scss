@@ -1,4 +1,24 @@
 .ArticlesPage {
   max-width: var(--page-content-max-width);
   margin: 0 auto;
+
+  .panel {
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: sticky;
+    top: calc(var(--page-wrapper-padding) * -1);
+    margin-bottom: var(--page-wrapper-padding);
+
+    background-color: rgba(var(--inverted-bg-color-values), .8);
+    backdrop-filter: blur(8px);
+    z-index: 2;
+  }
+
+  .tags {
+    display: flex;
+    gap: 4px;
+  }
 }

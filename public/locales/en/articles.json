@@ -3,5 +3,11 @@
   "error-fetching-article": "Error while fetching the article. Try again later.",
   "comments": "Comments",
   "back-to-articles": "Back to articles",
-  "read-more": "Read more"
+  "read-more": "Read more",
+  "search": "Search",
+  "sort-by": "Sort by:",
+  "createdAtAsc": "date ⬆",
+  "createdAtDesc": "date ⬇",
+  "viewsAsc": "views ⬆",
+  "viewsDesc": "views ⬇"
 }
