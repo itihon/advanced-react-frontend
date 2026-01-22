@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import classNames from 'classnames';
 import classes from './AppSelect.module.scss';
 
 interface AppSelectProps {
@@ -8,11 +9,12 @@ interface AppSelectProps {
   onChange: React.ChangeEventHandler<HTMLSelectElement>;
   options?: Record<string, string | number>;
   selectedOption?: string;
+  align?: 'column' | 'row';
 }
 
-const AppSelect: React.FC<AppSelectProps> = ({ label, name, onChange, readOnly, options = {}, selectedOption }) => {
+const AppSelect: React.FC<AppSelectProps> = ({ label, name, onChange, readOnly, options = {}, selectedOption, align = 'column' }) => {
   return (
-    <div className={classes.AppSelect}>
+    <div className={classNames(classes.AppSelect, classes[align])}>
       <label className={classes.label} htmlFor={name}>{label}</label>
       <select disabled={readOnly} className={classes.select} onChange={onChange} name={name} id={name} value={selectedOption}>
         {

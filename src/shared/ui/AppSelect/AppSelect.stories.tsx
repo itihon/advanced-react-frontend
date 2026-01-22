@@ -48,3 +48,45 @@ export const DarkSelect: Story = {
   decorators: [ThemeDecorator],
   parameters: { theme: Themes.DARK },
 };
+
+export const LightSelectColumn: Story = {
+  args: {
+    options,
+    onChange: () => {},
+    align: 'column',
+    label: 'Select',
+  },
+  decorators: [ThemeDecorator],
+};
+
+export const DarkSelectColumn: Story = {
+  args: {
+    options,
+    onChange: () => {},
+    align: 'column',
+    label: 'Select',
+  },
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
+
+export const LightSelectRow: Story = {
+  args: {
+    options,
+    onChange: () => {},
+    align: 'row',
+    label: 'Select',
+  },
+  decorators: [ThemeDecorator],
+};
+
+export const DarkSelectRow: Story = {
+  args: {
+    options,
+    onChange: () => {},
+    align: 'row',
+    label: 'Select',
+  },
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
