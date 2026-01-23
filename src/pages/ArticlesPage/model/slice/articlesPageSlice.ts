@@ -26,6 +26,7 @@ const initialState: ArticlesPageSchema = {
   },
   currentPage: 1,
   sort: ArticleSortType.CREATED_AT_ASC,
+  limit: 4,
 };
 
 const getLimit = (previewStyle: ArticlePreviewStyle = ArticlePreviewStyle.TILES) => previewStyle === ArticlePreviewStyle.TILES ? 9 : 4;
@@ -88,7 +89,7 @@ const articlesPageSlice = createSlice({
       state.error = undefined;
       state.isLoading = false;
       articlesAdapter.addMany(state, action.payload);
-      state.hasMore = !!action.payload.length;
+      state.hasMore = !(action.payload.length < state.limit);
     });
     builder.addCase(fetchArticleList.rejected, (state, action) => {
       state.isLoading = false;

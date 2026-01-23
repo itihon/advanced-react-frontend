@@ -14,7 +14,7 @@ export default interface ArticlesPageSchema extends EntityState<Article, EntityI
   previewStyle?: ArticlePreviewStyle;
 
   // pagination
-  limit?: number;
+  limit: number;
   currentPage?: number;
   hasMore?: boolean;
 
