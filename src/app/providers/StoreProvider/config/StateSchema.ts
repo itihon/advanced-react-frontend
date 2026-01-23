@@ -5,7 +5,7 @@ import { ArticleDetailsSchema } from "entities/Article";
 import { Action, Reducer, ReducersMapObject } from "redux";
 import type { EnhancedStore, UnknownAction, Tuple, StoreEnhancer, ThunkDispatch } from "@reduxjs/toolkit";
 import { AxiosInstance } from "node_modules/axios";
-import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
+import { ArticleDetailsCommentsSchema, ArticleDetailsRecommendationsSchema } from "pages/ArticleDetailsPage";
 import { AddCommentSchema } from "features/AddComment";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { PageSchema } from "widgets/Page";
@@ -21,6 +21,7 @@ export interface StateSchema {
   articleComments?: ArticleDetailsCommentsSchema;
   addComment?: AddCommentSchema;
   articlesPage?: ArticlesPageSchema;
+  articleRecommendations?: ArticleDetailsRecommendationsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

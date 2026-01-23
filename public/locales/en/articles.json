@@ -3,6 +3,7 @@
   "articles-not-found": "Articles not found.",
   "error-fetching-article": "Error while fetching the article. Try again later.",
   "comments": "Comments",
+  "recommendations": "Also read",
   "back-to-articles": "Back to articles",
   "read-more": "Read more",
   "search": "Search",
