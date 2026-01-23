@@ -52,4 +52,5 @@ export interface ArticlePreview extends Article {
 export enum ArticlePreviewStyle {
   TILES = 'tiles',
   LIST_ITEMS = 'list-items',
+  ROW = 'row',
 }

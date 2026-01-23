@@ -58,6 +58,14 @@
   }
 }
 
+.ArticleCard.row {
+  width: var(--item-width);
+  max-width: 300px;
+  .img {
+    height: 120px;
+  }
+}
+
 .ArticleCard.tiles {
   width: var(--item-width);
   max-width: 300px;

@@ -75,9 +75,26 @@ export const LightArticleListTilesShortTitle: Story = {
   decorators: [ThemeDecorator],
 };
 
+export const LightArticleListRowShortTitle: Story = {
+  args: {
+    previewStyle: ArticlePreviewStyle.ROW,
+    items: itemsShortTitle,
+  },
+  decorators: [ThemeDecorator],
+};
+
 export const DarkArticleListTilesMediumTitle = {
   args: {
     previewStyle: ArticlePreviewStyle.TILES,
+    items: itemsMediumTitle,
+  },
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
+
+export const DarkArticleListRowMediumTitle = {
+  args: {
+    previewStyle: ArticlePreviewStyle.ROW,
     items: itemsMediumTitle,
   },
   decorators: [ThemeDecorator],
@@ -105,18 +122,39 @@ export const DarkArticleListTilesMixedTitle = {
   parameters: { theme: Themes.DARK },
 };
 
-export const LightArticleListListItems: Story = {
+export const DarkArticleListRowMixedTitle = {
+  args: {
+    previewStyle: ArticlePreviewStyle.ROW,
+    items: [
+      ...itemsShortTitle,
+      ...itemsMediumTitle,
+      ...itemsLongTitle,
+    ].sort((a, b) => a.id > b.id ? 1 : -1),
+  },
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
+
+export const LightArticleListListItemsMixedTitle: Story = {
   args: {
     previewStyle: ArticlePreviewStyle.LIST_ITEMS,
-    items: itemsMediumTitle,
+    items: [
+      ...itemsShortTitle,
+      ...itemsMediumTitle,
+      ...itemsLongTitle,
+    ].sort((a, b) => a.id > b.id ? 1 : -1),
   },
   decorators: [ThemeDecorator],
 };
 
-export const DarkArticleListListItems = {
+export const DarkArticleListListItemsMixedTitle = {
   args: {
     previewStyle: ArticlePreviewStyle.LIST_ITEMS,
-    items: itemsMediumTitle,
+    items: [
+      ...itemsShortTitle,
+      ...itemsMediumTitle,
+      ...itemsLongTitle,
+    ].sort((a, b) => a.id > b.id ? 1 : -1),
   },
   decorators: [ThemeDecorator],
   parameters: { theme: Themes.DARK },
@@ -150,6 +188,23 @@ export const LightLoadingArticleListListItems: Story = {
 export const DarkLoadingArticleListListItems = {
   args: {
     previewStyle: ArticlePreviewStyle.LIST_ITEMS,
+    isLoading: true,
+  },
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
+
+export const LightLoadingArticleListRow: Story = {
+  args: {
+    previewStyle: ArticlePreviewStyle.ROW,
+    isLoading: true,
+  },
+  decorators: [ThemeDecorator],
+};
+
+export const DarkLoadingArticleListRow = {
+  args: {
+    previewStyle: ArticlePreviewStyle.ROW,
     isLoading: true,
   },
   decorators: [ThemeDecorator],

@@ -64,3 +64,20 @@ export const DarkArticleCardListItem = {
   decorators: [ThemeDecorator],
   parameters: { theme: Themes.DARK },
 };
+
+export const LightArticleCardRow: Story = {
+  args: {
+    ...args,
+    previewStyle: ArticlePreviewStyle.ROW,
+  },
+  decorators: [ThemeDecorator],
+};
+
+export const DarkArticleCardRow = {
+  args: {
+    ...args,
+    previewStyle: ArticlePreviewStyle.ROW,
+  },
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
