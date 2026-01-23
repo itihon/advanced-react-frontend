@@ -138,7 +138,11 @@ const ArticlesPage: React.FC = () => {
                   <Search placeholder={t('search')} value={searchValue} onChange={onSearchInput} />
                   <AppButton size='size-l' onClick={onPreviewStyleClick}>{ previewStyle === ArticlePreviewStyle.LIST_ITEMS ? '🪟' : '≡' }</AppButton>
                 </div>
-                <ArticleList isLoading={isLoading} previewStyle={previewStyle} items={articles}/>
+                {
+                  articles.length
+                    ? <ArticleList isLoading={isLoading} previewStyle={previewStyle} items={articles}/>
+                    : <AppText>{t('articles-not-found')}</AppText>
+                }
               </div>
         }
       </Page>
