@@ -9,5 +9,8 @@
   "createdAtAsc": "date ⬆",
   "createdAtDesc": "date ⬇",
   "viewsAsc": "views ⬆",
-  "viewsDesc": "views ⬇"
+  "viewsDesc": "views ⬇",
+  "ECONOMICS": "Economics",
+  "IT": "IT",
+  "SCIENCE": "Science"
 }

@@ -9,5 +9,8 @@
   "createdAtAsc": "дате ⬆",
   "createdAtDesc": "дате ⬇",
   "viewsAsc": "просмотрам ⬆",
-  "viewsDesc": "просмотрам ⬇"
+  "viewsDesc": "просмотрам ⬇",
+  "ECONOMICS": "Экономика",
+  "IT": "Информационные технологии",
+  "SCIENCE": "Наука"
 }

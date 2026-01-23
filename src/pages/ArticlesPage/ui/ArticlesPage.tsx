@@ -132,7 +132,7 @@ const ArticlesPage: React.FC = () => {
                     {
                       Object
                         .values(ArticleType)
-                        .map((articleType, idx) => <AppButton pushed={articleType === filter} value={articleType} size='size-l' key={idx} onClick={onFilterTypeSelect}>{articleType}</AppButton>)
+                        .map((articleType, idx) => <AppButton pushed={articleType === filter} value={articleType} size='size-l' key={idx} onClick={onFilterTypeSelect}>{t(articleType)}</AppButton>)
                     }
                   </div>
                   <Search placeholder={t('search')} value={searchValue} onChange={onSearchInput} />

@@ -51,7 +51,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ id, createdAt, img, title, ty
       }
       {
         type
-          .map((type, idx) => <AppText className={classes.tag} key={idx}>{type}</AppText>)
+          .map((type, idx) => <AppText className={classes.tag} key={idx}>{t(type)}</AppText>)
       }
       {
         isList && <AppLink className={classes.more} to={`${routePath.article_details}${id}`}>{t('read-more')}</AppLink>
