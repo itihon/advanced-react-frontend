@@ -41,8 +41,8 @@ const ArticlesPage: React.FC = () => {
   const filter = useSelector(getArticlesPageFilter);
   const sort = useSelector(getArticlesPageSort);
   const search = useSelector(getArticlesPageSearch);
-  const [searchValue, setSearchValue] = useState(search);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [searchValue, setSearchValue] = useState(searchParams.get('_search') || '');
 
   const onSortTypeSelect = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
     dispatch(setSortingType(e.target.value as ArticleSortType));
@@ -95,7 +95,6 @@ const ArticlesPage: React.FC = () => {
     const _filter = searchParams.get('_filter') || '';
     const _sort = searchParams.get('_sort') || '';
     const _search = searchParams.get('_search') || '';
-
 
     if (_filter) {
       dispatch(setFilteringType(_filter as ArticleType));
