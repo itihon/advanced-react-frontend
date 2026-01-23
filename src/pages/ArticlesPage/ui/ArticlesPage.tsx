@@ -1,5 +1,6 @@
 import { ArticlePreviewStyle, ArticleType } from 'entities/Article';
 import React, { useEffect, memo, useCallback, ChangeEvent, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { AppButton, AppSelect, AppText } from 'shared/ui';
 import { Page } from 'widgets/Page';
@@ -22,6 +23,7 @@ import getArticlesPageFilter from '../model/selectors/getArticlesPageFilter';
 import getArticlesPageSort from '../model/selectors/getArticlesPageSort';
 import getArticlesPageSearch from '../model/selectors/getArticlesPageSearch';
 import useDebounce from 'shared/lib/hooks/useDebounce/useDebounce';
+import { routePath } from 'shared/config/routeCounfig/routeConfig';
 
 const reducers: ReducerList = {
   articlesPage: articlesPageReducer, 
@@ -40,25 +42,34 @@ const ArticlesPage: React.FC = () => {
   const sort = useSelector(getArticlesPageSort);
   const search = useSelector(getArticlesPageSearch);
   const [searchValue, setSearchValue] = useState(search);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const onSortTypeSelect = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
     dispatch(setSortingType(e.target.value as ArticleSortType));
-  }, [dispatch]);
+
+    setSearchParams({ ...Object.fromEntries(searchParams), _sort: e.target.value });
+    
+  }, [dispatch, setSearchParams, searchParams]);
 
   const onFilterTypeSelect = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     const value = (e.target as HTMLButtonElement).value as ArticleType;
-    dispatch(setFilteringType(value === filter ? '' : value));
-  }, [dispatch, filter]);
+    const filterValue = value === filter ? '' : value;
+
+    dispatch(setFilteringType(filterValue));
+
+    setSearchParams({ ...Object.fromEntries(searchParams), _filter: filterValue });
+  }, [dispatch, filter, setSearchParams, searchParams]);
 
   const setSearchQueryDebounced = useDebounce((e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearchQuery(e.target.value));
+
+    setSearchParams({ ...Object.fromEntries(searchParams), _search: e.target.value });
   }, 3000);
 
   const onSearchInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
     setSearchQueryDebounced(e);
   }, [setSearchQueryDebounced]);
-
 
   const onPreviewStyleClick = useCallback(() => {
     dispatch(setPreviewStyle(
@@ -79,6 +90,26 @@ const ArticlesPage: React.FC = () => {
 
   useEffect(() => {
     dispatch(initArticlesPage());
+
+    const searchParams = new URLSearchParams(location.search);
+    const _filter = searchParams.get('_filter') || '';
+    const _sort = searchParams.get('_sort') || '';
+    const _search = searchParams.get('_search') || '';
+
+
+    if (_filter) {
+      dispatch(setFilteringType(_filter as ArticleType));
+    }
+
+    if (_sort) {
+      dispatch(setSortingType(_sort as ArticleSortType));
+    }
+
+    if (_search) {
+      dispatch(setSearchQuery(_search));
+    }
+
+    history.replaceState(undefined, '', `${routePath.articles}?_filter=${filter || ''}&_sort=${sort || ''}&_search=${search || ''}`);
 
     // @ts-expect-error damn redux
     dispatch(fetchArticleList());
