@@ -9,6 +9,8 @@ type LangSwitcherProps = React.ButtonHTMLAttributes<React.PropsWithChildren>;
 const langIcons: Record<string, string> = {
   'en': '🇺🇲',
   'ru': '🇷🇺',
+  'en-US': '🇺🇲',
+  'ru-RU': '🇷🇺',
 };
 
 const LangSwitcher: React.FC<LangSwitcherProps> = ({className}) => {

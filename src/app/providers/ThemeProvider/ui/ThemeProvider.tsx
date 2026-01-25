@@ -9,7 +9,7 @@ interface ThemeProviderProps {
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Themes;
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, initialTheme }) => {
-  const [theme, setTheme] = useState<Themes>(initialTheme || defaultTheme)
+  const [theme, setTheme] = useState<Themes>(initialTheme || defaultTheme);
 
   const switchTheme = () => {
     const newTheme = theme === Themes.LIGHT ? Themes.DARK : Themes.LIGHT;

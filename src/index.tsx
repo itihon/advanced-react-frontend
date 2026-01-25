@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import App from 'app/App';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from 'app/providers/ThemeProvider';
+import { ThemeProvider, Themes } from 'app/providers/ThemeProvider';
 import 'shared/config/i18n/i18n';
 import { ErrorBoundary } from 'react-error-boundary';
 import PageError from 'widgets/PageError';
@@ -13,7 +13,7 @@ const root = createRoot(appContainer);
 root.render(
   <BrowserRouter>
     <StoreProvider>
-      <ThemeProvider>
+      <ThemeProvider initialTheme={Themes.LIGHT}>
         <ErrorBoundary fallback={<PageError />}>
           <App />
         </ErrorBoundary>
