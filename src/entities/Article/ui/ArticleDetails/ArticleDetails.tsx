@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
 import fetchArticleById from '../../model/services/fetchArticleById/fetchArticleById';
 import getArticleDetails from '../../model/selectors/getArticleDetails';
-import { AppText, Skeleton } from 'shared/ui';
+import { AppImg, AppText, Skeleton } from 'shared/ui';
 import { ArticleBlockType } from 'entities/Article/model/types/article';
 import ArticleCodeBlockComponent from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import ArticleTextBlockComponent from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -59,7 +59,7 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = ({ id }) => {
               <AppText>{`👁️ ${articleDetails?.data?.views}`}</AppText>
             </div>
             <h1>{articleDetails?.data?.title}</h1>
-            <img className={classes.img} src={articleDetails?.data?.img} />
+            <AppImg className={classes.img} src={articleDetails?.data?.img} />
             <h2>{articleDetails?.data?.subtitle}</h2>
             {
               articleDetails?.data?.blocks?.map((block, idx) => {
