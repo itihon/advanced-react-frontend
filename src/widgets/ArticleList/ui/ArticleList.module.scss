@@ -26,25 +26,3 @@
   overflow-x: auto;
   justify-content: start;
 }
-
-/* Scrollbar styling */
-
-.ArticleList {
-  /* Firefox */
-  scrollbar-width: 16px;
-  scrollbar-color: var(--inverted-bg-color) var(--bg-color);
-}
-
-.ArticleList::-webkit-scrollbar {
-  /* Chrome, Safari, Edge */
-  width: 16px;
-  height: 16px;
-}
-
-.ArticleList::-webkit-scrollbar-thumb {
-  background-color: var(--inverted-bg-color);
-}
-
-.ArticleList::-webkit-scrollbar-track {
-  background-color: var(--bg-color);
-}

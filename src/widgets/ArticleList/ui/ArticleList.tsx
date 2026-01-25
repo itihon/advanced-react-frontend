@@ -11,7 +11,7 @@ interface ArticleListProps {
 
 const ArticleList: React.FC<ArticleListProps> = ({ items = [], previewStyle = ArticlePreviewStyle.LIST_ITEMS, isLoading }) => {
   return (
-    <div className={classNames(classes.ArticleList, classes[previewStyle])}>
+    <div className={classNames(classes.ArticleList, classes[previewStyle], 'scrollable')}>
       {
         items
           .map((item, idx) => <ArticleCard {...item} previewStyle={previewStyle} key={idx} />)

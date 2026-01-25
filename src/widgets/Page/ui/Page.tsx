@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, memo, UIEvent, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import classNames from 'classnames';
 import classes from './Page.module.scss';
 import useInfiniteScroll from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
@@ -45,7 +46,7 @@ const Page: React.FC<PageProps> = ({ children, onScrollEnd, scrollRestore, scrol
   }, [dispatch, scrollRestore, pathname, scrollRestoreDelay]);
 
   return (
-    <section ref={scrollableRef} onScroll={onScroll} className={classes.Page}>
+    <section ref={scrollableRef} onScroll={onScroll} className={classNames(classes.Page, 'scrollable')}>
       {children}
       <div ref={triggerRef}></div>
     </section>
