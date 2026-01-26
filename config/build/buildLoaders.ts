@@ -12,7 +12,7 @@ export default function buildLoaders(options: Partial<BuildOptions>): RuleSetRul
   };
 
   const sassLoader: RuleSetRule = {
-    test: /\.s[ac]ss$/i,
+    test: /\.(sc|sa|c)ss$/i,
     use: [
       // "style-loader" creates `style` nodes from JS strings
       // MiniCssExtractPlugin.loader extracts css into a separate file
