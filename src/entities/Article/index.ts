@@ -5,5 +5,6 @@ export { default as articleDetailsReducer } from './model/slice/articleDetailsSl
 export { default as fetchArticleById } from './model/services/fetchArticleById/fetchArticleById';
 export { default as getArticleDetails } from './model/selectors/getArticleDetails';
 export { default as ArticleCard } from './ui/ArticleCard/ArticleCard';
+export { default as ArticleView } from './ui/ArticleView/ArticleView';
 export { default as ArticleCardSkeleton } from './ui/ArticleCard/ArticleCardSkeleton';
 export { ArticlePreview, ArticleType, ArticlePreviewStyle } from './model/types/article';

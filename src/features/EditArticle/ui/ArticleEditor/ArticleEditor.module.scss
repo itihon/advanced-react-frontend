@@ -1,0 +1,7 @@
+.ArticleEditor {
+  --article-editor-border-radius: 4px;
+
+  background-color: rgba(var(--inverted-bg-color-values), .1);
+  border-radius: var(--article-editor-border-radius);
+  margin: 32px 0;
+}

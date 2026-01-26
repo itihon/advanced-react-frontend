@@ -1,6 +1,7 @@
-import { ArticleDetails, ArticlePreviewStyle } from 'entities/Article';
+import { ArticleDetails, ArticleView, ArticlePreviewStyle, getArticleDetails, fetchArticleById } from 'entities/Article';
 import { useParams } from 'react-router-dom';
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useState } from 'react';
+import { renderToString } from 'react-dom/server';
 import { useTranslation } from 'react-i18next';
 import { AppLink, AppText } from 'shared/ui';
 import { Page } from 'widgets/Page';
@@ -22,6 +23,7 @@ import getAddCommentText from 'features/AddComment/model/selectors/getAddComment
 import ArticleList from 'widgets/ArticleList';
 import articleRecommendationsReducer, { getArticleRecommendations } from '../model/slice/articleDetailsRecommendationsSlice';
 import fetchRecommendationList from '../model/services/fetchRecommendationList/fetchRecommendationList';
+import { ArticleEditor } from 'features/EditArticle';
 
 const reducers: ReducerList = {
   articleComments: commentsReducer,
@@ -39,6 +41,9 @@ const ArticleDetailsPage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const authData = useSelector(getAuthenticatedUser);
   const commentText = useSelector(getAddCommentText);
+  const articleDetails = useSelector(getArticleDetails);
+  const isAuthor = articleDetails?.data?.authorId === authData?.id;
+  const [isEdit, setIsEdit] = useState(false);
 
   const onAddComment = async () => {
     if (id && commentText && authData) {
@@ -71,7 +76,18 @@ const ArticleDetailsPage: React.FC = () => {
     }
   };
 
+  const onEditArticle = (e: React.UIEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+
+    setIsEdit(true);
+  };
+
   useEffect(() => {
+    if (!articleDetails?.data) {
+      // @ts-expect-error damn redux
+      dispatch(fetchArticleById(id));
+    }
+
     if (id) {
       // @ts-expect-error damn redux
       dispatch(fetchCommentsByArticleId(id));
@@ -79,7 +95,7 @@ const ArticleDetailsPage: React.FC = () => {
 
     // @ts-expect-error damn redux
     dispatch(fetchRecommendationList());
-  }, [id, dispatch]);
+  }, [id, dispatch, articleDetails?.data]);
 
   if (!id) return (
     <AppText theme={TextTheme.ERROR}>{t('article-not-found')}</AppText>
@@ -88,25 +104,35 @@ const ArticleDetailsPage: React.FC = () => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <Page>
-        <AppLink className={classes.back} to={routePath.articles}>{`⬅ ${t('back-to-articles')}`}</AppLink>
-        <div className={classes.ArticleDetailsPage}>
-          <ArticleDetails id={id} />
-          {
-            recommendations.length && <>
-              <h2>{t('recommendations')}</h2>
-              <ArticleList items={recommendations} previewStyle={ArticlePreviewStyle.ROW} />
-            </> 
-          }
-          {
-            error
-              ? <AppText theme={TextTheme.ERROR} >{error}</AppText>
-              : <>
-                  <h2>{t('comments')}</h2>
-                  <CommentList isLoading={isLoading} comments={comments} />
-                  <AddCommentForm onSubmit={onAddComment} userName={authData?.username} userAvatar={authData?.avatar} userId={authData?.id} />
-                </>
-          }
-        </div>
+        {
+          isEdit
+            ? <ArticleEditor data={renderToString(<ArticleView data={articleDetails?.data} />)} />
+            : <>
+                <AppLink className={classes.back} to={routePath.articles}>{`⬅ ${t('back-to-articles')}`}</AppLink>
+                <div className={classes.ArticleDetailsPage}>
+                  { 
+                    isAuthor && <AppLink className={classes.edit} to={'#'} onClick={onEditArticle}>{`🖊 ${t('edit-article')}`}</AppLink> 
+                  }
+                  <ArticleDetails isLoading={articleDetails?.isLoading} error={articleDetails?.error} data={articleDetails?.data} />
+                  {
+                    recommendations.length && <>
+                      <h2>{t('recommendations')}</h2>
+                      <ArticleList items={recommendations} previewStyle={ArticlePreviewStyle.ROW} />
+                    </> 
+                  }
+                  {
+                    error
+                      ? <AppText theme={TextTheme.ERROR} >{error}</AppText>
+                      : <>
+                          <h2>{t('comments')}</h2>
+                          <CommentList isLoading={isLoading} comments={comments} />
+                          <AddCommentForm onSubmit={onAddComment} userName={authData?.username} userAvatar={authData?.avatar} userId={authData?.id} />
+                        </>
+                  }
+                </div>
+            </>
+
+        }
       </Page>
     </DynamicModuleLoader>
   );
