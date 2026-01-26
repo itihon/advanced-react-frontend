@@ -3,5 +3,6 @@
 
   background-color: rgba(var(--inverted-bg-color-values), .1);
   border-radius: var(--article-editor-border-radius);
-  margin: 32px 0;
+  max-width: var(--page-content-max-width);
+  margin: 0 auto;
 }

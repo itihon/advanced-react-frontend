@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-
+import React from 'react';
+import classNames from 'classnames';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import { 
   ClassicEditor, 
@@ -21,6 +21,14 @@ import {
   PictureEditing,
   Link,
   SimpleUploadAdapter,
+  Heading,
+  Code,
+  List,
+  TodoList,
+  BlockQuote,
+  Indent,
+  Alignment,
+  IndentBlock,
 } from 'ckeditor5';
 
 import 'ckeditor5/ckeditor5.css';
@@ -33,54 +41,64 @@ interface ArticleEditorProps {
 
 const ArticleEditor: React.FC<ArticleEditorProps> = ({ data }) => {
   return (
-		<CKEditor
-			editor={ ClassicEditor }
-			config={ {
-				licenseKey: 'GPL', // Or 'GPL'.
-				plugins: [ 
-          Essentials, 
-          Paragraph, 
-          Bold, 
-          Italic, 
-          CodeBlock, 
-          Image, 
-          ImageToolbar, 
-          ImageCaption, 
-          ImageStyle, 
-          ImageResize, 
-          ImageUpload, 
-          ImageInsert, 
-          AutoImage,
-          ImageTextAlternative,
-          PictureEditing,
-          LinkImage,
-          Link,
-          SimpleUploadAdapter,
-        ],
-				toolbar: [ 
-          'undo', 'redo',
-          '|',
-          'heading',
-          '|',
-          'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor',
-          '|',
-          'bold', 'italic', 'strikethrough', 'subscript', 'superscript', 'code',
-          '|',
-          'link', 'insertImage', 'blockQuote', 'codeBlock',
-          '|',
-          'bulletedList', 'numberedList', 'todoList', 'outdent', 'indent'
-        ],
-        image: {
-          toolbar: [
-            'imageTextAlternative', 'toggleImageCaption',
+    <div className={classNames(classes.ArticleEditor, 'ignore-reset')}>
+      <CKEditor
+        editor={ ClassicEditor }
+        config={ {
+          licenseKey: 'GPL', 
+          plugins: [ 
+            Essentials, 
+            Paragraph, 
+            Heading,
+            Bold, 
+            Italic, 
+            Alignment,
+            Code,
+            CodeBlock, 
+            Image, 
+            List,
+            TodoList,
+            BlockQuote,
+            Indent,
+            IndentBlock,
+            ImageToolbar, 
+            ImageCaption, 
+            ImageStyle, 
+            ImageResize, 
+            ImageUpload, 
+            ImageInsert, 
+            AutoImage,
+            ImageTextAlternative,
+            PictureEditing,
+            LinkImage,
+            Link,
+            SimpleUploadAdapter,
           ],
-        },
-        simpleUpload: {
-          uploadUrl: window.location.href,
-        },
-				initialData: data,
-			} }
-		/>
+          toolbar: [ 
+            'undo', 'redo',
+            '|',
+            'heading',
+            // '|',
+            // 'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor',
+            '|',
+            'bold', 'italic', 'alignment', 'code',// 'strikethrough', 'subscript', 'superscript',
+            '|',
+            'link', 'insertImage', 'blockQuote', 'codeBlock',
+            '|',
+            'bulletedList', 'numberedList', 'todoList', 'outdent', 'indent'
+          ],
+          image: {
+            toolbar: [
+              'imageTextAlternative', 'toggleImageCaption',
+            ],
+          },
+          simpleUpload: {
+            uploadUrl: window.location.href,
+          },
+          initialData: data,
+        } }
+      />
+    </div>
 	);
 };
 
