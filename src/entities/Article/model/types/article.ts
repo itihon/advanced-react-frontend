@@ -36,6 +36,7 @@ export enum ArticleType {
 
 export default interface Article {
   id: string;
+  authorId: string;
   title: string;
   subtitle: string;
   img: string;

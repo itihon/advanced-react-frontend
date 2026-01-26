@@ -26,6 +26,7 @@ type Story = StoryObj<typeof meta>;
 
 const args: ArticlePreview = {
   id: '1',
+  authorId: '1',
   createdAt: `01.05.2022`,
   img: '/assets/avatars/2-avatar.jpg',
   title: `Title of article #1. Read the whole article. Et perferendis nulla debitis tempora.`,

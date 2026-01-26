@@ -28,6 +28,7 @@ const itemsLongTitle: ArticlePreview[] = Array
   .from({ length: 9 })
   .map((_, idx) => ({
     id: idx.toString(),
+    authorId: '1',
     createdAt: `0${idx}.05.2022`,
     img: '/assets/avatars/2-avatar.jpg',
     title: `Title of article #${idx}. Read the whole article. Et perferendis nulla debitis tempora. Voluptas non commodi quia. Vel cupiditate illo et molestiae quae exercitationem impedit voluptatem facilis. Hic veritatis et et consequuntur totam sint at. Quo inventore similique quasi qui consequuntur non quibusdam. Sit voluptatem dolorem ut ea eum odit nemo ut.`,
@@ -42,6 +43,7 @@ const itemsMediumTitle: ArticlePreview[] = Array
   .from({ length: 9 })
   .map((_, idx) => ({
     id: idx.toString(),
+    authorId: '1',
     createdAt: `0${idx}.05.2022`,
     img: '/assets/avatars/2-avatar.jpg',
     title: `Title of article #${idx}. Read the whole article. Et perferendis nulla debitis tempora. Voluptas non commodi quia.`,
@@ -56,6 +58,7 @@ const itemsShortTitle: ArticlePreview[] = Array
   .from({ length: 9 })
   .map((_, idx) => ({
     id: idx.toString(),
+    authorId: '1',
     createdAt: `0${idx}.05.2022`,
     img: '/assets/avatars/2-avatar.jpg',
     title: `Title of article #${idx}.`,
