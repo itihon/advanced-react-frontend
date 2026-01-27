@@ -2,6 +2,7 @@ export { default as ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export { default as ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 export { default as Article } from './model/types/article';
 export { default as articleDetailsReducer } from './model/slice/articleDetailsSlice';
+export { setArticleContent } from './model/slice/articleDetailsSlice';
 export { default as fetchArticleById } from './model/services/fetchArticleById/fetchArticleById';
 export { default as getArticleDetails } from './model/selectors/getArticleDetails';
 export { default as ArticleCard } from './ui/ArticleCard/ArticleCard';

@@ -37,6 +37,7 @@ const itemsLongTitle: ArticlePreview[] = Array
     views: 128 * (idx + 1),
     subtitle: '',
     blocks: [],
+    content: '',
   }));
 
 const itemsMediumTitle: ArticlePreview[] = Array
@@ -52,6 +53,7 @@ const itemsMediumTitle: ArticlePreview[] = Array
     views: 128 * (idx + 1),
     subtitle: '',
     blocks: [],
+    content: '',
   }));
 
 const itemsShortTitle: ArticlePreview[] = Array
@@ -67,6 +69,7 @@ const itemsShortTitle: ArticlePreview[] = Array
     views: 128 * (idx + 1),
     subtitle: '',
     blocks: [],
+    content: '',
   }));
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args

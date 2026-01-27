@@ -35,6 +35,7 @@ const args: ArticlePreview = {
   views: 12812,
   subtitle: '',
   blocks: [],
+  content: '',
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args

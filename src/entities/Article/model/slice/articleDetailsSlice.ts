@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import Article from "../types/article";
 import ArticleDetailsSchema from "../types/articleDetailsSchema";
 import fetchArticleById from "../services/fetchArticleById/fetchArticleById";
 
@@ -12,6 +11,11 @@ const articleDetailsSlice = createSlice({
   name: "articleDetails",
   initialState,
   reducers: {
+    setArticleContent: (state, action: PayloadAction<string>) => {
+      if (state.data) {
+        state.data.content = action.payload;
+      }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchArticleById.pending, (state) => {
@@ -22,20 +26,17 @@ const articleDetailsSlice = createSlice({
       state.error = undefined;
       state.isLoading = false;
       state.data = action.payload;
-
-      console.log('fetchArticleById fulfilled:', action.payload);
     });
     builder.addCase(fetchArticleById.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
-
-      console.log('fetchArticleById rejected:', action.payload);
     });
   },
 });
 
 // Action creators are generated for each case reducer function
 export const { 
+  setArticleContent,
 } = articleDetailsSlice.actions;
 
 export default articleDetailsSlice.reducer;

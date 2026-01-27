@@ -44,6 +44,7 @@ export default interface Article {
   createdAt: string;
   type: ArticleType[];
   blocks: ArticleBlock[];
+  content: string;
 }
 
 export interface ArticlePreview extends Article {
