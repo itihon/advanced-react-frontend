@@ -83,6 +83,12 @@ const ArticleDetailsPage: React.FC = () => {
     setIsEdit(true);
   };
 
+  const onSaveArticle = (content?: string) => {
+    dispatch(setArticleContent(content || ''));
+    // @ts-expect-error damn redux
+    dispatch(updateArticle(id));
+  };
+
   useEffect(() => {
     if (!articleDetails?.data) {
       // @ts-expect-error damn redux
@@ -107,7 +113,7 @@ const ArticleDetailsPage: React.FC = () => {
       <Page>
         {
           isEdit
-            ? <ArticleEditor data={renderToString(<ArticleView data={articleDetails?.data} />)} />
+            ? <ArticleEditor data={renderToString(<ArticleView data={articleDetails?.data} />)} onSave={onSaveArticle} />
             : <>
                 <AppLink className={classes.back} to={routePath.articles}>{`⬅ ${t('back-to-articles')}`}</AppLink>
                 <div className={classes.ArticleDetailsPage}>

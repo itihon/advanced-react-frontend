@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import classNames from 'classnames';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import { 
@@ -37,12 +37,21 @@ import ImageUploadAdapterPlugin from '../../lib/ImageUploaderPlugin/ImageUploade
 
 interface ArticleEditorProps {
   data?: string; 
+  onSave?: (content?: string) => void;
 }
 
-const ArticleEditor: React.FC<ArticleEditorProps> = ({ data }) => {
+const ArticleEditor: React.FC<ArticleEditorProps> = ({ data, onSave = () => {} }) => {
+  const editorComponentRef = useRef<CKEditor<ClassicEditor>>(null);
+
+  const onSaveClick = () => {
+    onSave(editorComponentRef.current?.editor?.getData());
+  };
+
   return (
     <div className={classNames(classes.ArticleEditor, 'ignore-reset')}>
+      <button onClick={onSaveClick}>Save</button>
       <CKEditor
+        ref={editorComponentRef}
         editor={ ClassicEditor }
         config={ {
           licenseKey: 'GPL', 
