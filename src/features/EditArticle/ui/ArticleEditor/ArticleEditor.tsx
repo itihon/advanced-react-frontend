@@ -20,7 +20,6 @@ import {
   ImageTextAlternative,
   PictureEditing,
   Link,
-  SimpleUploadAdapter,
   Heading,
   Code,
   List,
@@ -34,6 +33,7 @@ import {
 import 'ckeditor5/ckeditor5.css';
 
 import classes from "./ArticleEditor.module.scss";
+import ImageUploadAdapterPlugin from '../../lib/ImageUploaderPlugin/ImageUploaderPlugin';
 
 interface ArticleEditorProps {
   data?: string; 
@@ -72,7 +72,7 @@ const ArticleEditor: React.FC<ArticleEditorProps> = ({ data }) => {
             PictureEditing,
             LinkImage,
             Link,
-            SimpleUploadAdapter,
+            ImageUploadAdapterPlugin,
           ],
           toolbar: [ 
             'undo', 'redo',
@@ -91,9 +91,6 @@ const ArticleEditor: React.FC<ArticleEditorProps> = ({ data }) => {
             toolbar: [
               'imageTextAlternative', 'toggleImageCaption',
             ],
-          },
-          simpleUpload: {
-            uploadUrl: window.location.href,
           },
           initialData: data,
         } }
