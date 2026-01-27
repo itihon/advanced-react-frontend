@@ -1,4 +1,4 @@
-import { ArticleDetails, ArticleView, ArticlePreviewStyle, getArticleDetails, fetchArticleById } from 'entities/Article';
+import { ArticleDetails, ArticleView, ArticlePreviewStyle, getArticleDetails, fetchArticleById, setArticleContent, articleDetailsReducer } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import React, { memo, useEffect, useState } from 'react';
 import { renderToString } from 'react-dom/server';
@@ -23,9 +23,10 @@ import getAddCommentText from 'features/AddComment/model/selectors/getAddComment
 import ArticleList from 'widgets/ArticleList';
 import articleRecommendationsReducer, { getArticleRecommendations } from '../model/slice/articleDetailsRecommendationsSlice';
 import fetchRecommendationList from '../model/services/fetchRecommendationList/fetchRecommendationList';
-import { ArticleEditor } from 'features/EditArticle';
+import { ArticleEditor, updateArticle } from 'features/EditArticle';
 
 const reducers: ReducerList = {
+  articleDetails: articleDetailsReducer,
   articleComments: commentsReducer,
   addComment: addCommentReducer,
   articleRecommendations: articleRecommendationsReducer,

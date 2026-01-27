@@ -1,16 +1,10 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import DynamicModuleLoader, { ReducerList } from 'shared/lib/components/DynamicModuleLoader';
-import articleDetailsReducer from '../../model/slice/articleDetailsSlice';
 import { AppText, Skeleton } from 'shared/ui';
 import ArticleView from '../ArticleView/ArticleView';
 import classes from './ArticleDetails.module.scss';
 import { TextTheme } from 'shared/ui/AppText/AppText';
 import Article from '../../model/types/article';
-
-const reducers: ReducerList = {
-  articleDetails: articleDetailsReducer,
-};
 
 interface ArticleDetailsProps {
   data?: Article;
@@ -22,7 +16,7 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = ({ data, isLoading, error 
   const { t } = useTranslation('articles');
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <>
       {
         (isLoading) && <>
           <div className={classes.ArticleDetails}>
@@ -51,7 +45,7 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = ({ data, isLoading, error 
           </div> 
         </>
       }
-    </DynamicModuleLoader>
+    </>
   );
 };
 
