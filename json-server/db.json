@@ -168,7 +168,6 @@
       "id": "1",
       "authorId": "1",
       "title": "Javascript news",
-      "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
@@ -241,7 +240,6 @@
       "id": "2",
       "authorId": "2",
       "title": "Квантовые компьютеры",
-      "subtitle": "Прорыв в квантовых вычислениях 2023",
       "img": "https://upload.wikimedia.org/wikipedia/commons/a/ad/IQM_Quantum_Computer_Espoo_Finland.jpg",
       "views": 2543,
       "createdAt": "15.03.2023",
@@ -280,7 +278,6 @@
       "id": "3",
       "authorId": "1",
       "title": "Экономика искусственного интеллекта",
-      "subtitle": "Как ИИ меняет глобальные рынки",
       "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
       "views": 1876,
       "createdAt": "08.05.2023",
@@ -312,13 +309,12 @@
           ]
         }
       ],
-      "content": "<h2>Экономика искусственного интеллекта</h2><p><img src=\"https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800\"></p><h2>Как ИИ меняет глобальные рынки</h2><h3>ИИ в экономике</h3><p>Искусственный интеллект становится ключевым фактором экономического роста. По оценкам аналитиков, к 2030 году ИИ может добавить до 15.7 триллионов долларов к мировой экономике.</p><p>Компании активно внедряют машинное обучение для автоматизации процессов, анализа больших данных и принятия бизнес-решений. Это приводит к повышению производительности и созданию новых бизнес-моделей.</p><pre><code class=\"language-plaintext\">import pandas as pd\nimport numpy as np\nfrom sklearn.linear_model import LinearRegression\n\n# Прогнозирование экономических показателей\nmodel = LinearRegression()\nX = np.array([[2020], [2021], [2022]])\ny = np.array([100, 120, 145])\n\nmodel.fit(X, y)\nprediction_2023 = model.predict([[2023]])\nprint(f'Прогноз на 2023: {prediction_2023[0]:.2f}')</code></pre><h3>Вызовы и перспективы</h3><p>Несмотря на огромный потенциал, внедрение ИИ сопряжено с вызовами: необходимость переквалификации работников, вопросы этики и конфиденциальности данных, а также риски концентрации экономической власти.</p>"
+      "content": "<h2>Экономика искусственного интеллекта</h2><p style=\"text-align:center;\"><img class=\"image_resized\" style=\"aspect-ratio:800/533;width:52.26%;\" src=\"https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800\" width=\"800\" height=\"533\"></p><h2>Как ИИ меняет глобальные рынки</h2><h3>ИИ в экономике</h3><p>Искусственный интеллект становится ключевым фактором экономического роста. По оценкам аналитиков, к 2030 году ИИ может добавить до 15.7 триллионов долларов к мировой экономике.</p><p>Компании активно внедряют машинное обучение для автоматизации процессов, анализа больших данных и принятия бизнес-решений. Это приводит к повышению производительности и созданию новых бизнес-моделей.</p><pre><code class=\"language-plaintext\">import pandas as pd\nimport numpy as np\nfrom sklearn.linear_model import LinearRegression\n\n# Прогнозирование экономических показателей\nmodel = LinearRegression()\nX = np.array([[2020], [2021], [2022]])\ny = np.array([100, 120, 145])\n\nmodel.fit(X, y)\nprediction_2023 = model.predict([[2023]])\nprint(f'Прогноз на 2023: {prediction_2023[0]:.2f}')</code></pre><h3>Вызовы и перспективы</h3><p>Несмотря на огромный потенциал, внедрение ИИ сопряжено с вызовами: необходимость переквалификации работников, вопросы этики и конфиденциальности данных, а также риски концентрации экономической власти.</p>"
     },
     {
       "id": "4",
       "authorId": "2",
       "title": "Микроэкономика стартапов",
-      "subtitle": "Анализ успешных бизнес-моделей 2023",
       "img": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800",
       "views": 945,
       "createdAt": "22.06.2023",
@@ -356,7 +352,6 @@
       "id": "5",
       "authorId": "1",
       "title": "Нейронные сети и deep learning",
-      "subtitle": "Современные архитектуры нейросетей",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Colored_neural_network.svg/800px-Colored_neural_network.svg.png",
       "views": 3201,
       "createdAt": "10.07.2023",
@@ -394,7 +389,6 @@
       "id": "6",
       "authorId": "2",
       "title": "Климатическая экономика",
-      "subtitle": "Зелёная энергетика и экономический рост",
       "img": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800",
       "views": 1567,
       "createdAt": "03.09.2023",
@@ -427,13 +421,12 @@
           ]
         }
       ],
-      "content": "<h2>Климатическая экономика</h2><p><img src=\"https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800\"></p><h2>Зелёная энергетика и экономический рост</h2><h3>Экономика климата</h3><p>Переход к зелёной экономике становится не просто экологической необходимостью, но и экономической возможностью. Инвестиции в возобновляемые источники энергии достигли рекордных уровней.</p><p>Солнечная и ветровая энергия становятся дешевле традиционных источников, создавая новые рабочие места и стимулируя инновации в области хранения энергии и smart grid технологий.</p><p><img src=\"https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800\" alt=\"Солнечные панели - будущее энергетики\"></p><h4>Солнечные панели - будущее энергетики</h4><h3>Экономические перспективы</h3><p>Углеродные рынки и ESG-инвестирование набирают обороты. Компании, игнорирующие климатические риски, теряют конкурентные преимущества и доступ к капиталу.</p>"
+      "content": "<h2>Климатическая экономика</h2><p style=\"text-align:center;\"><img class=\"image_resized\" style=\"aspect-ratio:800/533;width:59.67%;\" src=\"https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800\" width=\"800\" height=\"533\"></p><h2>Зелёная энергетика и экономический рост</h2><h3>Экономика климата</h3><p>Переход к зелёной экономике становится не просто экологической необходимостью, но и экономической возможностью. Инвестиции в возобновляемые источники энергии достигли рекордных уровней.</p><p>Солнечная и ветровая энергия становятся дешевле традиционных источников, создавая новые рабочие места и стимулируя инновации в области хранения энергии и smart grid технологий.</p><p style=\"text-align:center;\"><img class=\"image_resized\" style=\"aspect-ratio:800/532;width:58.15%;\" src=\"https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800\" alt=\"Солнечные панели - будущее энергетики\" width=\"800\" height=\"532\"></p><h4>Солнечные панели - будущее энергетики</h4><h3>Экономические перспективы</h3><p>Углеродные рынки и ESG-инвестирование набирают обороты. Компании, игнорирующие климатические риски, теряют конкурентные преимущества и доступ к капиталу.</p>"
     },
     {
       "id": "7",
       "authorId": "1",
       "title": "Квантовая криптография",
-      "subtitle": "Безопасность в эпоху квантовых компьютеров",
       "img": "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800",
       "views": 2134,
       "createdAt": "18.10.2023",
@@ -471,7 +464,6 @@
       "id": "8",
       "authorId": "2",
       "title": "Blockchain и DeFi",
-      "subtitle": "Децентрализованные финансы 2023",
       "img": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800",
       "views": 2876,
       "createdAt": "25.11.2023",
@@ -509,7 +501,6 @@
       "id": "9",
       "authorId": "1",
       "title": "WebAssembly в браузере",
-      "subtitle": "Высокопроизводительный код для Web",
       "img": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800",
       "views": 812,
       "createdAt": "12.01.2024",
@@ -533,7 +524,6 @@
       "id": "10",
       "authorId": "2",
       "title": "Финансовые кризисы XXI века",
-      "subtitle": "Причины и последствия",
       "img": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800",
       "views": 1643,
       "createdAt": "28.01.2024",
@@ -555,8 +545,7 @@
     {
       "id": "11",
       "authorId": "1",
-      "title": "TypeScript в больших проектах",
-      "subtitle": "Поддерживаемость и масштабирование",
+      "title": "TypeScript в больших и не очень проектах",
       "img": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800",
       "views": 2911,
       "createdAt": "05.02.2024",
@@ -578,13 +567,12 @@
           ]
         }
       ],
-      "content": "<h2>TypeScript в больших проектах</h2><p><img src=\"https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800\"></p><h2>Поддерживаемость и масштабирование</h2><pre><code class=\"language-plaintext\">type Article = {\n  id: string;\n  title: string;\n  views: number;\n};</code></pre><h3>Преимущества типизации</h3><p>TypeScript снижает количество runtime-ошибок и упрощает рефакторинг в крупных кодовых базах.</p>"
+      "content": "<h2>TypeScript в больших и маленьких проектах</h2><p style=\"text-align:center;\"><img class=\"image_resized\" style=\"aspect-ratio:800/533;width:52.65%;\" src=\"https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800\" width=\"800\" height=\"533\"></p><h2>Поддерживаемость и масштабирование</h2><pre><code class=\"language-typescript\">type Article = {\n  id: string;\n  title: string;\n  views: number;\n};</code></pre><h3>Преимущества типизации</h3><p>TypeScript снижает количество runtime-ошибок и упрощает рефакторинг в крупных кодовых базах.</p>"
     },
     {
       "id": "12",
       "authorId": "2",
       "title": "Космическая экономика",
-      "subtitle": "Частные компании и орбитальный бизнес",
       "img": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=800",
       "views": 1984,
       "createdAt": "19.02.2024",
@@ -608,7 +596,6 @@
       "id": "13",
       "authorId": "1",
       "title": "Edge Computing",
-      "subtitle": "Обработка данных ближе к пользователю",
       "img": "https://images.unsplash.com/photo-1581092334394-66c68d54f51c?w=800",
       "views": 733,
       "createdAt": "03.03.2024",
@@ -631,7 +618,6 @@
       "id": "14",
       "authorId": "2",
       "title": "Поведенческая экономика",
-      "subtitle": "Как люди принимают решения",
       "img": "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800",
       "views": 1421,
       "createdAt": "14.03.2024",
@@ -655,7 +641,6 @@
       "id": "15",
       "authorId": "1",
       "title": "CSS Grid vs Flexbox",
-      "subtitle": "Когда и что использовать",
       "img": "https://images.unsplash.com/photo-1505685296765-3a2736de412f?w=800",
       "views": 3674,
       "createdAt": "29.03.2024",
@@ -678,7 +663,6 @@
       "id": "16",
       "authorId": "2",
       "title": "Нейроинтерфейсы",
-      "subtitle": "Связь мозга и компьютера",
       "img": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800",
       "views": 2240,
       "createdAt": "11.04.2024",
@@ -702,7 +686,6 @@
       "id": "17",
       "authorId": "1",
       "title": "Serverless архитектуры",
-      "subtitle": "Мифы и реальность",
       "img": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800",
       "views": 1199,
       "createdAt": "26.04.2024",
@@ -725,7 +708,6 @@
       "id": "18",
       "authorId": "2",
       "title": "Экономика данных",
-      "subtitle": "Данные как новый актив",
       "img": "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800",
       "views": 1783,
       "createdAt": "10.05.2024",
@@ -749,7 +731,6 @@
       "id": "19",
       "authorId": "1",
       "title": "AR и VR",
-      "subtitle": "Будущее интерфейсов",
       "img": "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800",
       "views": 2604,
       "createdAt": "22.05.2024",
@@ -773,7 +754,6 @@
       "id": "20",
       "authorId": "2",
       "title": "Алгоритмическая торговля",
-      "subtitle": "Роботы на финансовых рынках",
       "img": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800",
       "views": 3412,
       "createdAt": "07.06.2024",

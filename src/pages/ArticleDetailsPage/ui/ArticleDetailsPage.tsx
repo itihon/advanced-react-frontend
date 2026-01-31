@@ -1,7 +1,6 @@
-import { ArticleDetails, ArticleView, ArticlePreviewStyle, getArticleDetails, fetchArticleById, setArticleContent, articleDetailsReducer } from 'entities/Article';
+import { ArticleDetails, ArticlePreviewStyle, getArticleDetails, fetchArticleById, setArticleContent, articleDetailsReducer, setArticleTitle } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import React, { memo, useEffect, useState } from 'react';
-import { renderToString } from 'react-dom/server';
 import { useTranslation } from 'react-i18next';
 import { AppLink, AppText } from 'shared/ui';
 import { Page } from 'widgets/Page';
@@ -83,7 +82,14 @@ const ArticleDetailsPage: React.FC = () => {
     setIsEdit(true);
   };
 
-  const onSaveArticle = (content?: string) => {
+  const onCancelEditArticle = (e: React.UIEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+
+    setIsEdit(false);
+  };
+
+  const onSaveArticle = (title?: string, content?: string) => {
+    dispatch(setArticleTitle(title || ''));
     dispatch(setArticleContent(content || ''));
     // @ts-expect-error damn redux
     dispatch(updateArticle(id));
@@ -113,7 +119,13 @@ const ArticleDetailsPage: React.FC = () => {
       <Page>
         {
           isEdit
-            ? <ArticleEditor data={renderToString(<ArticleView data={articleDetails?.data} />)} onSave={onSaveArticle} />
+            ? <>
+                <AppLink className={classes.back} to={'#'} onClick={onCancelEditArticle}>{`⬅ ${t('back-to-article')}`}</AppLink>
+                <ArticleEditor 
+                    title={articleDetails?.data?.title} 
+                    content={articleDetails?.data?.content} 
+                    onSave={onSaveArticle} />
+              </>
             : <>
                 <AppLink className={classes.back} to={routePath.articles}>{`⬅ ${t('back-to-articles')}`}</AppLink>
                 <div className={classes.ArticleDetailsPage}>

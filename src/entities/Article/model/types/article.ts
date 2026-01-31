@@ -38,12 +38,9 @@ export default interface Article {
   id: string;
   authorId: string;
   title: string;
-  subtitle: string;
-  img: string;
   views: number;
   createdAt: string;
   type: ArticleType[];
-  blocks: ArticleBlock[];
   content: string;
 }
 

@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import { 
@@ -34,22 +35,35 @@ import 'ckeditor5/ckeditor5.css';
 
 import classes from "./ArticleEditor.module.scss";
 import ImageUploadAdapterPlugin from '../../lib/ImageUploaderPlugin/ImageUploaderPlugin';
+import { AppInput } from 'shared/ui';
 
 interface ArticleEditorProps {
-  data?: string; 
-  onSave?: (content?: string) => void;
+  title?: string;
+  content?: string; 
+  onSave?: (title?: string, content?: string) => void;
 }
 
-const ArticleEditor: React.FC<ArticleEditorProps> = ({ data, onSave = () => {} }) => {
+const ArticleEditor: React.FC<ArticleEditorProps> = ({ title, content, onSave = () => {} }) => {
   const editorComponentRef = useRef<CKEditor<ClassicEditor>>(null);
+  const titleComponentRef = useRef<HTMLInputElement>(null);
+  const [articleTitle, setArticleTitle] = useState(title);
+  const { t } = useTranslation('articles');
 
   const onSaveClick = () => {
-    onSave(editorComponentRef.current?.editor?.getData());
+    onSave(
+      titleComponentRef.current?.value,
+      editorComponentRef.current?.editor?.getData(),
+    );
+  };
+
+  const onTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setArticleTitle(e.target.value);
   };
 
   return (
     <div className={classNames(classes.ArticleEditor, 'ignore-reset')}>
-      <button onClick={onSaveClick}>Save</button>
+      <button onClick={onSaveClick}>{t('save-article')}</button>
+      <AppInput ref={titleComponentRef} type='text' value={articleTitle} onChange={onTitleChange} />
       <CKEditor
         ref={editorComponentRef}
         editor={ ClassicEditor }
@@ -101,7 +115,7 @@ const ArticleEditor: React.FC<ArticleEditorProps> = ({ data, onSave = () => {} }
               'imageTextAlternative', 'toggleImageCaption',
             ],
           },
-          initialData: data,
+          initialData: content,
         } }
       />
     </div>

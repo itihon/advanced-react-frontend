@@ -11,6 +11,11 @@ const articleDetailsSlice = createSlice({
   name: "articleDetails",
   initialState,
   reducers: {
+    setArticleTitle: (state, action: PayloadAction<string>) => {
+      if (state.data) {
+        state.data.title = action.payload;
+      }
+    },
     setArticleContent: (state, action: PayloadAction<string>) => {
       if (state.data) {
         state.data.content = action.payload;
@@ -36,6 +41,7 @@ const articleDetailsSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const { 
+  setArticleTitle,
   setArticleContent,
 } = articleDetailsSlice.actions;
 

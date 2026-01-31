@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppText, Skeleton } from 'shared/ui';
-import ArticleView from '../ArticleView/ArticleView';
 import classes from './ArticleDetails.module.scss';
 import { TextTheme } from 'shared/ui/AppText/AppText';
 import Article from '../../model/types/article';
+import useArticleContent from '../../model/hooks/useArticleContent';
 
 interface ArticleDetailsProps {
   data?: Article;
@@ -14,6 +14,7 @@ interface ArticleDetailsProps {
 
 const ArticleDetails: React.FC<ArticleDetailsProps> = ({ data, isLoading, error }) => {
   const { t } = useTranslation('articles');
+  const { convertedDocument } = useArticleContent(data?.content);
 
   return (
     <>
@@ -41,7 +42,12 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = ({ data, isLoading, error 
               <AppText>{`🗓️ ${data?.createdAt}`}</AppText>
               <AppText>{`👁️ ${data?.views}`}</AppText>
             </div>
-            <ArticleView data={data} />
+            <h1>{data?.title}</h1>
+            <article>
+              {
+                convertedDocument
+              }
+            </article>
           </div> 
         </>
       }

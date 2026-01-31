@@ -30,14 +30,10 @@ const itemsLongTitle: ArticlePreview[] = Array
     id: idx.toString(),
     authorId: '1',
     createdAt: `0${idx}.05.2022`,
-    img: '/assets/avatars/2-avatar.jpg',
     title: `Title of article #${idx}. Read the whole article. Et perferendis nulla debitis tempora. Voluptas non commodi quia. Vel cupiditate illo et molestiae quae exercitationem impedit voluptatem facilis. Hic veritatis et et consequuntur totam sint at. Quo inventore similique quasi qui consequuntur non quibusdam. Sit voluptatem dolorem ut ea eum odit nemo ut.`,
-    excerpt: 'Quos iure dolor. Non corporis qui beatae ipsam. Nulla labore cumque sequi eos voluptatem. Sint est dolorem nihil veritatis. Ipsum consequatur saepe dolor dolores et beatae alias unde iure. Hic necessitatibus porro eius et assumenda alias. Facilis est culpa. Quo inventore eos repellat ea. Ut magni ut ex. Fugiat est placeat quas repudiandae minus sit pariatur. Sequi porro facere. Maxime tempore libero fugit ad. Et accusantium maxime deleniti vitae voluptas non aut vero rerum. Iusto culpa sint. Ut corporis est incidunt quas optio animi autem praesentium alias. Voluptatem error libero saepe id repudiandae iure et dolorem autem. Voluptatem facilis labore.',
+    content: '<img src="/assets/avatars/2-avatar.jpg" /> <p>Quos iure dolor. Non corporis qui beatae ipsam. Nulla labore cumque sequi eos voluptatem. Sint est dolorem nihil veritatis. Ipsum consequatur saepe dolor dolores et beatae alias unde iure. Hic necessitatibus porro eius et assumenda alias. Facilis est culpa. Quo inventore eos repellat ea. Ut magni ut ex. Fugiat est placeat quas repudiandae minus sit pariatur. Sequi porro facere. Maxime tempore libero fugit ad. Et accusantium maxime deleniti vitae voluptas non aut vero rerum. Iusto culpa sint. Ut corporis est incidunt quas optio animi autem praesentium alias. Voluptatem error libero saepe id repudiandae iure et dolorem autem. Voluptatem facilis labore.</p>',
     type: [ArticleType.ECONOMICS, ArticleType.IT, ArticleType.SCIENCE],
     views: 128 * (idx + 1),
-    subtitle: '',
-    blocks: [],
-    content: '',
   }));
 
 const itemsMediumTitle: ArticlePreview[] = Array
@@ -46,14 +42,10 @@ const itemsMediumTitle: ArticlePreview[] = Array
     id: idx.toString(),
     authorId: '1',
     createdAt: `0${idx}.05.2022`,
-    img: '/assets/avatars/2-avatar.jpg',
     title: `Title of article #${idx}. Read the whole article. Et perferendis nulla debitis tempora. Voluptas non commodi quia.`,
-    excerpt: 'Quos iure dolor. Non corporis qui beatae ipsam. Nulla labore cumque sequi eos voluptatem. Sint est dolorem nihil veritatis. Ipsum consequatur saepe dolor dolores et beatae alias unde iure. Hic necessitatibus porro eius et assumenda alias. Facilis est culpa. Quo inventore eos repellat ea. Ut magni ut ex. Fugiat est placeat quas repudiandae minus sit pariatur. Sequi porro facere. Maxime tempore libero fugit ad. Et accusantium maxime deleniti vitae voluptas non aut vero rerum. Iusto culpa sint. Ut corporis est incidunt quas optio animi autem praesentium alias. Voluptatem error libero saepe id repudiandae iure et dolorem autem. Voluptatem facilis labore.',
+    content: '<img src="/assets/avatars/2-avatar.jpg" /> <p>Quos iure dolor. Non corporis qui beatae ipsam. Nulla labore cumque sequi eos voluptatem. Sint est dolorem nihil veritatis. Ipsum consequatur saepe dolor dolores et beatae alias unde iure. Hic necessitatibus porro eius et assumenda alias. Facilis est culpa. Quo inventore eos repellat ea. Ut magni ut ex. Fugiat est placeat quas repudiandae minus sit pariatur. Sequi porro facere. Maxime tempore libero fugit ad. Et accusantium maxime deleniti vitae voluptas non aut vero rerum. Iusto culpa sint. Ut corporis est incidunt quas optio animi autem praesentium alias. Voluptatem error libero saepe id repudiandae iure et dolorem autem. Voluptatem facilis labore.</p>',
     type: [ArticleType.ECONOMICS, ArticleType.IT, ArticleType.SCIENCE],
     views: 128 * (idx + 1),
-    subtitle: '',
-    blocks: [],
-    content: '',
   }));
 
 const itemsShortTitle: ArticlePreview[] = Array
@@ -62,14 +54,10 @@ const itemsShortTitle: ArticlePreview[] = Array
     id: idx.toString(),
     authorId: '1',
     createdAt: `0${idx}.05.2022`,
-    img: '/assets/avatars/2-avatar.jpg',
     title: `Title of article #${idx}.`,
-    excerpt: 'Quos iure dolor. Non corporis qui beatae ipsam. Nulla labore cumque sequi eos voluptatem. Sint est dolorem nihil veritatis. Ipsum consequatur saepe dolor dolores et beatae alias unde iure. Hic necessitatibus porro eius et assumenda alias. Facilis est culpa. Quo inventore eos repellat ea. Ut magni ut ex. Fugiat est placeat quas repudiandae minus sit pariatur. Sequi porro facere. Maxime tempore libero fugit ad. Et accusantium maxime deleniti vitae voluptas non aut vero rerum. Iusto culpa sint. Ut corporis est incidunt quas optio animi autem praesentium alias. Voluptatem error libero saepe id repudiandae iure et dolorem autem. Voluptatem facilis labore.',
+    content: '<img src="/assets/avatars/2-avatar.jpg" /> <p>Quos iure dolor. Non corporis qui beatae ipsam. Nulla labore cumque sequi eos voluptatem. Sint est dolorem nihil veritatis. Ipsum consequatur saepe dolor dolores et beatae alias unde iure. Hic necessitatibus porro eius et assumenda alias. Facilis est culpa. Quo inventore eos repellat ea. Ut magni ut ex. Fugiat est placeat quas repudiandae minus sit pariatur. Sequi porro facere. Maxime tempore libero fugit ad. Et accusantium maxime deleniti vitae voluptas non aut vero rerum. Iusto culpa sint. Ut corporis est incidunt quas optio animi autem praesentium alias. Voluptatem error libero saepe id repudiandae iure et dolorem autem. Voluptatem facilis labore.</p>',
     type: [ArticleType.ECONOMICS, ArticleType.IT, ArticleType.SCIENCE],
     views: 128 * (idx + 1),
-    subtitle: '',
-    blocks: [],
-    content: '',
   }));
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
