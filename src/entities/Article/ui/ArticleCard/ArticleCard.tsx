@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { AppImg, AppLink, AppText, Badge } from 'shared/ui';
 import { ArticlePreview, ArticlePreviewStyle } from '../../model/types/article';
 import { routePath } from 'shared/config/routeCounfig/routeConfig';
@@ -61,4 +61,4 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ id, createdAt, title, type, v
   );
 };
 
-export default ArticleCard;
+export default memo(ArticleCard);

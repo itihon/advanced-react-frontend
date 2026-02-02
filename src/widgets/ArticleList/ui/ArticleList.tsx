@@ -1,5 +1,5 @@
 import { ArticleCard, ArticleCardSkeleton, ArticlePreview, ArticlePreviewStyle } from 'entities/Article';
-import React from 'react';
+import React, { memo } from 'react';
 import classes from './ArticleList.module.scss';
 import classNames from 'classnames';
 
@@ -26,4 +26,4 @@ const ArticleList: React.FC<ArticleListProps> = ({ items = [], previewStyle = Ar
   );
 };
 
-export default ArticleList;
+export default memo(ArticleList);
