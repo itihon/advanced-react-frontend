@@ -12,9 +12,10 @@ interface PageProps {
   onScrollEnd?: () => void;
   scrollRestore?: boolean;
   scrollRestoreDelay?: number;
+  overflow?: boolean;
 }
 
-const Page: React.FC<PageProps> = ({ children, onScrollEnd, scrollRestore, scrollRestoreDelay = 100 }) => {
+const Page: React.FC<PageProps> = ({ children, onScrollEnd, scrollRestore, scrollRestoreDelay = 100, overflow = true }) => {
   const scrollableRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch<AppDispatch>();
@@ -46,7 +47,7 @@ const Page: React.FC<PageProps> = ({ children, onScrollEnd, scrollRestore, scrol
   }, [dispatch, scrollRestore, pathname, scrollRestoreDelay]);
 
   return (
-    <section ref={scrollableRef} onScroll={onScroll} className={classNames(classes.Page, 'scrollable')}>
+    <section ref={scrollableRef} onScroll={onScroll} className={classNames(classes.Page, 'scrollable', { [classes.overflow]: overflow })}>
       {children}
       <div ref={triggerRef}></div>
     </section>

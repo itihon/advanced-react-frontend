@@ -1,9 +1,13 @@
 .Page {
   --page-wrapper-padding: 16px;
 
+  position: relative;
   flex-grow: 1;
   padding: var(--page-wrapper-padding);
-  height: 100%;
+  height: calc(100vh - var(--navbar-height));
   width: 200px;
+}
+
+.Page.overflow {
   overflow-y: scroll;
 }
