@@ -18,6 +18,7 @@
   .img {
     width: calc(100% + var(--padding) * 2);
     min-height: 180px;
+    height: 250px;
     object-fit: cover;
     margin-left: calc(var(--padding) * -1);
     margin-top: calc(var(--padding) * -1);
