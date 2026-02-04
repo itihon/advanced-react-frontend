@@ -1,11 +1,33 @@
 .ArticleList {
   --item-width: 250px;
+  --max-item-width: 300px;
 
   display: grid;
   justify-content: space-evenly;
   align-items: stretch;
   gap: 32px 0;
   width: 100%;
+}
+
+.ArticleList.virtualized {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  .items {
+    margin: 64px auto;
+  }
+
+  .virtualized-grid {
+    display: grid;
+    justify-content: center;
+    align-items: stretch;
+    padding-inline: 5vw;
+    gap: 32px 0;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(var(--item-width), var(--max-item-width)));
+  }
 }
 
 .ArticleList.tiles {

@@ -6,3 +6,4 @@
 
 # Bugs
 - [ ] sing in/sign out on ArticlesPage.tsx and ArticleDetails.tsx
+- [ ] scroll restoration doesn't work on ArticlesPage

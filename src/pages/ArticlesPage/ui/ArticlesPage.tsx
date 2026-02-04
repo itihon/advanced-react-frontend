@@ -120,7 +120,7 @@ const ArticlesPage: React.FC = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <Page onScrollEnd={onLoadNextPart} scrollRestore={true} scrollRestoreDelay={1000}>
+      <Page overflow={false}>
         {
           error
             ? <AppText theme={TextTheme.ERROR}>{error}</AppText>
@@ -139,7 +139,7 @@ const ArticlesPage: React.FC = () => {
                 </div>
                 {
                   articles.length
-                    ? <ArticleList isLoading={isLoading} previewStyle={previewStyle} items={articles}/>
+                    ? <ArticleList virtualized={true} onEndReached={onLoadNextPart} isLoading={isLoading} previewStyle={previewStyle} items={articles}/>
                     : <AppText>{t('articles-not-found')}</AppText>
                 }
               </div>
