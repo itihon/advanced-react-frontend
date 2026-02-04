@@ -10,6 +10,7 @@ import useArticleContent from '../../model/hooks/useArticleContent';
 
 interface ArticleCardProps extends ArticlePreview {
   previewStyle?: ArticlePreviewStyle;
+  className?: string;
 }
 
 interface WithLinkProps {
@@ -31,13 +32,13 @@ const WithLink: React.FC<WithLinkProps> = ({ className, to, children, withLink }
   );
 };
 
-const ArticleCard: React.FC<ArticleCardProps> = ({ id, createdAt, title, type, views, previewStyle = ArticlePreviewStyle.TILES, content }) => {
+const ArticleCard: React.FC<ArticleCardProps> = ({ id, createdAt, title, type, views, previewStyle = ArticlePreviewStyle.TILES, content, className }) => {
   const isList = previewStyle === ArticlePreviewStyle.LIST_ITEMS;
   const { t } = useTranslation('articles');
   const { firstImageSrc, firstParagraphText } = useArticleContent(content);
 
   return (
-    <WithLink className={classNames(classes.ArticleCard, classes[previewStyle])} to={`${routePath.article_details}${id}`} withLink={!isList}>
+    <WithLink className={classNames(classes.ArticleCard, classes[previewStyle], className)} to={`${routePath.article_details}${id}`} withLink={!isList}>
       <Badge>{`👁️ ${views}`}</Badge>
       <Badge right='var(--padding)'>{`🗓️ ${createdAt}`}</Badge>
       <AppImg className={classes.img} src={firstImageSrc} alt={title} />
