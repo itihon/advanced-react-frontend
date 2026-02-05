@@ -1,7 +1,7 @@
 import React, { useState, memo } from 'react';
 import classes from './Sidebar.module.scss';
 import classNames from 'classnames';
-import { AppButton, CloseButton } from 'shared/ui';
+import { AppButton, CloseButton, VFlexBox } from 'shared/ui';
 import { AppLink, AppLinkTheme } from 'shared/ui';
 import routeConfig from 'shared/config/routeCounfig/routeConfig';
 import { useTranslation } from 'react-i18next';
@@ -38,7 +38,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed = false }) => {
         : <CloseButton className={classes['toggle-button']} onClick={toggleCollapse} square size='size-l' />
       }
 
-      <div className={classes['sidebar-items']}>
+      <VFlexBox gap='8px' className={classes['sidebar-items']}>
         {
           Object.entries(routeConfig)
             .map(
@@ -60,7 +60,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed = false }) => {
                 : ''
             )
         }
-      </div>
+      </VFlexBox>
     </div>
   );
 };

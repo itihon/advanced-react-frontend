@@ -1,6 +1,6 @@
 import React, { useState, memo } from 'react';
 import classes from './SigninForm.module.scss';
-import { AppButton, AppInput, CloseButton, Modal } from 'shared/ui';
+import { AppButton, AppInput, CloseButton, Modal, VFlexBox } from 'shared/ui';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -66,11 +66,13 @@ const SigninForm: React.FC<SigninFormProps> = ({ close = () => {} }) => {
           className={classNames(classes.SigninForm, { [classes['closing']]: isClosing }) }
           onAnimationEnd={formClosed}
         >
-          {error && <div className={classes.error}>{t(`auth.error`)}</div>}
-          <CloseButton onClick={closeForm} className={classes['close-button']} square size='size-l' />
-          <AppInput type='text' name='login' value={username} onChange={onLoginChange} label={t('auth.username')} />
-          <AppInput type='password' name='password' value={password} onChange={onPasswordChange} label={t('auth.password')} />
-          <AppButton className={classes.submit} onClick={onLoginClick} disabled={isLoading}>{t('auth.submit')}</AppButton>
+          <VFlexBox gap='16px'>
+            {error && <div className={classes.error}>{t(`auth.error`)}</div>}
+            <CloseButton onClick={closeForm} className={classes['close-button']} square size='size-l' />
+            <AppInput type='text' name='login' value={username} onChange={onLoginChange} label={t('auth.username')} />
+            <AppInput type='password' name='password' value={password} onChange={onPasswordChange} label={t('auth.password')} />
+            <AppButton className={classes.submit} onClick={onLoginClick} disabled={isLoading}>{t('auth.submit')}</AppButton>
+          </VFlexBox>
         </form>
       </DynamicModuleLoader>
     </Modal>

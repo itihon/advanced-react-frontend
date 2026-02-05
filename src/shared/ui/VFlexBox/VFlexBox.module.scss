@@ -1,0 +1,8 @@
+.VFlexBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.VFlexBox.stretch {
+  width: 100%;
+}

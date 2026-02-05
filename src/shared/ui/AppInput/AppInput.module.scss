@@ -1,18 +1,13 @@
 .AppInput {
   position: relative;
-  display: flex;
-  flex-direction: column;
 
   .label {
-    margin-top: 8px;
-    margin-bottom: 4px;
     font-size: 14px;
     color: var(--inverted-primary-color);
   }
 
   .input {
     padding: 4px;
-    margin-bottom: 12px;
     border: 1px solid var(--inverted-primary-color);
     border-radius: 8px;
     background-color: var(--inverted-bg-color);

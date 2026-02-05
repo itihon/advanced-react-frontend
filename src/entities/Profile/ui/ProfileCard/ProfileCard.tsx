@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './ProfileCard.module.scss';
 import { useTranslation } from 'react-i18next';
-import { AppInput, AppSelect, Avatar } from 'shared/ui';
+import { AppInput, AppSelect, Avatar, VFlexBox } from 'shared/ui';
 import { Profile } from 'entities/Profile/model/types/profile';
 import { Country, Currency } from 'shared/const/common';
 
@@ -39,7 +39,7 @@ const ProfileCard: React.FC<ProfileCardProps> = (props) => {
   const { t } = useTranslation('profile-page');
 
   return (
-    <section className={classes.ProfileCard}>
+    <VFlexBox gap='16px' className={classes.ProfileCard}>
       <Avatar src={avatar} onChange={onAvatarChange} />
 
       <AppInput 
@@ -90,7 +90,7 @@ const ProfileCard: React.FC<ProfileCardProps> = (props) => {
         readOnly={readOnly}
         onChange={onCurrencyChange}/>
 
-    </section>
+    </VFlexBox>
   );
 };
 

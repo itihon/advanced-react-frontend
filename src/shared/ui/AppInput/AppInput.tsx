@@ -1,6 +1,7 @@
 import React, { HTMLInputTypeAttribute, memo } from 'react';
 import classes from './AppInput.module.scss';
 import classNames from 'classnames';
+import VFlexBox from '../VFlexBox/VFlexBox';
 
 interface AppInputProps {
   type: HTMLInputTypeAttribute;
@@ -15,10 +16,10 @@ interface AppInputProps {
 
 const AppInput: React.FC<AppInputProps> = ({ ref, type, label, value, name, onChange, readOnly, className }) => {
   return (
-    <div className={classNames(classes.AppInput, className)}>
+    <VFlexBox className={classNames(classes.AppInput, className)}>
       <label className={classes.label} htmlFor={name}>{label}</label>
       <input ref={ref} readOnly={readOnly} type={type} className={classes.input} onChange={onChange} name={name} id={name} value={value} />
-    </div>
+    </VFlexBox>
   );
 };
 

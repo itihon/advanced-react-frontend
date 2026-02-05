@@ -1,0 +1,13 @@
+.HFlexBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.HFlexBox.stretchY {
+  height: 100%;
+}
+
+.HFlexBox.stretchX {
+  width: 100%;
+}

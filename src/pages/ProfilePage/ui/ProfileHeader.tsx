@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppButton } from 'shared/ui';
+import { AppButton, HFlexBox } from 'shared/ui';
 import classes from './ProfileHeader.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
@@ -38,19 +38,19 @@ const ProfileHeader: React.FC = () => {
 
   return (
     <>
-      <div className={classes.ProfileHeader}>
+      <HFlexBox justifyContent='space-between' className={classes.ProfileHeader}>
         <h2>{t('profile-page:header')}</h2>
         {
           allowEdit
             ? readOnly
                 ? <AppButton size='size-l' onClick={onEditClick}>{'🖊  ' + t('edit')}</AppButton>
-                : <div className={classes['button-row']}>
-                  <AppButton size='size-l' onClick={onCancelClick}>{'❌  ' + t('cancel')}</AppButton>
-                  <AppButton size='size-l' onClick={onSaveClick} disabled={!hasChanged}>{'💾  ' + t('save')}</AppButton>
-                </div>
+                : <HFlexBox gap='16px'>
+                    <AppButton size='size-l' onClick={onCancelClick}>{'❌  ' + t('cancel')}</AppButton>
+                    <AppButton size='size-l' onClick={onSaveClick} disabled={!hasChanged}>{'💾  ' + t('save')}</AppButton>
+                  </HFlexBox>
             : ''
         }
-      </div>
+      </HFlexBox>
     </>
   );
 };

@@ -27,9 +27,5 @@
 }
 
 .sidebar-items {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
   padding: var(--sidebar-width-collapsed);
 }

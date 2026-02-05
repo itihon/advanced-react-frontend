@@ -2,7 +2,7 @@ import { ArticlePreviewStyle, ArticleType } from 'entities/Article';
 import React, { useEffect, memo, useCallback, ChangeEvent, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { AppButton, AppSelect, AppText } from 'shared/ui';
+import { AppButton, AppSelect, AppText, HFlexBox } from 'shared/ui';
 import { Page } from 'widgets/Page';
 import ArticleList from 'widgets/ArticleList';
 import classes from './ArticlesPage.module.scss';
@@ -125,18 +125,18 @@ const ArticlesPage: React.FC = () => {
           error
             ? <AppText theme={TextTheme.ERROR}>{error}</AppText>
             : <div className={classes.ArticlesPage}>
-                <div className={classes.panel}>
+                <HFlexBox gap='8px' alignItems='center' justifyContent='space-around' className={classes.panel}>
                   <AppSelect selectedOption={sort} label={t('sort-by')} options={sortOptions} align='row' onChange={onSortTypeSelect} />
-                  <div className={classes.tags}>
+                    <HFlexBox gap='4px'>
                     {
                       Object
                         .values(ArticleType)
                         .map((articleType, idx) => <AppButton pushed={articleType === filter} value={articleType} size='size-l' key={idx} onClick={onFilterTypeSelect}>{t(articleType)}</AppButton>)
                     }
-                  </div>
+                    </HFlexBox>
                   <Search placeholder={t('search')} value={searchValue} onChange={onSearchInput} />
                   <AppButton size='size-l' onClick={onPreviewStyleClick}>{ previewStyle === ArticlePreviewStyle.LIST_ITEMS ? '🪟' : '≡' }</AppButton>
-                </div>
+                </HFlexBox>
                 {
                   articles.length
                     ? <ArticleList virtualized={true} onEndReached={onLoadNextPart} isLoading={isLoading} previewStyle={previewStyle} items={articles}/>
