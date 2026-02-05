@@ -1,8 +1,18 @@
-import React, { memo, useCallback, forwardRef } from 'react';
-import { GridComponents, ItemContent, Virtuoso, VirtuosoGrid } from 'react-virtuoso'
+import React, { memo, useCallback, forwardRef, useRef, useEffect } from 'react';
+import { GridComponents, GridStateSnapshot, ItemContent, StateSnapshot, Virtuoso, VirtuosoGrid, VirtuosoHandle } from 'react-virtuoso'
 import { ArticleCard, ArticleCardSkeleton, ArticlePreview, ArticlePreviewStyle } from 'entities/Article';
 import classes from './ArticleList.module.scss';
 import classNames from 'classnames';
+import DynamicModuleLoader, { ReducerList } from 'shared/lib/components/DynamicModuleLoader';
+import articleListReducer, { setGridState, setListState } from '../model/slice/articleListSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch } from 'app/providers/StoreProvider/config/store';
+import getListState from '../model/selectors/getListState';
+import getGridState from '../model/selectors/getGridState';
+
+const reducers: ReducerList = {
+  articleList: articleListReducer
+};
 
 interface ArticleListProps {
   items?: ArticlePreview[];
@@ -35,6 +45,11 @@ const ArticleList: React.FC<ArticleListProps> = ({
   virtualized 
 }) => {
 
+  const dispatch = useDispatch<AppDispatch>();
+  const listState = useSelector(getListState);
+  const gridState = useSelector(getGridState);
+  const virtuosoRef = useRef<VirtuosoHandle>(null);
+
   const rowRenderer = useCallback<ItemContent<ArticlePreview, unknown>>((index, articlePreview) => {
     return (
       <>
@@ -46,6 +61,24 @@ const ArticleList: React.FC<ArticleListProps> = ({
       </>
     );
   }, [isLoading, previewStyle]);
+
+  const saveListState = useCallback((state: StateSnapshot) => {
+    dispatch(setListState(state));
+  }, [dispatch]);
+
+  const saveGridState = useCallback((state: GridStateSnapshot) => {
+    dispatch(setGridState(state));
+  }, [dispatch]);
+
+  useEffect(() => {
+    const virtuoso = virtuosoRef.current;
+
+    return () => {
+      if (virtuoso) {
+        virtuoso.getState(saveListState);
+      }
+    };
+  }, [saveListState]);
 
   if (!virtualized) {
     return (
@@ -65,22 +98,30 @@ const ArticleList: React.FC<ArticleListProps> = ({
   }
 
   return (
-    previewStyle === ArticlePreviewStyle.LIST_ITEMS
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+      {
+        previewStyle === ArticlePreviewStyle.LIST_ITEMS
 
-    ? <Virtuoso 
-        className={classNames(classes.ArticleList, { [classes.virtualized]: virtualized }, 'scrollable')}
-        endReached={onEndReached}
-        data={items}
-        totalCount={items.length} 
-        itemContent={rowRenderer} />
+        ? <Virtuoso 
+            ref={virtuosoRef}
+            restoreStateFrom={listState}
+            className={classNames(classes.ArticleList, { [classes.virtualized]: virtualized }, 'scrollable')}
+            endReached={onEndReached}
+            data={items}
+            totalCount={items.length} 
+            itemContent={rowRenderer} />
 
-    : <VirtuosoGrid
-        className={classNames(classes.ArticleList, { [classes.virtualized]: virtualized }, 'scrollable')}
-        endReached={onEndReached}
-        data={items}
-        totalCount={items.length}
-        components={gridComponents}
-        itemContent={rowRenderer} />
+        : <VirtuosoGrid
+            stateChanged={saveGridState}
+            restoreStateFrom={gridState}
+            className={classNames(classes.ArticleList, { [classes.virtualized]: virtualized }, 'scrollable')}
+            endReached={onEndReached}
+            data={items}
+            totalCount={items.length}
+            components={gridComponents}
+            itemContent={rowRenderer} />
+      }
+    </DynamicModuleLoader>
   );
 };
 

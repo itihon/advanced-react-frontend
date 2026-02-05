@@ -6,4 +6,4 @@
 
 # Bugs
 - [ ] sing in/sign out on ArticlesPage.tsx and ArticleDetails.tsx
-- [ ] scroll restoration doesn't work on ArticlesPage
+- [ ] scroll restoration doesn't work with grid on ArticlesPage, [virtuoso issue #1114](https://github.com/petyosi/react-virtuoso/issues/1114)

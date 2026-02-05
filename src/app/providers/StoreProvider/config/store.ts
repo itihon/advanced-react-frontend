@@ -21,7 +21,8 @@ export default function createReduxStore(initialState?: StateSchema) {
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
       thunk: { extraArgument: { api } },
       serializableCheck: {
-        ignoredActions: ['Page/restoreScrollPosition'],
+        ignoredActions: ['Page/restoreScrollPosition', 'ArticleList/setGridState'],
+        ignoredPaths: ['articleList.gridState.viewport'],
       },
     }),
   });

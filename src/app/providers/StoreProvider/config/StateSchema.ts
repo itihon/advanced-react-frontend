@@ -9,6 +9,7 @@ import { ArticleDetailsCommentsSchema, ArticleDetailsRecommendationsSchema } fro
 import { AddCommentSchema } from "features/AddComment";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { PageSchema } from "widgets/Page";
+import { ArticleListSchema } from "widgets/ArticleList";
 
 export interface StateSchema {
   user: UserSchema;
@@ -22,6 +23,7 @@ export interface StateSchema {
   addComment?: AddCommentSchema;
   articlesPage?: ArticlesPageSchema;
   articleRecommendations?: ArticleDetailsRecommendationsSchema;
+  articleList?: ArticleListSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
