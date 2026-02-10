@@ -5,7 +5,7 @@ import { USER_LOCAL_STORAGE_KEY } from "../const/localstorate";
 export const rtkApi = createApi({
   reducerPath: 'rtkApi',
   baseQuery: fetchBaseQuery({ 
-    baseUrl: 'http://localhost:3031',
+    baseUrl: __API_URL__,
     prepareHeaders: (headers) => {
       const token = localStorage.getItem(USER_LOCAL_STORAGE_KEY);
       if (token) {

@@ -7,7 +7,7 @@ const makeAuthConfig = (config: InternalAxiosRequestConfig) => {
 };
 
 const apiInstance = axios.create({
-  baseURL: 'http://localhost:3031',
+  baseURL: __API_URL__,
 });
 
 apiInstance.interceptors.request.use(makeAuthConfig);

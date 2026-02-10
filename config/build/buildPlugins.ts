@@ -17,6 +17,7 @@ export default function buildPlugins({ paths, isDev }: BuildOptions): WebpackPlu
     new webpack.ProgressPlugin(),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
+      __API_URL__: JSON.stringify('http://localhost:3031'),
     }),
     new CopyWebpackPlugin({
       patterns: [
