@@ -27,11 +27,10 @@
     font-weight: 550;
     font-size: 14px;
     color: var(--secondary-color);
-    margin: 4px;
+    width: fit-content;
   }
 
   .avatar {
-    float: left;
-    margin: 4px;
+    margin-right: 8px;
   }
 }

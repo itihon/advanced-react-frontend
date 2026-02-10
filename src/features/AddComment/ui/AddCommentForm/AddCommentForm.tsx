@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import classes from './AddCommentForm.module.scss';
-import { AppButton, AppInput, AppText, Avatar, AppLink } from 'shared/ui';
+import { AppButton, AppInput, AppText, Avatar, AppLink, VFlexBox } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import { routePath } from 'shared/config/routeCounfig/routeConfig';
 import { useSelector, useDispatch } from 'react-redux';
@@ -33,10 +33,16 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({ userId, userName, userA
     <div className={classes.AddCommentForm}>
       <AppText className={classes.title}>{t('your-comment')}</AppText>
       <form autoComplete='off' method='dialog'>
-        { userAvatar && <Avatar src={userAvatar} className={classes.avatar} size={32} /> }
-        { (userName && userId) && <AppLink to={`${routePath.profile}${userId}`} className={classes.user} underlineOnHover>{userName}</AppLink> }
-        <AppInput className={classes.comment} type='text' value={commentText || ''} name='comment' onChange={onCommentChange}  /> 
-        <AppButton className={classes.sendBtn} onClick={onCommentSubmit} disabled={!commentText?.length}>{`${t('send')} 📨`}</AppButton>
+        <VFlexBox gap='16px'>
+          { 
+            (userName && userId) && <AppLink to={`${routePath.profile}${userId}`} className={classes.user} underlineOnHover>
+              <Avatar src={userAvatar} className={classes.avatar} size={32} />
+              { userName }
+            </AppLink> 
+          }
+          <AppInput className={classes.comment} type='text' value={commentText || ''} name='comment' onChange={onCommentChange}  /> 
+          <AppButton className={classes.sendBtn} onClick={onCommentSubmit} disabled={!commentText?.length}>{`${t('send')} 📨`}</AppButton>
+        </VFlexBox>
       </form>
     </div>
   );
