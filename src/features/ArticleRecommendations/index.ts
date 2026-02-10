@@ -1,0 +1,1 @@
+export { default as ArticleRecommendations } from './ui/ArticleRecommendations';

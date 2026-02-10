@@ -1,7 +1,5 @@
 import { 
   ArticleDetails, 
-  ArticleList, 
-  ArticlePreviewStyle, 
   getArticleDetails, 
   fetchArticleById, 
   setArticleContent, 
@@ -28,22 +26,19 @@ import { getAuthenticatedUser } from 'entities/User';
 import { routePath } from 'shared/config/routeCounfig/routeConfig';
 import ArticleComment from '../model/types/ArticleComment';
 import getAddCommentText from 'features/AddComment/model/selectors/getAddCommentText';
-import articleRecommendationsReducer, { getArticleRecommendations } from '../model/slice/articleDetailsRecommendationsSlice';
-import fetchRecommendationList from '../model/services/fetchRecommendationList/fetchRecommendationList';
 import { ArticleEditor, updateArticle } from 'features/EditArticle';
+import { ArticleRecommendations } from 'features/ArticleRecommendations';
 
 const reducers: ReducerList = {
   articleDetails: articleDetailsReducer,
   articleComments: commentsReducer,
   addComment: addCommentReducer,
-  articleRecommendations: articleRecommendationsReducer,
 };
 
 const ArticleDetailsPage: React.FC = () => {
   const { t } = useTranslation('articles');
   const { id } = useParams<{ id: string }>();
   const comments = useSelector(getArticleComments.selectAll);
-  const recommendations = useSelector(getArticleRecommendations.selectAll);
   const isLoading = useSelector(getArticleCommentsIsLoading);
   const error = useSelector(getArticleCommentsError);
   const dispatch = useDispatch<AppDispatch>();
@@ -114,8 +109,6 @@ const ArticleDetailsPage: React.FC = () => {
       dispatch(fetchCommentsByArticleId(id));
     }
 
-    // @ts-expect-error damn redux
-    dispatch(fetchRecommendationList());
   }, [id, dispatch, articleDetails?.data]);
 
   if (!id) return (
@@ -141,12 +134,7 @@ const ArticleDetailsPage: React.FC = () => {
                     isAuthor && <AppLink className={classes.edit} to={'#'} onClick={onEditArticle}>{`🖊 ${t('edit-article')}`}</AppLink> 
                   }
                   <ArticleDetails isLoading={articleDetails?.isLoading} error={articleDetails?.error} data={articleDetails?.data} />
-                  {
-                    recommendations.length && <>
-                      <h2>{t('recommendations')}</h2>
-                      <ArticleList items={recommendations} previewStyle={ArticlePreviewStyle.ROW} />
-                    </> 
-                  }
+                  <ArticleRecommendations />
                   {
                     error
                       ? <AppText theme={TextTheme.ERROR} >{error}</AppText>
