@@ -1,10 +1,9 @@
-import { ArticlePreviewStyle, ArticleType } from 'entities/Article';
+import { ArticlePreviewStyle, ArticleType, ArticleList } from 'entities/Article';
 import React, { useEffect, memo, useCallback, ChangeEvent, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { AppButton, AppSelect, AppText, HFlexBox } from 'shared/ui';
 import { Page } from 'widgets/Page';
-import ArticleList from 'widgets/ArticleList';
 import classes from './ArticlesPage.module.scss';
 import DynamicModuleLoader, { ReducerList } from 'shared/lib/components/DynamicModuleLoader';
 import articlesPageReducer, { getArticles, initArticlesPage, setCurrentPage, setFilteringType, setPreviewStyle, setSearchQuery, setSortingType } from '../model/slice/articlesPageSlice';

@@ -1,7 +1,7 @@
 import LoginSchema from "features/AuthByUserName/model/types/LoginSchema";
 import { UserSchema } from "entities/User";
 import { ProfileSchema } from "entities/Profile";
-import { ArticleDetailsSchema } from "entities/Article";
+import { ArticleDetailsSchema, ArticleListSchema } from "entities/Article";
 import { Action, Reducer, ReducersMapObject } from "redux";
 import type { EnhancedStore, UnknownAction, Tuple, StoreEnhancer, ThunkDispatch } from "@reduxjs/toolkit";
 import { AxiosInstance } from "node_modules/axios";
@@ -9,7 +9,6 @@ import { ArticleDetailsCommentsSchema, ArticleDetailsRecommendationsSchema } fro
 import { AddCommentSchema } from "features/AddComment";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { PageSchema } from "widgets/Page";
-import { ArticleListSchema } from "widgets/ArticleList";
 
 export interface StateSchema {
   user: UserSchema;

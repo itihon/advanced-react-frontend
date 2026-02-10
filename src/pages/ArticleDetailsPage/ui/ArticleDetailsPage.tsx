@@ -1,4 +1,13 @@
-import { ArticleDetails, ArticlePreviewStyle, getArticleDetails, fetchArticleById, setArticleContent, articleDetailsReducer, setArticleTitle } from 'entities/Article';
+import { 
+  ArticleDetails, 
+  ArticleList, 
+  ArticlePreviewStyle, 
+  getArticleDetails, 
+  fetchArticleById, 
+  setArticleContent, 
+  articleDetailsReducer, 
+  setArticleTitle 
+} from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import React, { memo, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -19,7 +28,6 @@ import { getAuthenticatedUser } from 'entities/User';
 import { routePath } from 'shared/config/routeCounfig/routeConfig';
 import ArticleComment from '../model/types/ArticleComment';
 import getAddCommentText from 'features/AddComment/model/selectors/getAddCommentText';
-import ArticleList from 'widgets/ArticleList';
 import articleRecommendationsReducer, { getArticleRecommendations } from '../model/slice/articleDetailsRecommendationsSlice';
 import fetchRecommendationList from '../model/services/fetchRecommendationList/fetchRecommendationList';
 import { ArticleEditor, updateArticle } from 'features/EditArticle';

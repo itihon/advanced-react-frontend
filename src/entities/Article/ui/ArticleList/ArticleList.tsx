@@ -4,11 +4,11 @@ import { ArticleCard, ArticleCardSkeleton, ArticlePreview, ArticlePreviewStyle }
 import classes from './ArticleList.module.scss';
 import classNames from 'classnames';
 import DynamicModuleLoader, { ReducerList } from 'shared/lib/components/DynamicModuleLoader';
-import articleListReducer, { setGridState, setListState } from '../model/slice/articleListSlice';
+import articleListReducer, { setGridState, setListState } from '../../model/slice/articleListSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
-import getListState from '../model/selectors/getListState';
-import getGridState from '../model/selectors/getGridState';
+import getListState from '../../model/selectors/getListState';
+import getGridState from '../../model/selectors/getGridState';
 
 const reducers: ReducerList = {
   articleList: articleListReducer
