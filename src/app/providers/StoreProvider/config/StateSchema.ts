@@ -9,10 +9,12 @@ import { ArticleDetailsCommentsSchema, ArticleDetailsRecommendationsSchema } fro
 import { AddCommentSchema } from "features/AddComment";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { PageSchema } from "widgets/Page";
+import { rtkApi } from "shared/api/rtkApi";
 
 export interface StateSchema {
   user: UserSchema;
   page: PageSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // async reducers
   loginForm?: LoginSchema;

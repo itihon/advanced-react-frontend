@@ -4,11 +4,13 @@ import { userReducer } from 'entities/User';
 import { pageReducer } from 'widgets/Page';
 import createReducerManager from './reducerManager';
 import api from 'shared/api/api';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export default function createReduxStore(initialState?: StateSchema) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     user: userReducer,
     page: pageReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
   };
 
   const manager = createReducerManager(rootReducers);
@@ -24,7 +26,7 @@ export default function createReduxStore(initialState?: StateSchema) {
         ignoredActions: ['Page/restoreScrollPosition', 'ArticleList/setGridState'],
         ignoredPaths: ['articleList.gridState.viewport'],
       },
-    }),
+    }).concat(rtkApi.middleware),
   });
 
   store.manager = manager;
