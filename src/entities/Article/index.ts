@@ -8,5 +8,6 @@ export { setArticleTitle, setArticleContent } from './model/slice/articleDetails
 export { default as fetchArticleById } from './model/services/fetchArticleById/fetchArticleById';
 export { default as getArticleDetails } from './model/selectors/getArticleDetails';
 export { default as ArticleCard } from './ui/ArticleCard/ArticleCard';
+export { default as ArticlesFilter } from './ui/ArticlesFilter/ArticlesFilter';
 export { default as ArticleCardSkeleton } from './ui/ArticleCard/ArticleCardSkeleton';
 export { ArticlePreview, ArticleType, ArticlePreviewStyle } from './model/types/article';

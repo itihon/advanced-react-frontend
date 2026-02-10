@@ -1,4 +1,4 @@
-import { ArticlePreviewStyle, ArticleType, ArticleList } from 'entities/Article';
+import { ArticlePreviewStyle, ArticleType, ArticleList, ArticlesFilter } from 'entities/Article';
 import React, { useEffect, memo, useCallback, ChangeEvent, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -126,13 +126,7 @@ const ArticlesPage: React.FC = () => {
             : <div className={classes.ArticlesPage}>
                 <HFlexBox gap='8px' alignItems='center' justifyContent='space-around' className={classes.panel}>
                   <AppSelect selectedOption={sort} label={t('sort-by')} options={sortOptions} align='row' onChange={onSortTypeSelect} />
-                    <HFlexBox gap='4px'>
-                    {
-                      Object
-                        .values(ArticleType)
-                        .map((articleType, idx) => <AppButton pushed={articleType === filter} value={articleType} size='size-l' key={idx} onClick={onFilterTypeSelect}>{t(articleType)}</AppButton>)
-                    }
-                    </HFlexBox>
+                  <ArticlesFilter filter={filter} onFilterClick={onFilterTypeSelect} />
                   <Search placeholder={t('search')} value={searchValue} onChange={onSearchInput} />
                   <AppButton size='size-l' onClick={onPreviewStyleClick}>{ previewStyle === ArticlePreviewStyle.LIST_ITEMS ? '🪟' : '≡' }</AppButton>
                 </HFlexBox>
