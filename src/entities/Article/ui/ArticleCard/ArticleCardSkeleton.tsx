@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArticlePreviewStyle } from '../../model/types/article';
+import { ArticlePreviewStyle } from '../../model/consts/articleConsts';
 import classNames from 'classnames';
 import classes from './ArticleCard.module.scss';
 import { Skeleton } from 'shared/ui';

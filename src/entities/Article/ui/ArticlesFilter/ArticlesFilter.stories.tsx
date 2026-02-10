@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import ArticlesFilter from './ArticlesFilter';
 import ThemeDecorator from 'config/storybook/decorators/ThemeDecorator';
 import { Themes } from 'app/providers/ThemeProvider';
-import { ArticleType } from '../../model/types/article';
+import { ArticleType } from '../../model/consts/articleConsts';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

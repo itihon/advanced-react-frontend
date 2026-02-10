@@ -4,7 +4,7 @@ import {
   EntityId,
   PayloadAction,
 } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
+import type { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 import { Article, ArticlePreviewStyle, ArticleType } from 'entities/Article';
 import ArticlesPageSchema, { ArticleSortType } from '../types/ArticlesPageSchema';
 import fetchArticleList from '../services/fetchArticleList/fetchArticleList';

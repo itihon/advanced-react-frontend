@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/StoreProvider/config/StateSchema";
+import type { StateSchema } from "app/providers/StoreProvider/config/StateSchema";
 
 const getArticleCommentsError = (state: StateSchema) => state.articleComments?.error;
 

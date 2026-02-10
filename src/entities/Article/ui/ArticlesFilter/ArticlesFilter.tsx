@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArticleType } from 'entities/Article/model/types/article';
+import { ArticleType } from 'entities/Article';
 import { HFlexBox, AppButton } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 

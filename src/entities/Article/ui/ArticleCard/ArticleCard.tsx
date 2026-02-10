@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { AppImg, AppLink, AppText, Badge } from 'shared/ui';
-import { ArticlePreview, ArticlePreviewStyle } from '../../model/types/article';
+import type { ArticlePreview } from '../../model/types/article';
+import { ArticlePreviewStyle } from '../../model/consts/articleConsts';
 import { routePath } from 'shared/config/routeCounfig/routeConfig';
 import classes from './ArticleCard.module.scss';
 import classNames from 'classnames';

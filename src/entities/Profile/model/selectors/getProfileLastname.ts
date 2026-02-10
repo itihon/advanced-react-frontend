@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/StoreProvider/config/StateSchema";
+import type { StateSchema } from "app/providers/StoreProvider/config/StateSchema";
 
 const getProfileLastname = (state: StateSchema) => state.profile?.data?.lastname;
 

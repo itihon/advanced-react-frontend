@@ -3,7 +3,7 @@ import {
   createSlice,
   EntityId,
 } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
+import type { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 import Comment from 'entities/Comment/model/types/comment';
 import ArticleDetailsCommentsSchema from '../types/ArticleDetailsCommentsSchema';
 import fetchCommentsByArticleId from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';

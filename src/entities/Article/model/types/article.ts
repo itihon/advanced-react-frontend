@@ -1,8 +1,4 @@
-export enum ArticleBlockType {
-  CODE = 'CODE',
-  IMAGE = 'IMAGE',
-  TEXT = 'TEXT',
-}
+import type { ArticleBlockType, ArticleType } from "../consts/articleConsts";
 
 export interface ArticleBlockBase {
   id: string;
@@ -28,12 +24,6 @@ export interface ArticleTextBlock extends ArticleBlockBase {
 
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
 
-export enum ArticleType {
-  IT = 'IT',
-  SCIENCE = 'SCIENCE',
-  ECONOMICS = 'ECONOMICS',
-}
-
 export default interface Article {
   id: string;
   authorId: string;
@@ -46,10 +36,4 @@ export default interface Article {
 
 export interface ArticlePreview extends Article {
   excerpt?: string;
-}
-
-export enum ArticlePreviewStyle {
-  TILES = 'tiles',
-  LIST_ITEMS = 'list-items',
-  ROW = 'row',
 }

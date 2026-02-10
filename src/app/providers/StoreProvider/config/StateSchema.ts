@@ -1,14 +1,14 @@
-import LoginSchema from "features/AuthByUserName/model/types/LoginSchema";
-import { UserSchema } from "entities/User";
-import { ProfileSchema } from "entities/Profile";
-import { ArticleDetailsSchema, ArticleListSchema } from "entities/Article";
 import { Action, Reducer, ReducersMapObject } from "redux";
 import type { EnhancedStore, UnknownAction, Tuple, StoreEnhancer, ThunkDispatch } from "@reduxjs/toolkit";
-import { AxiosInstance } from "node_modules/axios";
-import { ArticleDetailsCommentsSchema, ArticleDetailsRecommendationsSchema } from "pages/ArticleDetailsPage";
-import { AddCommentSchema } from "features/AddComment";
-import { ArticlesPageSchema } from "pages/ArticlesPage";
-import { PageSchema } from "widgets/Page";
+import { AxiosInstance } from "axios";
+import type LoginSchema from "features/AuthByUserName/model/types/LoginSchema";
+import type { UserSchema } from "entities/User";
+import type { ProfileSchema } from "entities/Profile";
+import type { ArticleDetailsSchema, ArticleListSchema } from "entities/Article";
+import type { AddCommentSchema } from "features/AddComment";
+import type { ArticlesPageSchema } from "pages/ArticlesPage";
+import type { PageSchema } from "widgets/Page";
+import type { ArticleDetailsCommentsSchema, ArticleDetailsRecommendationsSchema } from "pages/ArticleDetailsPage";
 import { rtkApi } from "shared/api/rtkApi";
 
 export interface StateSchema {

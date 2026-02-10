@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import ArticleCard from './ArticleCard';
-import { ArticleType, ArticlePreviewStyle, ArticlePreview } from '../../model/types/article';
+import type { ArticlePreview } from '../../model/types/article';
+import { ArticleType, ArticlePreviewStyle } from '../../model/consts/articleConsts';
 import ThemeDecorator from 'config/storybook/decorators/ThemeDecorator';
 import { Themes } from 'app/providers/ThemeProvider';
 

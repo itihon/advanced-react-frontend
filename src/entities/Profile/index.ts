@@ -1,4 +1,4 @@
-export { Profile, ProfileSchema } from './model/types/profile';
+export type { Profile, ProfileSchema } from './model/types/profile';
 export { default as profileReducer } from './model/slice/profileSlice';
 export { default as fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
 export { default as uploadProfileData } from './model/services/uploadProfileData/uploadProfileData';

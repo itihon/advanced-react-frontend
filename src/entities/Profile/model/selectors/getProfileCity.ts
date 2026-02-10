@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/StoreProvider/config/StateSchema";
+import type { StateSchema } from "app/providers/StoreProvider/config/StateSchema";
 
 const getProfileCity = (state: StateSchema) => state.profile?.data?.city;
 

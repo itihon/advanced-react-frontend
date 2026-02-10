@@ -1,8 +1,8 @@
 export { default as ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export { default as ArticleList } from './ui/ArticleList/ArticleList';
-export { default as ArticleDetailsSchema } from './model/types/articleDetailsSchema';
-export { default as ArticleListSchema } from './model/types/ArticleListSchema';
-export { default as Article } from './model/types/article';
+export type { default as ArticleDetailsSchema } from './model/types/articleDetailsSchema';
+export type { default as ArticleListSchema } from './model/types/ArticleListSchema';
+export type { default as Article } from './model/types/article';
 export { default as articleDetailsReducer } from './model/slice/articleDetailsSlice';
 export { setArticleTitle, setArticleContent } from './model/slice/articleDetailsSlice';
 export { default as fetchArticleById } from './model/services/fetchArticleById/fetchArticleById';
@@ -10,4 +10,5 @@ export { default as getArticleDetails } from './model/selectors/getArticleDetail
 export { default as ArticleCard } from './ui/ArticleCard/ArticleCard';
 export { default as ArticlesFilter } from './ui/ArticlesFilter/ArticlesFilter';
 export { default as ArticleCardSkeleton } from './ui/ArticleCard/ArticleCardSkeleton';
-export { ArticlePreview, ArticleType, ArticlePreviewStyle } from './model/types/article';
+export type { ArticlePreview } from './model/types/article';
+export { ArticleType, ArticlePreviewStyle } from './model/consts/articleConsts';
