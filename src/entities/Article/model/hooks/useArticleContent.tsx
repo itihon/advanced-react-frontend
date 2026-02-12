@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { parse, domAttributesToReactAttributes, domStyleToReactStyle, convertToReactNode } from 'shared/lib/utils/HTMLParser/HTMLParser';
-import { AppImg } from "shared/ui";
+import { AppImg, Skeleton } from "shared/ui";
 
 function imgReplacer(node: Element): React.ReactNode {
   const img = node as HTMLImageElement;
@@ -10,7 +10,7 @@ function imgReplacer(node: Element): React.ReactNode {
   const className = img.className;
 
   if (tagName === 'img') {
-    return <AppImg { ...attributes } className={className} style={styleAttr} />;
+    return <AppImg { ...attributes } className={className} style={styleAttr} Loader={Skeleton} />;
   }
 };
 

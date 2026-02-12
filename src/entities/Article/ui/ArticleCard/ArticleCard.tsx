@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { AppImg, AppLink, AppText, Badge } from 'shared/ui';
+import { AppImg, AppLink, AppText, Badge, Skeleton } from 'shared/ui';
 import type { ArticlePreview } from '../../model/types/article';
 import { ArticlePreviewStyle } from '../../model/consts/articleConsts';
 import { routePath } from 'shared/config/routeCounfig/routeConfig';
@@ -42,7 +42,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ id, createdAt, title, type, v
     <WithLink className={classNames(classes.ArticleCard, classes[previewStyle], className)} to={`${routePath.article_details}${id}`} withLink={!isList}>
       <Badge>{`👁️ ${views}`}</Badge>
       <Badge right='var(--padding)'>{`🗓️ ${createdAt}`}</Badge>
-      <AppImg className={classes.img} src={firstImageSrc} alt={title} />
+      <AppImg className={classes.img} src={firstImageSrc} alt={title} Loader={Skeleton} />
       <AppText className={classes.title}>{title}</AppText>
       {
         firstParagraphText && isList && <AppText className={classes.excerpt}>

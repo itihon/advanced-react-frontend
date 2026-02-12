@@ -60,6 +60,18 @@ const itemsShortTitle: ArticlePreview[] = Array
     views: 128 * (idx + 1),
   }));
 
+const itemsLoadingImage: ArticlePreview[] = Array
+  .from({ length: 9 })
+  .map((_, idx) => ({
+    id: idx.toString(),
+    authorId: '1',
+    createdAt: `0${idx}.05.2022`,
+    title: `Title of article #${idx}. Read the whole article. Et perferendis nulla debitis tempora. Voluptas non commodi quia.`,
+    content: '<img src="" /> <p>Quos iure dolor. Non corporis qui beatae ipsam. Nulla labore cumque sequi eos voluptatem. Sint est dolorem nihil veritatis. Ipsum consequatur saepe dolor dolores et beatae alias unde iure. Hic necessitatibus porro eius et assumenda alias. Facilis est culpa. Quo inventore eos repellat ea. Ut magni ut ex. Fugiat est placeat quas repudiandae minus sit pariatur. Sequi porro facere. Maxime tempore libero fugit ad. Et accusantium maxime deleniti vitae voluptas non aut vero rerum. Iusto culpa sint. Ut corporis est incidunt quas optio animi autem praesentium alias. Voluptatem error libero saepe id repudiandae iure et dolorem autem. Voluptatem facilis labore.</p>',
+    type: [ArticleType.ECONOMICS, ArticleType.IT, ArticleType.SCIENCE],
+    views: 128 * (idx + 1),
+  }));
+
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const LightArticleListTilesShortTitle: Story = {
   args: {
@@ -171,6 +183,23 @@ export const DarkLoadingArticleListTiles = {
   parameters: { theme: Themes.DARK },
 };
 
+export const LightLoadingImageArticleListTiles: Story = {
+  args: {
+    previewStyle: ArticlePreviewStyle.TILES,
+    items: itemsLoadingImage,
+  },
+  decorators: [ThemeDecorator],
+};
+
+export const DarkLoadingImageArticleListTiles = {
+  args: {
+    previewStyle: ArticlePreviewStyle.TILES,
+    items: itemsLoadingImage,
+  },
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
+
 export const LightLoadingArticleListListItems: Story = {
   args: {
     previewStyle: ArticlePreviewStyle.LIST_ITEMS,
@@ -188,6 +217,23 @@ export const DarkLoadingArticleListListItems = {
   parameters: { theme: Themes.DARK },
 };
 
+export const LightLoadingImageArticleListListItems: Story = {
+  args: {
+    previewStyle: ArticlePreviewStyle.LIST_ITEMS,
+    items: itemsLoadingImage,
+  },
+  decorators: [ThemeDecorator],
+};
+
+export const DarkLoadingImageArticleListListItems = {
+  args: {
+    previewStyle: ArticlePreviewStyle.LIST_ITEMS,
+    items: itemsLoadingImage,
+  },
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
+
 export const LightLoadingArticleListRow: Story = {
   args: {
     previewStyle: ArticlePreviewStyle.ROW,
@@ -200,6 +246,23 @@ export const DarkLoadingArticleListRow = {
   args: {
     previewStyle: ArticlePreviewStyle.ROW,
     isLoading: true,
+  },
+  decorators: [ThemeDecorator],
+  parameters: { theme: Themes.DARK },
+};
+
+export const LightLoadingImageArticleListRow: Story = {
+  args: {
+    previewStyle: ArticlePreviewStyle.ROW,
+    items: itemsLoadingImage,
+  },
+  decorators: [ThemeDecorator],
+};
+
+export const DarkLoadingImageArticleListRow = {
+  args: {
+    previewStyle: ArticlePreviewStyle.ROW,
+    items: itemsLoadingImage,
   },
   decorators: [ThemeDecorator],
   parameters: { theme: Themes.DARK },
