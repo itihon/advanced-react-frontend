@@ -84,7 +84,7 @@ export const LightArticleListTilesShortTitle: Story = {
 export const LightArticleListRowShortTitle: Story = {
   args: {
     previewStyle: ArticlePreviewStyle.ROW,
-    items: itemsShortTitle,
+    items: itemsShortTitle.slice(0, 5),
   },
   decorators: [ThemeDecorator],
 };
@@ -101,7 +101,7 @@ export const DarkArticleListTilesMediumTitle = {
 export const DarkArticleListRowMediumTitle = {
   args: {
     previewStyle: ArticlePreviewStyle.ROW,
-    items: itemsMediumTitle,
+    items: itemsMediumTitle.slice(0, 5),
   },
   decorators: [ThemeDecorator],
   parameters: { theme: Themes.DARK },
@@ -119,9 +119,9 @@ export const DarkArticleListTilesMixedTitle = {
   args: {
     previewStyle: ArticlePreviewStyle.TILES,
     items: [
-      ...itemsShortTitle,
-      ...itemsMediumTitle,
-      ...itemsLongTitle,
+      ...itemsShortTitle.slice(0, 3),
+      ...itemsMediumTitle.slice(0, 3),
+      ...itemsLongTitle.slice(0, 3),
     ].sort((a, b) => a.id > b.id ? 1 : -1),
   },
   decorators: [ThemeDecorator],
@@ -132,9 +132,9 @@ export const DarkArticleListRowMixedTitle = {
   args: {
     previewStyle: ArticlePreviewStyle.ROW,
     items: [
-      ...itemsShortTitle,
-      ...itemsMediumTitle,
-      ...itemsLongTitle,
+      ...itemsShortTitle.slice(0, 2),
+      ...itemsMediumTitle.slice(0, 2),
+      ...itemsLongTitle.slice(0, 2),
     ].sort((a, b) => a.id > b.id ? 1 : -1),
   },
   decorators: [ThemeDecorator],
@@ -145,9 +145,9 @@ export const LightArticleListListItemsMixedTitle: Story = {
   args: {
     previewStyle: ArticlePreviewStyle.LIST_ITEMS,
     items: [
-      ...itemsShortTitle,
-      ...itemsMediumTitle,
-      ...itemsLongTitle,
+      ...itemsShortTitle.slice(0, 1),
+      ...itemsMediumTitle.slice(0, 1),
+      ...itemsLongTitle.slice(0, 1),
     ].sort((a, b) => a.id > b.id ? 1 : -1),
   },
   decorators: [ThemeDecorator],
@@ -157,9 +157,9 @@ export const DarkArticleListListItemsMixedTitle = {
   args: {
     previewStyle: ArticlePreviewStyle.LIST_ITEMS,
     items: [
-      ...itemsShortTitle,
-      ...itemsMediumTitle,
-      ...itemsLongTitle,
+      ...itemsShortTitle.slice(0, 1),
+      ...itemsMediumTitle.slice(0, 1),
+      ...itemsLongTitle.slice(0, 1),
     ].sort((a, b) => a.id > b.id ? 1 : -1),
   },
   decorators: [ThemeDecorator],
@@ -220,7 +220,7 @@ export const DarkLoadingArticleListListItems = {
 export const LightLoadingImageArticleListListItems: Story = {
   args: {
     previewStyle: ArticlePreviewStyle.LIST_ITEMS,
-    items: itemsLoadingImage,
+    items: itemsLoadingImage.slice(0, 2),
   },
   decorators: [ThemeDecorator],
 };
@@ -228,7 +228,7 @@ export const LightLoadingImageArticleListListItems: Story = {
 export const DarkLoadingImageArticleListListItems = {
   args: {
     previewStyle: ArticlePreviewStyle.LIST_ITEMS,
-    items: itemsLoadingImage,
+    items: itemsLoadingImage.slice(0, 2),
   },
   decorators: [ThemeDecorator],
   parameters: { theme: Themes.DARK },
@@ -254,7 +254,7 @@ export const DarkLoadingArticleListRow = {
 export const LightLoadingImageArticleListRow: Story = {
   args: {
     previewStyle: ArticlePreviewStyle.ROW,
-    items: itemsLoadingImage,
+    items: itemsLoadingImage.slice(0, 5),
   },
   decorators: [ThemeDecorator],
 };
@@ -262,7 +262,7 @@ export const LightLoadingImageArticleListRow: Story = {
 export const DarkLoadingImageArticleListRow = {
   args: {
     previewStyle: ArticlePreviewStyle.ROW,
-    items: itemsLoadingImage,
+    items: itemsLoadingImage.slice(0, 5),
   },
   decorators: [ThemeDecorator],
   parameters: { theme: Themes.DARK },
