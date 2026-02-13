@@ -47,7 +47,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed = false }) => {
                     className={classes.link}
                     rounded
                     isActiveIndicator='box-shadow'
-                    isActive={location.pathname === props.path}
+                    isActive={location.pathname === props.path?.replace(':id', authData?.id || '-1')}
                     theme={AppLinkTheme.INVERTED}
                     key={idx} 
                     to={`${props.path?.replace(':id', authData?.id || '-1')}`}>
