@@ -6,6 +6,8 @@
   padding: var(--page-wrapper-padding);
   height: calc(100vh - var(--navbar-height));
   width: 200px;
+
+  background-color: rgba(var(--inverted-bg-color-values), .95);
 }
 
 .Page.overflow {

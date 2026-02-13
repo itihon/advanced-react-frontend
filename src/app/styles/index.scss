@@ -32,7 +32,7 @@ img {
 .scrollable {
   /* Firefox */
   scrollbar-width: 12px;
-  scrollbar-color: var(--inverted-bg-color) var(--bg-color);
+  scrollbar-color: var(--bg-color) var(--inverted-bg-color);
 
   &::-webkit-scrollbar {
     /* Chrome, Safari, Edge */
@@ -41,12 +41,12 @@ img {
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--inverted-bg-color);
+    background-color: var(--bg-color);
     border-radius: 8px;
   }
 
   &::-webkit-scrollbar-track {
-    background-color: var(--bg-color);
+    background-color: var(--inverted-bg-color);
     border-radius: 8px;
   }
 }

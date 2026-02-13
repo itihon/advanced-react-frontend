@@ -17,7 +17,7 @@
     border-radius: 8px;
     height: 32px;
     padding-inline: 4px;
-    background: linear-gradient(90deg, var(--bg-color) 80%, rgb(203, 240, 255));
-    color: var(--inverted-bg-color);
+    background-color: var(--inverted-bg-color);
+    color: var(--secondary-color);
   }
 }
