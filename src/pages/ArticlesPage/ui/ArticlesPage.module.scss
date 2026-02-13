@@ -10,7 +10,7 @@
     transform: translateY(calc(var(--page-wrapper-padding) * -1 - 1px));
     margin-bottom: var(--page-wrapper-padding);
 
-    background-color: rgba(var(--inverted-bg-color-values), .8);
+    background-color: rgba(var(--inverted-bg-color-values), .6);
     backdrop-filter: blur(8px);
     z-index: 2;
   }
